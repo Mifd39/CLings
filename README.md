@@ -23,7 +23,7 @@ CLings is a small tool to help you get used to reading and writing C code. It mi
 
 3.  **Solve Exercises:**
     - The tool will tell you which exercise to solve (starting with `intro1`).
-    - Open the file in your favorite editor (e.g., `exercises/intro/intro1.c`).
+    - Open the file in your favorite editor (e.g., `exercises/1_intro/intro1.c`).
     - Follow the instructions in the comments.
     - Remove the line `// I AM NOT DONE` when you think you are finished.
     - Save the file.

@@ -1,59 +1,59 @@
 [[exercises]]
 name = "intro1"
-path = "exercises/intro/intro1.c"
+path = "exercises/1_intro/intro1.c"
 mode = "compile"
 hint = "The main function is the entry point of a C program."
 
 [[exercises]]
 name = "vars1"
-path = "exercises/variables/vars1.c"
+path = "exercises/2_variables/vars1.c"
 mode = "compile"
 hint = "Use the 'int' keyword to define an integer variable."
 
 [[exercises]]
 name = "vars2"
-path = "exercises/variables/vars2.c"
+path = "exercises/2_variables/vars2.c"
 mode = "run"
 hint = "Printf format placeholders look like %d for integers."
 
 [[exercises]]
 name = "functions1"
-path = "exercises/functions/functions1.c"
+path = "exercises/3_functions/functions1.c"
 mode = "compile"
 hint = "Functions in C need a return type, a name, and parentheses."
 
 [[exercises]]
 name = "if1"
-path = "exercises/if/if1.c"
+path = "exercises/4_if/if1.c"
 mode = "run"
 hint = "if (condition) { ... } else { ... }"
 
 [[exercises]]
 name = "loops1"
-path = "exercises/loops/loops1.c"
+path = "exercises/5_loops/loops1.c"
 mode = "run"
 hint = "for (int i = 0; i < 10; i++) { ... }"
 
 [[exercises]]
 name = "pointers1"
-path = "exercises/pointers/pointers1.c"
+path = "exercises/6_pointers/pointers1.c"
 mode = "run"
 hint = "Use & to get the address of a variable."
 
 [[exercises]]
 name = "arrays1"
-path = "exercises/arrays/arrays1.c"
+path = "exercises/7_arrays/arrays1.c"
 mode = "run"
 hint = "int numbers[5] = {1, 2, 3, 4, 5};"
 
 [[exercises]]
 name = "strings1"
-path = "exercises/strings/strings1.c"
+path = "exercises/8_strings/strings1.c"
 mode = "run"
 hint = "Strings in C are just arrays of characters."
 
 [[exercises]]
 name = "structs1"
-path = "exercises/structs/structs1.c"
+path = "exercises/9_structs/structs1.c"
 mode = "run"
 hint = "struct Person { char name[50]; int age; };"
