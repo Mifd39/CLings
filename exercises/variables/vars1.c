@@ -1,3 +1,4 @@
+// Learning Goal: Learn how to declare and initialize integer variables.
 #include <stdio.h>
 
 

@@ -1,3 +1,4 @@
+// Learning Goal: Understand how to print variables using printf format specifiers.
 #include <stdio.h>
 
 // I AM NOT DONE

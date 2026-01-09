@@ -1,3 +1,4 @@
+// Learning Goal: Understand how to use if-else statements for conditional logic.
 #include <stdio.h>
 
 // I AM NOT DONE

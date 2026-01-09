@@ -1,3 +1,4 @@
+// Learning Goal: Learn how to use for-loops for iteration.
 #include <stdio.h>
 
 // I AM NOT DONE
