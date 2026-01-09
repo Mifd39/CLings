@@ -1,3 +1,4 @@
+// Learning Goal: Understand the basics of pointers and the address-of operator.
 #include <stdio.h>
 
 // I AM NOT DONE
