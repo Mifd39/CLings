@@ -1,4 +1,7 @@
 // Learning Goal: Combine arrays, strings, and structs to manage a small database.
+//
+// This challenge tests your ability to work with structured data in collections.
+
 #include <stdio.h>
 #include <string.h>
 
@@ -9,21 +12,23 @@
 
     You need to:
     1.  Define a `struct Book` with:
-        - `title`: a string (char array of size 50).
+        - `title`: a string (char array of size 100).
         - `year`: an integer (publication year).
 
     2.  In `main`:
         - Create an array of 3 `struct Book`s.
-        - Initialize them with data (e.g., "Book A", 1995; "Book B", 2005; "Book C", 2010).
+        - Initialize them with data (e.g., {"The C Prog Lang", 1978}, {"Modern C", 2019}, {"Old Book", 1990}).
         - Use a loop to iterate through the array.
         - Print the title of any book published after the year 2000.
+          Format: "Recent book: [Title]\n"
 */
 
 // TODO: Define struct Book
 
 
 int main() {
-    // TODO: Create array, initialize, loop, and print
+    // TODO: Create array, initialize it, loop through it, and print recent books.
+
 
     return 0;
 }

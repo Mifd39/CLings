@@ -1,10 +1,16 @@
 // Learning Goal: Understand the importance of freeing memory.
+//
+// Every time you use 'malloc', you should have a corresponding 'free'.
+// If you don't free memory, it stays occupied until your program ends (Memory Leak).
+// In long-running programs, this can use up all available RAM!
+
 #include <stdio.h>
 #include <stdlib.h>
 
 // I AM NOT DONE
 
 int main() {
+    // Allocating memory for 100 integers
     int *data = (int *)malloc(100 * sizeof(int));
 
     if (data == NULL) {
@@ -13,8 +19,10 @@ int main() {
 
     // Work with data...
     data[0] = 100;
+    printf("Data allocated and used.\n");
 
-    // TODO: Free the allocated memory to avoid a memory leak
+    // TODO: Free the allocated memory to avoid a memory leak.
+
 
     return 0;
 }
