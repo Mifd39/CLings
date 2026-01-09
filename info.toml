@@ -5,6 +5,18 @@ mode = "compile"
 hint = "The main function is the entry point of a C program."
 
 [[exercises]]
+name = "intro2"
+path = "exercises/1_intro/intro2.c"
+mode = "run"
+hint = "Use printf(\"Hello World!\\n\");"
+
+[[exercises]]
+name = "intro3"
+path = "exercises/1_intro/intro3.c"
+mode = "compile"
+hint = "C statements must end with a semicolon (;)."
+
+[[exercises]]
 name = "vars1"
 path = "exercises/2_variables/vars1.c"
 mode = "compile"
@@ -17,10 +29,28 @@ mode = "run"
 hint = "Printf format placeholders look like %d for integers."
 
 [[exercises]]
+name = "vars3"
+path = "exercises/2_variables/vars3.c"
+mode = "run"
+hint = "Use float for decimals and char for characters."
+
+[[exercises]]
 name = "functions1"
 path = "exercises/3_functions/functions1.c"
 mode = "compile"
 hint = "Functions in C need a return type, a name, and parentheses."
+
+[[exercises]]
+name = "functions2"
+path = "exercises/3_functions/functions2.c"
+mode = "run"
+hint = "Define arguments inside the parentheses: (int a, int b)."
+
+[[exercises]]
+name = "functions3"
+path = "exercises/3_functions/functions3.c"
+mode = "run"
+hint = "A prototype looks like 'int multiply(int a, int b);'."
 
 [[exercises]]
 name = "if1"
@@ -29,10 +59,34 @@ mode = "run"
 hint = "if (condition) { ... } else { ... }"
 
 [[exercises]]
+name = "if2"
+path = "exercises/4_if/if2.c"
+mode = "run"
+hint = "Use 'else if (condition) { ... }' between if and else."
+
+[[exercises]]
+name = "if3"
+path = "exercises/4_if/if3.c"
+mode = "run"
+hint = "Use '&&' for logical AND."
+
+[[exercises]]
 name = "loops1"
 path = "exercises/5_loops/loops1.c"
 mode = "run"
 hint = "for (int i = 0; i < 10; i++) { ... }"
+
+[[exercises]]
+name = "loops2"
+path = "exercises/5_loops/loops2.c"
+mode = "run"
+hint = "while (i < 5) { ... i++; }"
+
+[[exercises]]
+name = "loops3"
+path = "exercises/5_loops/loops3.c"
+mode = "run"
+hint = "Put one loop inside another loop."
 
 [[exercises]]
 name = "pointers1"
@@ -41,10 +95,34 @@ mode = "run"
 hint = "Use & to get the address of a variable."
 
 [[exercises]]
+name = "pointers2"
+path = "exercises/6_pointers/pointers2.c"
+mode = "run"
+hint = "Use *p to access or modify the value pointed to by p."
+
+[[exercises]]
+name = "pointers3"
+path = "exercises/6_pointers/pointers3.c"
+mode = "run"
+hint = "Pass addresses using & when calling the function."
+
+[[exercises]]
 name = "arrays1"
 path = "exercises/7_arrays/arrays1.c"
 mode = "run"
 hint = "int numbers[5] = {1, 2, 3, 4, 5};"
+
+[[exercises]]
+name = "arrays2"
+path = "exercises/7_arrays/arrays2.c"
+mode = "run"
+hint = "Arrays are 0-indexed. The third element is at index 2."
+
+[[exercises]]
+name = "arrays3"
+path = "exercises/7_arrays/arrays3.c"
+mode = "run"
+hint = "Loop from 0 to length-1 and add each element to sum."
 
 [[exercises]]
 name = "strings1"
@@ -53,7 +131,49 @@ mode = "run"
 hint = "Strings in C are just arrays of characters."
 
 [[exercises]]
+name = "strings2"
+path = "exercises/8_strings/strings2.c"
+mode = "run"
+hint = "printf(\"... %s ... %d ...\", name, age);"
+
+[[exercises]]
+name = "strings3"
+path = "exercises/8_strings/strings3.c"
+mode = "run"
+hint = "strlen(message) returns the length excluding the null terminator."
+
+[[exercises]]
 name = "structs1"
 path = "exercises/9_structs/structs1.c"
 mode = "run"
 hint = "struct Person { char name[50]; int age; };"
+
+[[exercises]]
+name = "structs2"
+path = "exercises/9_structs/structs2.c"
+mode = "run"
+hint = "Use strcpy(p.name, \"Bob\") and p.age = 25;"
+
+[[exercises]]
+name = "structs3"
+path = "exercises/9_structs/structs3.c"
+mode = "run"
+hint = "ptr->x and ptr->y access members through a pointer."
+
+[[exercises]]
+name = "memory1"
+path = "exercises/10_memory/memory1.c"
+mode = "run"
+hint = "p = (int*)malloc(sizeof(int));"
+
+[[exercises]]
+name = "memory2"
+path = "exercises/10_memory/memory2.c"
+mode = "run"
+hint = "arr = (int*)malloc(n * sizeof(int));"
+
+[[exercises]]
+name = "memory3"
+path = "exercises/10_memory/memory3.c"
+mode = "run"
+hint = "Use free(data) to release the memory."
