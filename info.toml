@@ -39,3 +39,21 @@ name = "pointers1"
 path = "exercises/pointers/pointers1.c"
 mode = "run"
 hint = "Use & to get the address of a variable."
+
+[[exercises]]
+name = "arrays1"
+path = "exercises/arrays/arrays1.c"
+mode = "run"
+hint = "int numbers[5] = {1, 2, 3, 4, 5};"
+
+[[exercises]]
+name = "strings1"
+path = "exercises/strings/strings1.c"
+mode = "run"
+hint = "Strings in C are just arrays of characters."
+
+[[exercises]]
+name = "structs1"
+path = "exercises/structs/structs1.c"
+mode = "run"
+hint = "struct Person { char name[50]; int age; };"
