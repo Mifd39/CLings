@@ -29,6 +29,11 @@ CLings is a small tool to help you get used to reading and writing C code. It mi
     - Save the file.
     - The tool will automatically re-compile and verify your solution.
 
+4.  **Challenges:**
+    - After every few topics, there is a challenge exercise.
+    - These require you to combine multiple concepts learned so far.
+    - They are slightly harder than regular exercises and may require some problem solving!
+
 ## Commands
 
 - `watch`: Automatically re-runs verification when files change.
