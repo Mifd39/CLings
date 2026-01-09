@@ -53,6 +53,12 @@ mode = "run"
 hint = "A prototype looks like 'int multiply(int a, int b);'."
 
 [[exercises]]
+name = "challenge1"
+path = "exercises/3_functions/challenge1.c"
+mode = "run"
+hint = "Use the prototype 'int complex_sum(int a, int b)'."
+
+[[exercises]]
 name = "if1"
 path = "exercises/4_if/if1.c"
 mode = "run"
@@ -107,6 +113,12 @@ mode = "run"
 hint = "Pass addresses using & when calling the function."
 
 [[exercises]]
+name = "challenge2"
+path = "exercises/6_pointers/challenge2.c"
+mode = "run"
+hint = "Remember to use *score to modify the value."
+
+[[exercises]]
 name = "arrays1"
 path = "exercises/7_arrays/arrays1.c"
 mode = "run"
@@ -159,6 +171,12 @@ name = "structs3"
 path = "exercises/9_structs/structs3.c"
 mode = "run"
 hint = "ptr->x and ptr->y access members through a pointer."
+
+[[exercises]]
+name = "challenge3"
+path = "exercises/9_structs/challenge3.c"
+mode = "run"
+hint = "Access struct members using dot notation: book.year."
 
 [[exercises]]
 name = "memory1"
