@@ -1,0 +1,41 @@
+[[exercises]]
+name = "intro1"
+path = "exercises/intro/intro1.c"
+mode = "compile"
+hint = "The main function is the entry point of a C program."
+
+[[exercises]]
+name = "vars1"
+path = "exercises/variables/vars1.c"
+mode = "compile"
+hint = "Use the 'int' keyword to define an integer variable."
+
+[[exercises]]
+name = "vars2"
+path = "exercises/variables/vars2.c"
+mode = "run"
+hint = "Printf format placeholders look like %d for integers."
+
+[[exercises]]
+name = "functions1"
+path = "exercises/functions/functions1.c"
+mode = "compile"
+hint = "Functions in C need a return type, a name, and parentheses."
+
+[[exercises]]
+name = "if1"
+path = "exercises/if/if1.c"
+mode = "run"
+hint = "if (condition) { ... } else { ... }"
+
+[[exercises]]
+name = "loops1"
+path = "exercises/loops/loops1.c"
+mode = "run"
+hint = "for (int i = 0; i < 10; i++) { ... }"
+
+[[exercises]]
+name = "pointers1"
+path = "exercises/pointers/pointers1.c"
+mode = "run"
+hint = "Use & to get the address of a variable."
