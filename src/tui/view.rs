@@ -33,7 +33,7 @@ fn draw_sidebar(f: &mut Frame, app: &App, area: Rect) {
 
         let indicator = if topic.open { "▼" } else { "▶" };
         styled_items.push(ListItem::new(Span::styled(
-            format!("{} {} {}", indicator, "📂", topic.name),
+            format!("{} {}/", indicator, topic.name),
             topic_style,
         )));
 
