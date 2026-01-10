@@ -10,7 +10,7 @@ use crate::tui::model::{App, SelectionMode};
 pub fn ui(f: &mut Frame, app: &mut App) {
     let chunks = Layout::default()
         .direction(Direction::Horizontal)
-        .constraints([Constraint::Percentage(30), Constraint::Percentage(70)].as_ref())
+        .constraints([Constraint::Percentage(45), Constraint::Percentage(55)].as_ref())
         .split(f.size());
 
     draw_sidebar(f, app, chunks[0]);

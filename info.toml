@@ -1,271 +1,271 @@
 [[exercises]]
-name = "intro1"
-path = "exercises/1_intro/intro1.c"
+name = "01_entry_point"
+path = "exercises/1_intro/01_entry_point.c"
 mode = "compile"
 hint = "The main function is the entry point of a C program."
 
 [[exercises]]
-name = "intro2"
-path = "exercises/1_intro/intro2.c"
+name = "02_hello_world"
+path = "exercises/1_intro/02_hello_world.c"
 mode = "run"
 hint = "Use printf(\"Hello World!\\n\");"
 output = "Hello World!"
 
 [[exercises]]
-name = "intro3"
-path = "exercises/1_intro/intro3.c"
+name = "03_semicolons"
+path = "exercises/1_intro/03_semicolons.c"
 mode = "compile"
 hint = "C statements must end with a semicolon (;)."
 
 [[exercises]]
-name = "vars1"
-path = "exercises/2_variables/vars1.c"
+name = "01_variable_definition"
+path = "exercises/2_variables/01_definition.c"
 mode = "compile"
 hint = "Use the 'int' keyword to define an integer variable."
 
 [[exercises]]
-name = "vars2"
-path = "exercises/2_variables/vars2.c"
+name = "02_variable_printing"
+path = "exercises/2_variables/02_printing.c"
 mode = "run"
 hint = "Printf format placeholders look like %d for integers."
 output = "The value is 10"
 
 [[exercises]]
-name = "vars3"
-path = "exercises/2_variables/vars3.c"
+name = "03_data_types"
+path = "exercises/2_variables/03_data_types.c"
 mode = "run"
 hint = "Use float for decimals and char for characters."
 
 [[exercises]]
-name = "functions1"
-path = "exercises/3_functions/functions1.c"
+name = "01_function_declaration"
+path = "exercises/3_functions/01_declaration.c"
 mode = "compile"
 hint = "Functions in C need a return type, a name, and parentheses."
 
 [[exercises]]
-name = "functions2"
-path = "exercises/3_functions/functions2.c"
+name = "02_function_arguments"
+path = "exercises/3_functions/02_arguments.c"
 mode = "run"
 hint = "Define arguments inside the parentheses: (int a, int b)."
 
 [[exercises]]
-name = "functions3"
-path = "exercises/3_functions/functions3.c"
+name = "03_function_prototypes"
+path = "exercises/3_functions/03_prototypes.c"
 mode = "run"
 hint = "A prototype looks like 'int multiply(int a, int b);'."
 
 [[exercises]]
-name = "functions4"
-path = "exercises/3_functions/functions4.c"
+name = "04_recursion"
+path = "exercises/3_functions/04_recursion.c"
 mode = "run"
 hint = "Recursion requires a base case and a recursive step."
 
 [[exercises]]
-name = "challenge1"
-path = "exercises/3_functions/challenge1.c"
+name = "05_arithmetic_challenge"
+path = "exercises/3_functions/05_arithmetic_challenge.c"
 mode = "run"
 hint = "Use the prototype 'int complex_sum(int a, int b)'."
 
 [[exercises]]
-name = "if1"
-path = "exercises/4_if/if1.c"
+name = "01_basic_if"
+path = "exercises/4_if/01_basic_if.c"
 mode = "run"
 hint = "if (condition) { ... } else { ... }"
 
 [[exercises]]
-name = "if2"
-path = "exercises/4_if/if2.c"
+name = "02_else_if"
+path = "exercises/4_if/02_else_if.c"
 mode = "run"
 hint = "Use 'else if (condition) { ... }' between if and else."
 
 [[exercises]]
-name = "if3"
-path = "exercises/4_if/if3.c"
+name = "03_logical_operators"
+path = "exercises/4_if/03_logical_operators.c"
 mode = "run"
 hint = "Use '&&' for logical AND."
 
 [[exercises]]
-name = "loops1"
-path = "exercises/5_loops/loops1.c"
+name = "01_for_loop"
+path = "exercises/5_loops/01_for_loop.c"
 mode = "run"
 hint = "for (int i = 0; i < 10; i++) { ... }"
 
 [[exercises]]
-name = "loops2"
-path = "exercises/5_loops/loops2.c"
+name = "02_while_loop"
+path = "exercises/5_loops/02_while_loop.c"
 mode = "run"
 hint = "while (i < 5) { ... i++; }"
 
 [[exercises]]
-name = "loops3"
-path = "exercises/5_loops/loops3.c"
+name = "03_nested_loops"
+path = "exercises/5_loops/03_nested_loops.c"
 mode = "run"
 hint = "Put one loop inside another loop."
 
 [[exercises]]
-name = "loops4"
-path = "exercises/5_loops/loops4.c"
+name = "04_do_while"
+path = "exercises/5_loops/04_do_while.c"
 mode = "run"
 hint = "do { ... } while (condition);"
 
 [[exercises]]
-name = "pointers1"
-path = "exercises/6_pointers/pointers1.c"
+name = "01_address_of"
+path = "exercises/6_pointers/01_address_of.c"
 mode = "run"
 hint = "Use & to get the address of a variable."
 
 [[exercises]]
-name = "pointers2"
-path = "exercises/6_pointers/pointers2.c"
+name = "02_dereference"
+path = "exercises/6_pointers/02_dereference.c"
 mode = "run"
 hint = "Use *p to access or modify the value pointed to by p."
 
 [[exercises]]
-name = "pointers3"
-path = "exercises/6_pointers/pointers3.c"
+name = "03_pointer_function_args"
+path = "exercises/6_pointers/03_function_args.c"
 mode = "run"
 hint = "Pass addresses using & when calling the function."
 
 [[exercises]]
-name = "pointers4"
-path = "exercises/6_pointers/pointers4.c"
+name = "04_pointer_arithmetic"
+path = "exercises/6_pointers/04_pointer_arithmetic.c"
 mode = "run"
 hint = "ptr + 1 moves the pointer to the next element."
 
 [[exercises]]
-name = "challenge2"
-path = "exercises/6_pointers/challenge2.c"
+name = "05_reference_challenge"
+path = "exercises/6_pointers/05_reference_challenge.c"
 mode = "run"
 hint = "Remember to use *score to modify the value."
 
 [[exercises]]
-name = "arrays1"
-path = "exercises/7_arrays/arrays1.c"
+name = "01_array_definition"
+path = "exercises/7_arrays/01_definition.c"
 mode = "run"
 hint = "int numbers[5] = {1, 2, 3, 4, 5};"
 
 [[exercises]]
-name = "arrays2"
-path = "exercises/7_arrays/arrays2.c"
+name = "02_array_indexing"
+path = "exercises/7_arrays/02_indexing.c"
 mode = "run"
 hint = "Arrays are 0-indexed. The third element is at index 2."
 
 [[exercises]]
-name = "arrays3"
-path = "exercises/7_arrays/arrays3.c"
+name = "03_array_iteration"
+path = "exercises/7_arrays/03_iteration.c"
 mode = "run"
 hint = "Loop from 0 to length-1 and add each element to sum."
 
 [[exercises]]
-name = "arrays4"
-path = "exercises/7_arrays/arrays4.c"
+name = "04_multidimensional_arrays"
+path = "exercises/7_arrays/04_multidimensional.c"
 mode = "run"
 hint = "Use two indices: matrix[row][col]."
 
 [[exercises]]
-name = "strings1"
-path = "exercises/8_strings/strings1.c"
+name = "01_string_definition"
+path = "exercises/8_strings/01_definition.c"
 mode = "run"
 hint = "Strings in C are just arrays of characters."
 
 [[exercises]]
-name = "strings2"
-path = "exercises/8_strings/strings2.c"
+name = "02_string_formatting"
+path = "exercises/8_strings/02_formatting.c"
 mode = "run"
 hint = "printf(\"... %s ... %d ...\", name, age);"
 
 [[exercises]]
-name = "strings3"
-path = "exercises/8_strings/strings3.c"
+name = "03_string_length"
+path = "exercises/8_strings/03_length.c"
 mode = "run"
 hint = "strlen(message) returns the length excluding the null terminator."
 
 [[exercises]]
-name = "strings4"
-path = "exercises/8_strings/strings4.c"
+name = "04_string_concatenation"
+path = "exercises/8_strings/04_concatenation.c"
 mode = "run"
 hint = "strcat(dest, src) appends src to dest."
 
 [[exercises]]
-name = "structs1"
-path = "exercises/9_structs/structs1.c"
+name = "01_struct_definition"
+path = "exercises/9_structs/01_definition.c"
 mode = "run"
 hint = "struct Person { char name[50]; int age; };"
 
 [[exercises]]
-name = "structs2"
-path = "exercises/9_structs/structs2.c"
+name = "02_struct_initialization"
+path = "exercises/9_structs/02_initialization.c"
 mode = "run"
 hint = "Use strcpy(p.name, \"Bob\") and p.age = 25;"
 
 [[exercises]]
-name = "structs3"
-path = "exercises/9_structs/structs3.c"
+name = "03_struct_pointers"
+path = "exercises/9_structs/03_pointers.c"
 mode = "run"
 hint = "ptr->x and ptr->y access members through a pointer."
 
 [[exercises]]
-name = "challenge3"
-path = "exercises/9_structs/challenge3.c"
+name = "04_registry_challenge"
+path = "exercises/9_structs/04_registry_challenge.c"
 mode = "run"
 hint = "Access struct members using dot notation: book.year."
 
 [[exercises]]
-name = "memory1"
-path = "exercises/10_memory/memory1.c"
+name = "01_malloc"
+path = "exercises/10_memory/01_malloc.c"
 mode = "run"
 hint = "p = (int*)malloc(sizeof(int));"
 
 [[exercises]]
-name = "memory2"
-path = "exercises/10_memory/memory2.c"
+name = "02_malloc_array"
+path = "exercises/10_memory/02_malloc_array.c"
 mode = "run"
 hint = "arr = (int*)malloc(n * sizeof(int));"
 
 [[exercises]]
-name = "memory3"
-path = "exercises/10_memory/memory3.c"
+name = "03_free"
+path = "exercises/10_memory/03_free.c"
 mode = "run"
 hint = "Use free(data) to release the memory."
 
 [[exercises]]
-name = "bitwise1"
-path = "exercises/11_bitwise/bitwise1.c"
+name = "01_bitwise_and_or"
+path = "exercises/11_bitwise/01_and_or.c"
 mode = "run"
 hint = "Use & for AND and | for OR."
 
 [[exercises]]
-name = "bitwise2"
-path = "exercises/11_bitwise/bitwise2.c"
+name = "02_bitwise_shifts"
+path = "exercises/11_bitwise/02_shifts.c"
 mode = "run"
 hint = "Use << for left shift and >> for right shift."
 
 [[exercises]]
-name = "bitwise3"
-path = "exercises/11_bitwise/bitwise3.c"
+name = "03_bitwise_xor_mask"
+path = "exercises/11_bitwise/03_xor_mask.c"
 mode = "run"
 hint = "XOR (^) returns 1 if bits are different. Use & with a mask to check bits."
 
 [[exercises]]
-name = "enums1"
-path = "exercises/12_enums/enums1.c"
+name = "01_enum_definition"
+path = "exercises/12_enums/01_definition.c"
 mode = "run"
 hint = "enum Name { CONSTANT1, CONSTANT2, ... };"
 
 [[exercises]]
-name = "enums2"
-path = "exercises/12_enums/enums2.c"
+name = "02_enum_typedef"
+path = "exercises/12_enums/02_typedef.c"
 mode = "run"
 hint = "typedef enum { ... } NewType;"
 
 [[exercises]]
-name = "enums3"
-path = "exercises/12_enums/enums3.c"
+name = "03_enum_switch"
+path = "exercises/12_enums/03_switch.c"
 mode = "run"
 hint = "switch (variable) { case VALUE: ... break; }"
 
 [[exercises]]
-name = "challenge4"
-path = "exercises/12_enums/challenge4.c"
+name = "04_state_machine_challenge"
+path = "exercises/12_enums/04_state_machine_challenge.c"
 mode = "run"
 hint = "Check bits using & and handle logic with switch/if."
