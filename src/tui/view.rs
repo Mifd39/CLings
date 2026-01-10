@@ -32,10 +32,25 @@ fn draw_sidebar(f: &mut Frame, app: &App, area: Rect) {
         }
 
         let indicator = if topic.open { "▼" } else { "▶" };
-        styled_items.push(ListItem::new(Span::styled(
-            format!("{} {}/", indicator, topic.name),
-            topic_style,
-        )));
+
+        let all_completed = !topic.exercises.is_empty()
+            && topic.exercises
+                .iter()
+                .all(|e| app.progress.is_completed(&e.name));
+
+        let mut spans = vec![Span::styled(format!("{} ", indicator), topic_style)];
+
+        if all_completed {
+            let mut checkmark_style = Style::default().fg(Color::Green);
+            if is_topic_selected {
+                checkmark_style = checkmark_style.add_modifier(Modifier::REVERSED);
+            }
+            spans.push(Span::styled("✓ ", checkmark_style));
+        }
+
+        spans.push(Span::styled(format!("{}/", topic.name), topic_style));
+
+        styled_items.push(ListItem::new(Line::from(spans)));
 
         if topic.open {
             for (e_idx, exercise) in topic.exercises.iter().enumerate() {
