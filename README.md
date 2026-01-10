@@ -45,6 +45,8 @@ CLings is a small interactive tool to help you get used to reading and writing C
 | :--- | :--- |
 | `j` / `Down` | Move selection down |
 | `k` / `Up` | Move selection up |
+| `l` | Expand/Collapse folder |
+| `h` | Show hint (exercises only) |
 | `e` / `Enter` | Open current exercise in Editor |
 | `q` / `Esc` | Quit the application |
 
