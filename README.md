@@ -20,23 +20,35 @@ CLings is a small interactive tool to help you get used to reading and writing C
 2.  **🏃 Run the Tool:**
     From the repository root, run:
     ```bash
-    cargo run -- watch
+    cargo run
     ```
+    This launches the interactive **Terminal User Interface (TUI)**.
+
+    ![CLings TUI](tui_screenshot.png)
 
 3.  **🧩 Solve Exercises:**
-    - The tool will verify the exercises in order.
-    - It will tell you which exercise to solve (e.g., "Compiling exercises/1_intro/intro1.c...").
-    - Open the file in your favorite editor.
-    - Read the comments and the learning goal.
-    - Fix the code to make it compile and run correctly.
-    - Remove the line `// I AM NOT DONE` when you think you are finished.
-    - Save the file.
-    - The tool will automatically re-compile and verify your solution.
+    - **Navigate**: Use the `Up`/`Down` arrows or `j`/`k` to select an exercise.
+    - **Open Editor**: Press `Enter` or `e` to open the selected exercise in your default editor (configured via `$EDITOR`).
+    - **Fix the Code**: Read the comments and learning goal in the file. Fix the code to make it compile and run.
+    - **Verify**: Remove the line `// I AM NOT DONE` when you are finished. Save the file.
+    - **Watch**: The TUI automatically detects file changes and re-runs verification instantly!
+    - **Track Progress**: Successful exercises are marked with a `✓` and saved to your progress file.
 
 4.  **🏆 Challenges:**
     - After every few topics, there is a challenge exercise.
     - These require you to combine multiple concepts learned so far.
     - They are slightly harder than regular exercises and may require some problem solving!
+
+## 🖥️ TUI Controls
+
+| Key | Action |
+| :--- | :--- |
+| `j` / `Down` | Move selection down |
+| `k` / `Up` | Move selection up |
+| `e` / `Enter` | Open current exercise in Editor |
+| `q` / `Esc` | Quit the application |
+
+> **Note:** The "Open in Editor" feature uses your system's `EDITOR` environment variable. If it's not set, it defaults to `nano`.
 
 ## 🧠 Learning Resources
 
@@ -69,9 +81,10 @@ The exercises cover the following topics:
 
 ## ⌨️ Commands
 
-- `watch`: Automatically re-runs verification when files change.
-- `verify`: Runs the verification once for all exercises until the first failure.
+- `tui` (default): Launches the interactive terminal UI.
 - `list`: Lists all available exercises.
+- `verify`: Runs verification once for all exercises (CI/Script friendly).
+- `watch` (deprecated): Use the TUI instead.
 
 ## ⚖️ License
 
