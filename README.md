@@ -1,4 +1,4 @@
-# 🦀 CLings
+# CLings
 
 CLings is a small interactive tool to help you get used to reading and writing C code. It mimics the popular "Rustlings" and "Ziglings" projects. The goal is to learn C by fixing small broken programs.
 
