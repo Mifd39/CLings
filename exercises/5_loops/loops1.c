@@ -1,10 +1,22 @@
 // Learning Goal: Learn how to use for-loops for iteration.
+//
+// A 'for' loop is useful when you know how many times you want to iterate.
+// Syntax:
+// for (initialization; condition; update) {
+//     // code to repeat
+// }
+//
+// Example:
+// for (int i = 0; i < 5; i++) { ... }
+
 #include <stdio.h>
 
 // I AM NOT DONE
 
 int main() {
-    // TODO: Write a for loop that prints numbers from 0 to 9 using printf("%d\n", i);
+    // TODO: Write a for loop that prints numbers from 0 to 9.
+    // Use printf("%d\n", i); to print each number on a new line.
+
 
     return 0;
 }

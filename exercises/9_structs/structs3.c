@@ -1,4 +1,10 @@
 // Learning Goal: Use pointers to structs and the arrow operator.
+//
+// When you have a pointer to a struct, you can access its members using the arrow operator (->).
+//
+// struct Point *ptr = &p1;
+// ptr->x = 5;  // Equivalent to (*ptr).x = 5;
+
 #include <stdio.h>
 
 // I AM NOT DONE
@@ -12,7 +18,8 @@ int main() {
     struct Point p1 = {10, 20};
     struct Point *ptr = &p1;
 
-    // TODO: Use the arrow operator (->) to print the x and y values via the pointer 'ptr'
+    // TODO: Use the arrow operator (->) to print the x and y values via the pointer 'ptr'.
+    // Fill in the printf arguments.
     printf("Point coordinates: (%d, %d)\n", );
 
     return 0;

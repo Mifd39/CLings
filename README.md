@@ -1,6 +1,6 @@
 # CLings
 
-CLings is a small tool to help you get used to reading and writing C code. It mimics the popular "Rustlings" and "Ziglings" projects.
+CLings is a small interactive tool to help you get used to reading and writing C code. It mimics the popular "Rustlings" and "Ziglings" projects. The goal is to learn C by fixing small broken programs.
 
 ## Prerequisites
 
@@ -22,9 +22,11 @@ CLings is a small tool to help you get used to reading and writing C code. It mi
     ```
 
 3.  **Solve Exercises:**
-    - The tool will tell you which exercise to solve (starting with `intro1`).
-    - Open the file in your favorite editor (e.g., `exercises/1_intro/intro1.c`).
-    - Follow the instructions in the comments.
+    - The tool will verify the exercises in order.
+    - It will tell you which exercise to solve (e.g., "Compiling exercises/1_intro/intro1.c...").
+    - Open the file in your favorite editor.
+    - Read the comments and the learning goal.
+    - Fix the code to make it compile and run correctly.
     - Remove the line `// I AM NOT DONE` when you think you are finished.
     - Save the file.
     - The tool will automatically re-compile and verify your solution.
@@ -33,6 +35,21 @@ CLings is a small tool to help you get used to reading and writing C code. It mi
     - After every few topics, there is a challenge exercise.
     - These require you to combine multiple concepts learned so far.
     - They are slightly harder than regular exercises and may require some problem solving!
+
+## Syllabus
+
+The exercises cover the following topics:
+
+1.  **Intro**: Basic C program structure, `main` function, and `printf`.
+2.  **Variables**: Integer types, float, char, and format specifiers.
+3.  **Functions**: Defining functions, arguments, return values, and prototypes.
+4.  **If**: Conditional logic (`if`, `else if`, `else`) and logical operators.
+5.  **Loops**: `for` loops, `while` loops, and nested loops.
+6.  **Pointers**: Address-of operator (`&`), dereferencing (`*`), and pass-by-reference.
+7.  **Arrays**: Declaring arrays, accessing elements, and iteration.
+8.  **Strings**: C-style strings (char arrays), `string.h` functions.
+9.  **Structs**: Defining structures, dot notation, and pointers to structs (`->`).
+10. **Memory**: Dynamic memory allocation (`malloc`, `free`).
 
 ## Commands
 

@@ -1,4 +1,8 @@
-// Learning Goal: Allocate memory for an array.
+// Learning Goal: Allocate memory for an array using malloc.
+//
+// You can allocate a block of memory to act as an array.
+// The size needed is: number_of_elements * sizeof(element_type).
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -6,7 +10,8 @@
 
 int main() {
     int n = 5;
-    // TODO: Use malloc to allocate memory for an array of 'n' integers
+    // TODO: Use malloc to allocate memory for an array of 'n' integers.
+    // Calculate the total size needed: n * sizeof(int)
     int *arr = NULL;
 
     if (arr == NULL) {
@@ -14,6 +19,7 @@ int main() {
         return 1;
     }
 
+    // You can access the memory just like a regular array.
     for (int i = 0; i < n; i++) {
         arr[i] = i * 10;
         printf("%d ", arr[i]);

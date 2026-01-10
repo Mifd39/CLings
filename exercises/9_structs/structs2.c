@@ -1,4 +1,8 @@
 // Learning Goal: Access struct members.
+//
+// You can access members of a struct using the dot (.) operator.
+// example.member = value;
+
 #include <stdio.h>
 #include <string.h>
 
@@ -12,7 +16,8 @@ struct Person {
 int main() {
     struct Person p;
 
-    // TODO: Initialize the person's name to "Bob" (use strcpy) and age to 25
+    // TODO: Initialize the person's name to "Bob" (use strcpy) and age to 25.
+
 
     printf("Name: %s, Age: %d\n", p.name, p.age);
     return 0;
