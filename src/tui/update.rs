@@ -26,7 +26,16 @@ pub fn handle_key_event(app: &mut App, key: KeyEvent) -> Action {
 
     match key.code {
         KeyCode::Char('q') => return Action::Quit,
-        KeyCode::Char('h') => app.show_hint = true,
+        KeyCode::Char('h') => {
+            if app.selection_mode == SelectionMode::Exercise {
+                app.show_hint = true;
+            }
+        }
+        KeyCode::Char('l') => {
+            if app.selection_mode == SelectionMode::Topic {
+                app.toggle_topic();
+            }
+        }
         KeyCode::Down | KeyCode::Char('j') => app.next(),
         KeyCode::Up | KeyCode::Char('k') => app.previous(),
         KeyCode::Enter | KeyCode::Char('e') => {
