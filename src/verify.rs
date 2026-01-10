@@ -95,9 +95,30 @@ pub fn verify_exercise(exercise: &Exercise) -> Result<VerificationOutput, String
          });
     }
 
+    let stdout = String::from_utf8_lossy(&run_output.stdout).to_string();
+    let stderr = String::from_utf8_lossy(&run_output.stderr).to_string();
+
+    // Verify Output if expected
+    if let Some(expected_output) = &exercise.output {
+        let expected_trimmed = expected_output.trim();
+        let actual_trimmed = stdout.trim();
+
+        if expected_trimmed != actual_trimmed {
+            return Ok(VerificationOutput {
+                success: false,
+                stdout: stdout.clone(),
+                stderr: format!(
+                    "Output Mismatch!\nExpected:\n{}\n\nActual:\n{}",
+                    expected_trimmed.green(),
+                    actual_trimmed.red()
+                ),
+            });
+        }
+    }
+
     Ok(VerificationOutput {
         success: true,
-        stdout: String::from_utf8_lossy(&run_output.stdout).to_string(),
-        stderr: String::from_utf8_lossy(&run_output.stderr).to_string(),
+        stdout,
+        stderr,
     })
 }

@@ -16,6 +16,7 @@ pub struct Exercise {
     pub path: PathBuf,
     pub mode: Mode,
     pub hint: String,
+    pub output: Option<String>,
 }
 
 #[derive(Deserialize, Debug)]

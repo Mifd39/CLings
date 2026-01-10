@@ -9,6 +9,7 @@ name = "intro2"
 path = "exercises/1_intro/intro2.c"
 mode = "run"
 hint = "Use printf(\"Hello World!\\n\");"
+output = "Hello World!"
 
 [[exercises]]
 name = "intro3"
@@ -27,6 +28,7 @@ name = "vars2"
 path = "exercises/2_variables/vars2.c"
 mode = "run"
 hint = "Printf format placeholders look like %d for integers."
+output = "The value is 10"
 
 [[exercises]]
 name = "vars3"
