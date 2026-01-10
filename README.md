@@ -48,6 +48,8 @@ If you are new to C or need a refresher, here are some curated resources to help
 - 🎥 **[Portfolio Courses](https://www.youtube.com/playlist?list=PLmyPVNsLv5roYSfU5XPhLKZ3U34X1X3yC)**: Clear, bite-sized video tutorials on specific C topics.
 - 🔍 **[cppreference.com](https://en.cppreference.com/w/c)**: The standard technical documentation for C.
 
+> **Note:** The progression of topics in these resources might differ slightly from the exercises here. For example, we introduce functions very early on!
+
 ## 📚 Syllabus
 
 The exercises cover the following topics:
