@@ -26,6 +26,7 @@ pub struct App {
     pub output: Option<VerificationOutput>,
     pub should_quit: bool,
     pub processing: bool,
+    pub show_quit_popup: bool,
 }
 
 impl App {
@@ -82,6 +83,7 @@ impl App {
             output: None,
             should_quit: false,
             processing: false,
+            show_quit_popup: false,
         }
     }
 

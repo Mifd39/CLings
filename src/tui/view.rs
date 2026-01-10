@@ -19,6 +19,10 @@ pub fn ui(f: &mut Frame, app: &mut App) {
     if app.show_hint {
         draw_hint_popup(f, app);
     }
+
+    if app.show_quit_popup {
+        draw_quit_popup(f);
+    }
 }
 
 fn draw_sidebar(f: &mut Frame, app: &App, area: Rect) {
@@ -103,8 +107,10 @@ fn draw_main_content(f: &mut Frame, app: &App, area: Rect) {
                     Line::from(format!("Progress: {} / {} completed", completed_count, total_count)),
                     Line::from(""),
                     Line::from(Span::styled("Instructions:", Style::default().fg(Color::Yellow))),
-                    Line::from("  • Press 'Enter' to expand/collapse topic"),
-                    Line::from("  • Press 'j' to move down"),
+                    Line::from("  • Press 'Enter' or 'l' to expand/collapse topic"),
+                    Line::from("  • Press 'j' / 'Down' to move down"),
+                    Line::from("  • Press 'k' / 'Up' to move up"),
+                    Line::from("  • Press 'q' to Quit"),
                 ];
 
                 let p = Paragraph::new(summary)
@@ -127,7 +133,9 @@ fn draw_main_content(f: &mut Frame, app: &App, area: Rect) {
                     Line::from(Span::styled("Instructions:", Style::default().fg(Color::Yellow))),
                     Line::from("  • Press 'Enter' or 'e' to open in Editor"),
                     Line::from("  • Edit the file and save to verify"),
-                    Line::from("  • 'q' to Quit"),
+                    Line::from("  • Press 'j' / 'Down' for next item"),
+                    Line::from("  • Press 'k' / 'Up' for prev item"),
+                    Line::from("  • Press 'q' to Quit"),
                     Line::from(""),
                     Line::from(Span::styled(hint_msg, Style::default().fg(Color::Cyan))),
                 ])
@@ -196,6 +204,23 @@ fn draw_hint_popup(f: &mut Frame, app: &App) {
         f.render_widget(Clear, area); // Clear out the background
         f.render_widget(paragraph, area);
     }
+}
+
+fn draw_quit_popup(f: &mut Frame) {
+    let block = Block::default().title("Quit").borders(Borders::ALL);
+    let text = vec![
+        Line::from(Span::styled("Are you sure you want to quit?", Style::default().fg(Color::Red).add_modifier(Modifier::BOLD))),
+        Line::from(""),
+        Line::from(Span::styled("(y) Yes / (n) No", Style::default().fg(Color::White))),
+    ];
+    let paragraph = Paragraph::new(text)
+        .block(block)
+        .wrap(Wrap { trim: true })
+        .alignment(Alignment::Center);
+
+    let area = centered_rect(40, 15, f.size());
+    f.render_widget(Clear, area); // Clear out the background
+    f.render_widget(paragraph, area);
 }
 
 /// helper function to create a centered rect using up certain percentage of the available rect `r`

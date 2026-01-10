@@ -17,6 +17,17 @@ pub enum Action {
 }
 
 pub fn handle_key_event(app: &mut App, key: KeyEvent) -> Action {
+    if app.show_quit_popup {
+        match key.code {
+            KeyCode::Char('y') | KeyCode::Enter => return Action::Quit,
+            KeyCode::Char('n') | KeyCode::Esc | KeyCode::Char('q') => {
+                app.show_quit_popup = false;
+            }
+            _ => {}
+        }
+        return Action::Continue;
+    }
+
     if app.show_hint {
         if let KeyCode::Esc | KeyCode::Char('h') = key.code {
             app.show_hint = false;
@@ -25,7 +36,9 @@ pub fn handle_key_event(app: &mut App, key: KeyEvent) -> Action {
     }
 
     match key.code {
-        KeyCode::Char('q') => return Action::Quit,
+        KeyCode::Char('q') => {
+            app.show_quit_popup = true;
+        }
         KeyCode::Char('h') => {
             if app.selection_mode == SelectionMode::Exercise {
                 app.show_hint = true;
