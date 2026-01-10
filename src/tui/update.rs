@@ -3,7 +3,7 @@ use std::sync::mpsc;
 use std::path::PathBuf;
 use notify::{Watcher, RecursiveMode};
 
-use crate::tui::model::App;
+use crate::tui::model::{App, SelectionMode};
 use crate::verify::verify_exercise;
 
 pub enum AppEvent {
@@ -17,14 +17,29 @@ pub enum Action {
 }
 
 pub fn handle_key_event(app: &mut App, key: KeyEvent) -> Action {
+    if app.show_hint {
+        if let KeyCode::Esc | KeyCode::Char('h') = key.code {
+            app.show_hint = false;
+        }
+        return Action::Continue;
+    }
+
     match key.code {
-        KeyCode::Char('q') | KeyCode::Esc => return Action::Quit,
-        KeyCode::Down | KeyCode::Char('j') => app.next_exercise(),
-        KeyCode::Up | KeyCode::Char('k') => app.previous_exercise(),
+        KeyCode::Char('q') => return Action::Quit,
+        KeyCode::Char('h') => app.show_hint = true,
+        KeyCode::Down | KeyCode::Char('j') => app.next(),
+        KeyCode::Up | KeyCode::Char('k') => app.previous(),
         KeyCode::Enter | KeyCode::Char('e') => {
-             if let Some(ex) = app.current_exercise() {
-                 return Action::OpenEditor(ex.path.clone());
-             }
+            match app.selection_mode {
+                SelectionMode::Topic => {
+                    app.toggle_topic();
+                }
+                SelectionMode::Exercise => {
+                    if let Some(ex) = app.current_exercise() {
+                        return Action::OpenEditor(ex.path.clone());
+                    }
+                }
+            }
         }
         _ => {}
     }

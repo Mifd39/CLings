@@ -7,12 +7,21 @@ use std::collections::HashMap;
 pub struct Topic {
     pub name: String,
     pub exercises: Vec<Exercise>,
+    pub open: bool,
+}
+
+#[derive(Debug, Clone, PartialEq)]
+pub enum SelectionMode {
+    Topic,
+    Exercise,
 }
 
 pub struct App {
     pub topics: Vec<Topic>,
     pub current_topic_index: usize,
     pub current_exercise_index: usize,
+    pub selection_mode: SelectionMode,
+    pub show_hint: bool,
     pub progress: Progress,
     pub output: Option<VerificationOutput>,
     pub should_quit: bool,
@@ -37,7 +46,7 @@ impl App {
 
         // Sort topics to ensure order (e.g. 1_intro, 2_variables)
         let mut topics: Vec<Topic> = topic_map.into_iter()
-            .map(|(name, exercises)| Topic { name, exercises })
+            .map(|(name, exercises)| Topic { name, exercises, open: false })
             .collect();
         topics.sort_by(|a, b| human_sort(&a.name, &b.name));
 
@@ -59,10 +68,16 @@ impl App {
             }
         }
 
+        if let Some(topic) = topics.get_mut(start_topic) {
+            topic.open = true;
+        }
+
         App {
             topics,
             current_topic_index: start_topic,
             current_exercise_index: start_ex,
+            selection_mode: SelectionMode::Exercise,
+            show_hint: false,
             progress,
             output: None,
             should_quit: false,
@@ -71,28 +86,73 @@ impl App {
     }
 
     pub fn current_exercise(&self) -> Option<&Exercise> {
+        if self.selection_mode == SelectionMode::Topic {
+            return None;
+        }
         self.topics.get(self.current_topic_index)
             .and_then(|t| t.exercises.get(self.current_exercise_index))
     }
 
-    pub fn next_exercise(&mut self) {
-        if let Some(topic) = self.topics.get(self.current_topic_index) {
-            if self.current_exercise_index + 1 < topic.exercises.len() {
-                self.current_exercise_index += 1;
-            } else if self.current_topic_index + 1 < self.topics.len() {
-                self.current_topic_index += 1;
-                self.current_exercise_index = 0;
+    pub fn next(&mut self) {
+        match self.selection_mode {
+            SelectionMode::Topic => {
+                let topic = &self.topics[self.current_topic_index];
+                if topic.open && !topic.exercises.is_empty() {
+                    self.selection_mode = SelectionMode::Exercise;
+                    self.current_exercise_index = 0;
+                } else {
+                    if self.current_topic_index + 1 < self.topics.len() {
+                        self.current_topic_index += 1;
+                    }
+                }
+            }
+            SelectionMode::Exercise => {
+                let topic = &self.topics[self.current_topic_index];
+                if self.current_exercise_index + 1 < topic.exercises.len() {
+                    self.current_exercise_index += 1;
+                } else {
+                    if self.current_topic_index + 1 < self.topics.len() {
+                        self.current_topic_index += 1;
+                        self.selection_mode = SelectionMode::Topic;
+                        // Reset exercise index for when we expand next topic
+                        self.current_exercise_index = 0;
+                    }
+                }
             }
         }
     }
 
-    pub fn previous_exercise(&mut self) {
-        if self.current_exercise_index > 0 {
-            self.current_exercise_index -= 1;
-        } else if self.current_topic_index > 0 {
-            self.current_topic_index -= 1;
-            if let Some(topic) = self.topics.get(self.current_topic_index) {
-                self.current_exercise_index = topic.exercises.len().saturating_sub(1);
+    pub fn previous(&mut self) {
+        match self.selection_mode {
+            SelectionMode::Topic => {
+                if self.current_topic_index > 0 {
+                    self.current_topic_index -= 1;
+                    let prev_topic = &self.topics[self.current_topic_index];
+                    if prev_topic.open && !prev_topic.exercises.is_empty() {
+                        self.selection_mode = SelectionMode::Exercise;
+                        self.current_exercise_index = prev_topic.exercises.len() - 1;
+                    } else {
+                        self.selection_mode = SelectionMode::Topic;
+                    }
+                }
+            }
+            SelectionMode::Exercise => {
+                if self.current_exercise_index > 0 {
+                    self.current_exercise_index -= 1;
+                } else {
+                    self.selection_mode = SelectionMode::Topic;
+                }
+            }
+        }
+    }
+
+    pub fn toggle_topic(&mut self) {
+        if let Some(topic) = self.topics.get_mut(self.current_topic_index) {
+            topic.open = !topic.open;
+            // If we closed the topic, make sure we are in topic selection mode
+            // (Though toggle is only called from Topic mode usually)
+            if !topic.open && self.selection_mode == SelectionMode::Exercise {
+                self.selection_mode = SelectionMode::Topic;
             }
         }
     }
