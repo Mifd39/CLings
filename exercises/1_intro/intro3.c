@@ -9,7 +9,7 @@
 // I AM NOT DONE
 
 int main() {
-    // TODO: Fix the missing semicolon to make the code compile.
+    // TODO: Fix the syntax error so the code compiles.
     printf("Hello World!")
     return 0;
 }

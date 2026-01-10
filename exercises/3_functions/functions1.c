@@ -13,8 +13,7 @@
 
 // I AM NOT DONE
 
-// TODO: Define a function named 'call_me' that returns void and prints "Hello!" using printf.
-// The function should take no arguments (use 'void' or empty parentheses).
+// TODO: Define a function named 'call_me' that prints "Hello!" to the console.
 
 
 int main() {

@@ -15,8 +15,7 @@ int main() {
     int x = 10;
     int *p = &x;
 
-    // TODO: Use the pointer 'p' to change the value of 'x' to 20.
-    // Do NOT assign x = 20 directly.
+    // TODO: Use the pointer 'p' to update the value of 'x' to 20 (do not access 'x' directly).
 
 
     printf("The value of x is %d\n", x);

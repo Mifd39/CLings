@@ -10,10 +10,10 @@
 // I AM NOT DONE
 
 int main() {
-    // TODO: Declare a float variable named 'pi' with the value 3.14
+    // TODO: Declare and initialize a variable 'pi' with the value 3.14.
 
 
-    // TODO: Declare a char variable named 'letter' with the value 'C'
+    // TODO: Declare and initialize a variable 'letter' with the value 'C'.
 
 
     printf("Pi is %.2f and the letter is %c\n", pi, letter);

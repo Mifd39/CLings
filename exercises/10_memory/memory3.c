@@ -21,7 +21,7 @@ int main() {
     data[0] = 100;
     printf("Data allocated and used.\n");
 
-    // TODO: Free the allocated memory to avoid a memory leak.
+    // TODO: Release the memory allocated for 'data'.
 
 
     return 0;

@@ -14,10 +14,8 @@
 
 int main() {
     int i = 0;
-    // TODO: Write a while loop that runs while 'i' is less than 5.
-    // Inside the loop:
-    // 1. Print "i is %d\n" with the value of i.
-    // 2. Increment i (i++ or i = i + 1).
+    // TODO: Write a while loop to print the value of 'i' as long as it is less than 5.
+    // Ensure you update 'i' to prevent an infinite loop.
 
 
     return 0;

@@ -13,7 +13,7 @@ int main() {
     int age = 25;
     int has_license = 1; // In C, 0 is false, and non-zero is true.
 
-    // TODO: Check if age is greater than or equal to 18 AND has_license is true (non-zero).
+    // TODO: Write a condition that checks if the person is an adult (18+) AND has a license.
     if ( ) {
         printf("You can drive!\n");
     } else {

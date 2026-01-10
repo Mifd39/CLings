@@ -20,9 +20,8 @@ int main() {
     if (number > 20) {
         printf("Number is greater than 20\n");
     }
-    // TODO: Add an 'else if' block to check if number is greater than 5.
-    // Since the previous 'if' checked > 20, this block effectively handles 5 < number <= 20.
-    // Inside the block, print "Number is greater than 5\n".
+    // TODO: Add an 'else if' condition to check if the number is greater than 5.
+    // If so, print "Number is greater than 5\n".
 
 
     else {

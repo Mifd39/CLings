@@ -27,7 +27,7 @@
 
 
 int main() {
-    // TODO: Create array, initialize it, loop through it, and print recent books.
+    // TODO: Create the array of books, initialize it, and print the titles of recent books (after year 2000).
 
 
     return 0;

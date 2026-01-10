@@ -15,19 +15,14 @@
 
 // I AM NOT DONE
 
-// TODO: Define a struct named 'Person' with two fields:
-// - name (char array of size 50)
-// - age (int)
+// TODO: Define a struct named 'Person' that holds a name (string of size 50) and an age (integer).
 
 
 int main() {
     // TODO: Create an instance of 'struct Person' named 'p1'.
-    // Remember the 'struct' keyword is part of the type name in C.
 
 
     // TODO: Set p1.name to "Alice" and p1.age to 30.
-    // Hint: Strings cannot be assigned directly with =. Use 'strcpy(destination, source)' from string.h.
-    // e.g., strcpy(p1.name, "Alice");
 
 
     printf("Name: %s, Age: %d\n", p1.name, p1.age);
