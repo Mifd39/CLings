@@ -3,16 +3,30 @@ use colored::Colorize;
 use std::fs;
 use std::process::Command;
 
+#[derive(Debug, Clone)]
+pub struct VerificationOutput {
+    pub success: bool,
+    pub stdout: String,
+    pub stderr: String,
+}
+
 pub fn verify_all(exercises: &[Exercise]) {
     for exercise in exercises {
         match verify_exercise(exercise) {
-            Ok(true) => {
-                println!("{} {}", "✓".green(), exercise.name.green());
-            }
-            Ok(false) => {
-                println!("{} {}", "✗".red(), exercise.name.red());
-                println!("\n{}", "Progress halted! Fix this exercise to continue.".yellow());
-                break; // Stop at first failure
+            Ok(output) => {
+                if output.success {
+                    println!("{} {}", "✓".green(), exercise.name.green());
+                } else {
+                    println!("{} {}", "✗".red(), exercise.name.red());
+                    if !output.stdout.is_empty() {
+                         println!("Output:\n{}", output.stdout);
+                    }
+                    if !output.stderr.is_empty() {
+                        println!("{}", output.stderr);
+                    }
+                    println!("\n{}", "Progress halted! Fix this exercise to continue.".yellow());
+                    break;
+                }
             }
             Err(e) => {
                 println!("{} {} - Error: {}", "✗".red(), exercise.name.red(), e);
@@ -22,14 +36,17 @@ pub fn verify_all(exercises: &[Exercise]) {
     }
 }
 
-fn verify_exercise(exercise: &Exercise) -> Result<bool, String> {
+pub fn verify_exercise(exercise: &Exercise) -> Result<VerificationOutput, String> {
     let source_code = fs::read_to_string(&exercise.path)
         .map_err(|e| format!("Failed to read {:?}: {}", exercise.path, e))?;
 
     // Check for "I AM NOT DONE"
     if source_code.contains("// I AM NOT DONE") {
-        println!("{} is not done yet. Remove '// I AM NOT DONE' to verify.", exercise.name);
-        return Ok(false);
+        return Ok(VerificationOutput {
+            success: false,
+            stdout: String::new(),
+            stderr: format!("{} is not done yet. Remove '// I AM NOT DONE' to verify.", exercise.name),
+        });
     }
 
     // Compile
@@ -45,13 +62,19 @@ fn verify_exercise(exercise: &Exercise) -> Result<bool, String> {
         .map_err(|e| format!("Failed to run gcc: {}", e))?;
 
     if !compile_output.status.success() {
-        println!("{}", String::from_utf8_lossy(&compile_output.stderr));
-        println!("{}", "Compilation Failed".red());
-        return Ok(false);
+        return Ok(VerificationOutput {
+            success: false,
+            stdout: String::new(),
+            stderr: format!("{}\n{}", String::from_utf8_lossy(&compile_output.stderr), "Compilation Failed".red()),
+        });
     }
 
     if exercise.mode == Mode::Compile {
-        return Ok(true);
+        return Ok(VerificationOutput {
+            success: true,
+            stdout: String::new(),
+            stderr: String::new(),
+        });
     }
 
     // Run (for Mode::Run and Mode::Test)
@@ -59,20 +82,22 @@ fn verify_exercise(exercise: &Exercise) -> Result<bool, String> {
         .output()
         .map_err(|e| format!("Failed to run binary: {}", e))?;
 
-    if !run_output.status.success() {
-         println!("Output:\n{}", String::from_utf8_lossy(&run_output.stdout));
-         println!("Errors:\n{}", String::from_utf8_lossy(&run_output.stderr));
-         println!("{}", "Execution Failed (non-zero exit code)".red());
-         return Ok(false);
-    }
-
-    // For now, Mode::Run just checks for exit code 0.
-    // Future: Mode::Test could check stdout against expected output.
-
     // Cleanup
     let _ = fs::remove_file(&output_path);
     // Also try to remove .exe for Windows
     let _ = fs::remove_file(format!("{}.exe", output_path));
 
-    Ok(true)
+    if !run_output.status.success() {
+         return Ok(VerificationOutput {
+            success: false,
+            stdout: String::from_utf8_lossy(&run_output.stdout).to_string(),
+            stderr: format!("{}\n{}", String::from_utf8_lossy(&run_output.stderr), "Execution Failed (non-zero exit code)".red()),
+         });
+    }
+
+    Ok(VerificationOutput {
+        success: true,
+        stdout: String::from_utf8_lossy(&run_output.stdout).to_string(),
+        stderr: String::from_utf8_lossy(&run_output.stderr).to_string(),
+    })
 }
