@@ -1,4 +1,11 @@
 // Learning Goal: Access struct members.
+/*
+    Context:
+    Once you've created a struct variable, it's just a container.
+    To put things inside or look at them, you need to open the specific compartment you're interested in.
+    In C, we use the "dot operator" (.) to access individual members of a struct.
+    It's like saying "I want the 'name' FROM 'person'".
+*/
 //
 // You can access members of a struct using the dot (.) operator.
 // example.member = value;

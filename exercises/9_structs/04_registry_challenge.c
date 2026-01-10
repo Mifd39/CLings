@@ -1,4 +1,11 @@
 // Learning Goal: Combine arrays, strings, and structs to manage a small database.
+/*
+    Context:
+    You are now ready to build more complex systems!
+    By combining arrays and structs, you can create a "database" in memory.
+    In this challenge, you will manage a library registry.
+    You'll need to define what a "Book" looks like, store a collection of them, and search through that collection.
+*/
 //
 // This challenge tests your ability to work with structured data in collections.
 

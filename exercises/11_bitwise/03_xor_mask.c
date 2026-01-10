@@ -1,4 +1,10 @@
 // Learning Goal: Understand Bitwise XOR (^) and Masks.
+/*
+    Context:
+    The XOR (Exclusive OR) operator is a bit unique: it returns 1 only if the bits are DIFFERENT.
+    It's incredibly useful for toggling things on and off (like a light switch) without needing to know their current state.
+    We also use "masks" (specific patterns of 0s and 1s) to target and check specific bits, like checking if a security flag is set.
+*/
 //
 // ^ (XOR): Result is 1 if bits are DIFFERENT, 0 if they are the SAME.
 //   0101 (5)

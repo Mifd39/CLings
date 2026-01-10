@@ -1,4 +1,11 @@
 // Learning Goal: Understand C strings (null-terminated char arrays).
+/*
+    Context:
+    Unlike other languages, C doesn't have a "String" type.
+    Instead, it treats text as an array of characters.
+    But how does the computer know where the text ends?
+    It uses a special invisible character called the "null terminator" ('\0') to mark the end of the string.
+*/
 //
 // In C, a string is just an array of characters ending with a special 'null terminator' character: '\0'.
 //

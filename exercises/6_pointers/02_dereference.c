@@ -1,4 +1,10 @@
 // Learning Goal: Modify values using pointers (Dereferencing).
+/*
+    Context:
+    Once you have a pointer (an address), you can "follow" it to access or change the actual value stored there.
+    This is called "dereferencing".
+    It's like having a key to a locker; you can open it to see what's inside or swap the contents.
+*/
 //
 // You can use the '*' (dereference) operator to modify the value a pointer points to.
 //

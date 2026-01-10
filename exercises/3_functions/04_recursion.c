@@ -1,4 +1,11 @@
 // Learning Goal: Understand Recursion.
+/*
+    Context:
+    Sometimes, the best way to solve a problem is to break it down into a smaller version of the same problem.
+    Recursion is a technique where a function calls itself.
+    It's like looking into a mirror that reflects another mirror.
+    To stop the infinite reflection, we need a "base case" — a condition where the function stops calling itself.
+*/
 //
 // Recursion is when a function calls itself.
 // It needs a "base case" to stop calling itself, otherwise it will run forever (Stack Overflow).

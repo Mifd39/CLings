@@ -1,4 +1,10 @@
 // Learning Goal: Use 'else if' for multiple conditions.
+/*
+    Context:
+    Sometimes a simple "yes or no" decision isn't enough. You might have multiple options.
+    For example, is a number positive, negative, or zero?
+    We can chain decisions together using 'else if'. This lets us check conditions one by one until we find a match.
+*/
 //
 // You can chain multiple conditions using 'else if'.
 //

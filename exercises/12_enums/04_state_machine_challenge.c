@@ -1,4 +1,11 @@
 // Learning Goal: Combine Enums, Switch, and Bitwise operations.
+/*
+    Context:
+    Challenge Time! The State Machine.
+    Most complex software (like games, network protocols, or hardware drivers) is built around "State Machines".
+    The system is in one specific state (e.g., IDLE) and transitions to another (e.g., RUNNING) based on inputs.
+    In this challenge, you'll build the brain of a simple device using Enums for states and Bitwise flags for commands.
+*/
 //
 // Challenge 4: State Machine
 //

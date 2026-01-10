@@ -1,4 +1,12 @@
 // Learning Goal: Understand Bitwise AND (&) and OR (|) operators.
+/*
+    Context:
+    Deep down, computers don't understand text or images; they only understand 0s and 1s.
+    Sometimes, you need to work directly with these raw "bits".
+    Think of a byte as a row of 8 light switches.
+    - Bitwise AND (&) checks if TWO switches are BOTH on.
+    - Bitwise OR (|) checks if AT LEAST ONE switch is on.
+*/
 //
 // Computers represent data as bits (0s and 1s).
 // Bitwise operators allow you to manipulate these bits directly.

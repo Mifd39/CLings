@@ -1,4 +1,12 @@
 // Learning Goal: Understand Bitwise Left Shift (<<) and Right Shift (>>) operators.
+/*
+    Context:
+    Imagine shifting a row of soldiers to the left or right.
+    In the binary world, shifting bits is a super-fast way to do math!
+    - Shifting LEFT by 1 (<< 1) is like multiplying by 2.
+    - Shifting RIGHT by 1 (>> 1) is like dividing by 2.
+    It's one of the oldest tricks in the programmer's book.
+*/
 //
 // << (Left Shift): Shifts bits to the left, filling with 0s. Equivalent to multiplying by powers of 2.
 // >> (Right Shift): Shifts bits to the right. Equivalent to dividing by powers of 2 (for unsigned types).

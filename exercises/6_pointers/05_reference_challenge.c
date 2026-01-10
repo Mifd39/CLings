@@ -1,4 +1,10 @@
 // Learning Goal: Combine conditionals, loops, and pointers to simulate a scoring system.
+/*
+    Context:
+    Pointers are essential for efficient C programming. They allow different parts of your program
+    to share and modify large amounts of data without making unnecessary copies.
+    In this challenge, you'll manage a central score variable that is updated by a processing function.
+*/
 //
 // This challenge tests your understanding of pointers and logic.
 
