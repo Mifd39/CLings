@@ -1,5 +1,6 @@
 pub mod exercise;
 pub mod verify;
+pub mod sandbox;
 pub mod progress;
 pub mod tui;
 

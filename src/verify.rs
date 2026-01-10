@@ -78,7 +78,8 @@ pub fn verify_exercise(exercise: &Exercise) -> Result<VerificationOutput, String
     }
 
     // Run (for Mode::Run and Mode::Test)
-    let run_output = Command::new(&output_path)
+    let (mut cmd, warnings) = crate::sandbox::command(&output_path);
+    let run_output = cmd
         .output()
         .map_err(|e| format!("Failed to run binary: {}", e))?;
 
@@ -96,7 +97,17 @@ pub fn verify_exercise(exercise: &Exercise) -> Result<VerificationOutput, String
     }
 
     let stdout = String::from_utf8_lossy(&run_output.stdout).to_string();
-    let stderr = String::from_utf8_lossy(&run_output.stderr).to_string();
+    let mut stderr = String::from_utf8_lossy(&run_output.stderr).to_string();
+
+    // Append sandbox warnings to stderr if any
+    if !warnings.is_empty() {
+        if !stderr.is_empty() {
+            stderr.push('\n');
+        }
+        for warning in warnings {
+            stderr.push_str(&format!("{}\n", warning.yellow()));
+        }
+    }
 
     // Verify Output if expected
     if let Some(expected_output) = &exercise.output {
