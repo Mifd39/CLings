@@ -1,4 +1,11 @@
 // Learning Goal: Understand the basics of pointers and the address-of operator.
+/*
+    Context:
+    In C, every variable lives at a specific address in the computer's memory, just like a house has a street address.
+    A "pointer" is a variable that stores this address.
+    Instead of holding the value itself (like 42), it holds the map coordinates to find 42.
+    To get the address of a variable, we use the `&` (address-of) operator.
+*/
 //
 // A pointer is a variable that stores the memory address of another variable.
 //

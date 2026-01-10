@@ -1,4 +1,10 @@
 // Learning Goal: Iterate over an array.
+/*
+    Context:
+    The real power of arrays comes when you combine them with loops.
+    Since an array is just a sequence of items, you can use a 'for' loop to visit every single one efficiently.
+    This allows you to process thousands of data points with just a few lines of code.
+*/
 //
 // To process all elements in an array, we typically use a 'for' loop.
 // The loop variable serves as the array index.

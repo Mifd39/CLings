@@ -1,4 +1,11 @@
 // Learning Goal: Pass pointers to functions (Pass by Reference).
+/*
+    Context:
+    Normally, when you pass a variable to a function, C makes a COPY of it.
+    If the function changes the copy, the original variable remains untouched.
+    But what if you WANT the function to change the original?
+    You pass the address (pointer) instead. This allows the function to reach back and modify the original data.
+*/
 //
 // By default, C passes arguments by value (copying them).
 // To modify a variable from inside a function, you need to pass its address (a pointer).

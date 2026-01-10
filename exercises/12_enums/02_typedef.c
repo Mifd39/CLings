@@ -1,4 +1,10 @@
 // Learning Goal: Use typedef with Enum to simplify types.
+/*
+    Context:
+    Programmers are lazy (in a good way!). Typing `enum Status` or `struct Person` everywhere gets tiring.
+    C provides `typedef` (Type Definition) to create a shortcut or alias for a data type.
+    So instead of writing `enum Status myStatus`, you can just write `Status myStatus`. Clean and simple.
+*/
 //
 // 'typedef' allows you to give a new name to an existing type.
 // Often used with enums and structs to avoid typing 'enum' or 'struct' every time.

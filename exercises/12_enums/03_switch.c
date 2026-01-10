@@ -1,4 +1,11 @@
 // Learning Goal: Use switch statements with Enums.
+/*
+    Context:
+    When you have a variable that can be one of many specific values (like our Enum),
+    a long chain of `if... else if... else if...` gets messy.
+    The `switch` statement is a cleaner alternative designed exactly for this situation.
+    It jumps directly to the matching "case", making your code more organized and often faster.
+*/
 //
 // The 'switch' statement is a control flow structure that allows you to handle multiple cases efficiently.
 // It is often used with enums to handle different states.

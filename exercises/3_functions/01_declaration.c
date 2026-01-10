@@ -1,4 +1,11 @@
 // Learning Goal: Learn how to define and call functions in C.
+/*
+    Context:
+    As programs grow, putting everything in 'main' gets messy.
+    Functions let you break your code into smaller, reusable pieces.
+    Think of a function as a mini-program that does one specific task.
+    You can "call" (use) this task whenever you need it, without rewriting the code.
+*/
 //
 // Functions allow you to group code into reusable blocks.
 // A function definition looks like this:

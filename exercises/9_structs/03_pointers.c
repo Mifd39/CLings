@@ -1,4 +1,11 @@
 // Learning Goal: Use pointers to structs and the arrow operator.
+/*
+    Context:
+    When you pass a struct to a function, it's often more efficient to pass a pointer (the address) rather than copying the whole thing.
+    But accessing members via a pointer looks a bit clumsy: `(*ptr).x`.
+    C gives us a syntactic shortcut for this very common operation: the "arrow operator" (`->`).
+    It looks like an arrow pointing to the member you want!
+*/
 //
 // When you have a pointer to a struct, you can access its members using the arrow operator (->).
 //

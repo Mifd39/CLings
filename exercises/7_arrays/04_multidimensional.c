@@ -1,4 +1,11 @@
 // Learning Goal: Understand Multidimensional Arrays.
+/*
+    Context:
+    Data isn't always a simple list. Sometimes it's a grid, like a spreadsheet or a chessboard.
+    C handles this with "multidimensional arrays".
+    A 2D array is essentially an "array of arrays".
+    You access items using two coordinates: row and column.
+*/
 //
 // A 2D array is like a matrix or a grid.
 // int matrix[2][3] has 2 rows and 3 columns.

@@ -1,4 +1,10 @@
 // Learning Goal: Understand the Do-While Loop.
+/*
+    Context:
+    Most loops check their condition *before* running. But what if you need the code to run at least once?
+    For example, asking a user for a password: you have to ask first before you can check if it's correct.
+    The 'do-while' loop guarantees that the code block runs once before the condition is checked.
+*/
 //
 // A 'do-while' loop is similar to a 'while' loop, but it guarantees that the code block
 // is executed AT LEAST ONCE before checking the condition.

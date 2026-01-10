@@ -1,4 +1,12 @@
 // Learning Goal: Use logical operators && (AND) and || (OR).
+/*
+    Context:
+    Real-life decisions often depend on multiple factors.
+    For example, you can buy a game ONLY IF you have enough money AND the store is open.
+    In C, we use logical operators to combine conditions:
+    - `&&` (AND): Both must be true.
+    - `||` (OR): At least one must be true.
+*/
 //
 // Logical operators allow you to combine multiple conditions.
 // && (AND) evaluates to true only if BOTH sides are true.

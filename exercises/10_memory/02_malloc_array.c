@@ -1,4 +1,11 @@
 // Learning Goal: Allocate memory for an array using malloc.
+/*
+    Context:
+    What if you need an array, but you don't know how big it should be?
+    Maybe you are reading a file, and it could have 10 lines or 10,000 lines.
+    A standard array `int arr[10];` is fixed in size.
+    With `malloc`, you can create an array of ANY size at runtime.
+*/
 //
 // You can allocate a block of memory to act as an array.
 // The size needed is: number_of_elements * sizeof(element_type).

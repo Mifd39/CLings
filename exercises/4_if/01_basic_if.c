@@ -1,4 +1,10 @@
 // Learning Goal: Understand how to use if-else statements for conditional logic.
+/*
+    Context:
+    Programs aren't just static lists of instructions; they need to make decisions.
+    We use 'if' statements to tell the computer: "Check this condition. If it's true, do this. Otherwise, do that."
+    This is the foundation of logic in programming.
+*/
 //
 // 'if' statements allow your program to make decisions.
 // Syntax:

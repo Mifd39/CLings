@@ -1,4 +1,10 @@
 // Learning Goal: Understand Pointer Arithmetic.
+/*
+    Context:
+    Pointers are more than just static addresses. You can do math with them!
+    If you have a pointer to a list of numbers, adding 1 to the pointer moves it to the NEXT number in the list.
+    The compiler is smart enough to know how big the numbers are (4 bytes for an int) and jumps the correct distance.
+*/
 //
 // You can perform arithmetic on pointers to move them through memory.
 // ptr++ moves the pointer to the NEXT element of that type.

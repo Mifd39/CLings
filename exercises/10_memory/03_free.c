@@ -1,4 +1,12 @@
 // Learning Goal: Understand the importance of freeing memory.
+/*
+    Context:
+    When you borrow a book from the library, you have to return it so others can use it.
+    The same rule applies to computer memory.
+    If you keep asking for memory with `malloc` but never give it back with `free`,
+    you will eventually run out of space. This is called a "Memory Leak".
+    Be a responsible programmer: always clean up after yourself!
+*/
 //
 // Every time you use 'malloc', you should have a corresponding 'free'.
 // If you don't free memory, it stays occupied until your program ends (Memory Leak).

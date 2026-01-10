@@ -1,4 +1,11 @@
 // Learning Goal: Combine variables, printing, and functions to solve a logic puzzle.
+/*
+    Context:
+    Now it's time to combine what you've learned!
+    Real-world programming involves using variables, functions, and logic together.
+    In this challenge, you'll create a custom function to perform a specific calculation.
+    This helps reinforce how data moves between different parts of your program.
+*/
 //
 // This is your first challenge!
 // You need to combine what you've learned about variables, types, printing, and functions.

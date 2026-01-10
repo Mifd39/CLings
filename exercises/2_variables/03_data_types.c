@@ -1,4 +1,12 @@
 // Learning Goal: Understand float and char types.
+/*
+    Context:
+    Not all data is a whole number. Sometimes we need precision (like 3.14) or text characters (like 'A').
+    C provides different types of variables for different kinds of data:
+    - 'float' for numbers with decimals.
+    - 'char' for single characters.
+    Using the right tool for the job saves memory and prevents errors.
+*/
 //
 // 'float' is used for numbers with decimal points (floating-point numbers).
 // 'char' is used for single characters.

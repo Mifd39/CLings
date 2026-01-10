@@ -1,4 +1,11 @@
 // Learning Goal: Access array elements.
+/*
+    Context:
+    To get something out of an array, you need to know its position, or "index".
+    In C, counting starts at 0, not 1.
+    So, the first item is at index 0, the second is at index 1, and so on.
+    It's a common "off-by-one" trap for beginners, so keep your eyes open!
+*/
 //
 // You access elements in an array using their index.
 // C arrays are "zero-indexed", meaning the first element is at index 0.

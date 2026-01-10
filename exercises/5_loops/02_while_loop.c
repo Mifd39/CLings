@@ -1,4 +1,10 @@
 // Learning Goal: Use a while loop.
+/*
+    Context:
+    Sometimes you don't know in advance how many times you need to repeat something.
+    For example, you might want to keep reading a file until you reach the end.
+    A 'while' loop keeps running AS LONG AS a specific condition is true.
+*/
 //
 // A 'while' loop repeats as long as the condition is true.
 // Syntax:
