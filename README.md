@@ -2,26 +2,28 @@
 
 CLings is a small interactive tool to help you get used to reading and writing C code. It mimics the popular "Rustlings" and "Ziglings" projects. The goal is to learn C by fixing small broken programs.
 
-## Prerequisites
+## 📋 Prerequisites
 
 - **Rust**: You need to have the Rust toolchain installed to run the `clings` tool. [Install Rust](https://www.rust-lang.org/tools/install).
 - **GCC**: You need a C compiler (`gcc`) installed and available in your path.
 
-## Getting Started
+## 🚀 Getting Started
 
-1.  **Install Dependencies:**
-    Ensure you have `gcc` installed.
+1.  **📦 Install Dependencies:**
+    First, make sure you have installed the **Prerequisites** listed above (Rust and GCC). You cannot run the tool without them.
+
+    Ensure you have `gcc` installed:
     - Linux: `sudo apt install build-essential`
     - macOS: `xcode-select --install`
     - Windows: Install MinGW or use WSL.
 
-2.  **Run the Tool:**
+2.  **🏃 Run the Tool:**
     From the repository root, run:
     ```bash
     cargo run -- watch
     ```
 
-3.  **Solve Exercises:**
+3.  **🧩 Solve Exercises:**
     - The tool will verify the exercises in order.
     - It will tell you which exercise to solve (e.g., "Compiling exercises/1_intro/intro1.c...").
     - Open the file in your favorite editor.
@@ -31,12 +33,12 @@ CLings is a small interactive tool to help you get used to reading and writing C
     - Save the file.
     - The tool will automatically re-compile and verify your solution.
 
-4.  **Challenges:**
+4.  **🏆 Challenges:**
     - After every few topics, there is a challenge exercise.
     - These require you to combine multiple concepts learned so far.
     - They are slightly harder than regular exercises and may require some problem solving!
 
-## Syllabus
+## 📚 Syllabus
 
 The exercises cover the following topics:
 
@@ -53,12 +55,12 @@ The exercises cover the following topics:
 11. **Bitwise**: Bitwise operators (`&`, `|`, `^`, `~`, `<<`, `>>`) and bit masking.
 12. **Enums**: Enumerated types (`enum`), `typedef`, and `switch` statements.
 
-## Commands
+## ⌨️ Commands
 
 - `watch`: Automatically re-runs verification when files change.
 - `verify`: Runs the verification once for all exercises until the first failure.
 - `list`: Lists all available exercises.
 
-## License
+## ⚖️ License
 
 MIT
