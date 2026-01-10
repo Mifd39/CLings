@@ -50,6 +50,8 @@ The exercises cover the following topics:
 8.  **Strings**: C-style strings (char arrays), `string.h` functions.
 9.  **Structs**: Defining structures, dot notation, and pointers to structs (`->`).
 10. **Memory**: Dynamic memory allocation (`malloc`, `free`).
+11. **Bitwise**: Bitwise operators (`&`, `|`, `^`, `~`, `<<`, `>>`) and bit masking.
+12. **Enums**: Enumerated types (`enum`), `typedef`, and `switch` statements.
 
 ## Commands
 
