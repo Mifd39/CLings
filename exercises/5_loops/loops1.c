@@ -14,8 +14,7 @@
 // I AM NOT DONE
 
 int main() {
-    // TODO: Write a for loop that prints numbers from 0 to 9.
-    // Use printf("%d\n", i); to print each number on a new line.
+    // TODO: Write a for loop that prints the numbers 0 through 9 to the console.
 
 
     return 0;

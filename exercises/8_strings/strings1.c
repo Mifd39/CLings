@@ -13,15 +13,14 @@
 // I AM NOT DONE
 
 int main() {
-    // TODO: Declare a char array named 'greeting' with the value "Hello, C!".
+    // TODO: Declare a string variable named 'greeting' containing "Hello, C!".
 
 
     printf("%s\n", greeting);
 
     char my_string[] = "I love C programming";
 
-    // TODO: Change the character 'C' to 'Z' in 'my_string' by accessing the array index.
-    // Count carefully to find the index of 'C'.
+    // TODO: Update 'my_string' to say "I love Z programming" by modifying the character 'C' directly.
 
 
     printf("%s\n", my_string);

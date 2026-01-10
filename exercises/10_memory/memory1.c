@@ -14,8 +14,7 @@
 // I AM NOT DONE
 
 int main() {
-    // TODO: Use malloc to allocate memory for a single integer.
-    // Use 'sizeof(int)' to get the correct size.
+    // TODO: Use malloc to allocate memory for a single integer and assign it to 'p'.
     int *p = NULL;
 
     if (p == NULL) {

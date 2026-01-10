@@ -15,7 +15,7 @@
 
 int main() {
     int x = 42;
-    // TODO: Create a pointer named 'p' that stores the address of 'x'.
+    // TODO: Create a pointer named 'p' that points to the variable 'x'.
 
 
     // The '*' operator (dereference) is used to access the value at the address stored in the pointer.

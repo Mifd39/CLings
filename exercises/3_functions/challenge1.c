@@ -20,13 +20,11 @@
     3.  Print the result using `printf` in the format: "The complex sum of %d and %d is: %d\n"
 */
 
-// TODO: Write the complex_sum function here.
-// Remember to specify the return type and argument types.
+// TODO: Implement the 'complex_sum' function.
 
 
 int main() {
-    // TODO: Declare variables 'x' and 'y', call the function, and print the result.
-    // Make sure to match the requested output format exactly.
+    // TODO: Write the logic to use 'complex_sum' and print the result.
 
     return 0;
 }

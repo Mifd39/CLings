@@ -10,8 +10,7 @@
 
 // I AM NOT DONE
 
-// TODO: Declare the prototype for 'multiply' here.
-// It should take two ints and return an int.
+// TODO: Create a function prototype so that main() can call the 'multiply' function defined below.
 
 
 int main() {

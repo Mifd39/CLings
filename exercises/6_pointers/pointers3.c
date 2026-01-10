@@ -9,17 +9,15 @@
 
 // I AM NOT DONE
 
-// TODO: Define a function named 'swap' that takes two int pointers (int *a, int *b).
-// It should swap the values of the integers they point to.
-// Hint: You'll need a temporary variable to hold one of the values during the swap.
+// TODO: Define a function named 'swap' that swaps the values of two integers.
+// The function should accept pointers to the integers.
 
 
 int main() {
     int a = 5, b = 10;
     printf("Before swap: a = %d, b = %d\n", a, b);
 
-    // TODO: Call the 'swap' function with the addresses of a and b.
-    // Remember to use the '&' operator to get the addresses.
+    // TODO: Call the 'swap' function to swap the values of 'a' and 'b'.
 
 
     printf("After swap: a = %d, b = %d\n", a, b);

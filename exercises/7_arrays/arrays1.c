@@ -11,13 +11,12 @@
 // I AM NOT DONE
 
 int main() {
-    // TODO: Declare an array of integers named 'numbers' with 5 elements: 1, 2, 3, 4, 5.
+    // TODO: Declare an array of integers named 'numbers' containing the values 1 through 5.
 
 
     int sum = 0;
 
-    // TODO: Create a loop to sum all elements in the 'numbers' array.
-    // Remember that arrays are 0-indexed (indices are 0, 1, 2, 3, 4).
+    // TODO: Calculate the sum of all elements in the 'numbers' array.
 
 
     if (sum == 15) {

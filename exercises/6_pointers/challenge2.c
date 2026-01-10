@@ -21,7 +21,7 @@
     4.  Print the final score using `printf` in the format: "Final score: %d\n"
 */
 
-// TODO: Define the 'update_score' function here.
+// TODO: Implement the 'update_score' function.
 
 
 int main() {
@@ -29,8 +29,7 @@ int main() {
     int changes[] = {10, -5, 20, -3, 5};
     int num_changes = 5; // The number of elements in the array
 
-    // TODO: Loop through the 'changes' array and call 'update_score' for each element.
-    // You will need to pass the address of 'score' to the function.
+    // TODO: Process the changes array and update the score using your function.
 
 
     printf("Final score: %d\n", score);

@@ -11,8 +11,7 @@
 
 // I AM NOT DONE
 
-// TODO: Define a function named 'add' that takes two integers as arguments and returns their sum.
-// The prototype should look like: int add(int a, int b)
+// TODO: Define a function named 'add' that calculates and returns the sum of two integers.
 
 
 int main() {

@@ -10,7 +10,7 @@
 // I AM NOT DONE
 
 int main() {
-    // TODO: Declare a variable named 'x' of type int and assign it the value 5.
+    // TODO: Declare and initialize a variable 'x' with the value 5 so the print statement works.
 
 
     printf("x is %d\n", x);

@@ -10,8 +10,7 @@
 
 int main() {
     int n = 5;
-    // TODO: Use malloc to allocate memory for an array of 'n' integers.
-    // Calculate the total size needed: n * sizeof(int)
+    // TODO: Use malloc to allocate memory for an array of 'n' integers and assign it to 'arr'.
     int *arr = NULL;
 
     if (arr == NULL) {

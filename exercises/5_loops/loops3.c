@@ -8,17 +8,13 @@
 // I AM NOT DONE
 
 int main() {
-    // TODO: Use nested for loops to print a square of asterisks (*) of size 3x3.
-    // The outer loop handles the rows, and the inner loop handles the columns (asterisks in a row).
-    //
-    // Expected Output:
-    // ***
-    // ***
-    // ***
-    //
-    // Hint: printf("*") prints an asterisk without a newline.
-    //       printf("\n") prints a newline (needed at the end of each row).
-
+    // TODO: Use nested loops to print a 3x3 square of asterisks (*).
+    /*
+        Expected Output:
+        ***
+        ***
+        ***
+    */
 
     return 0;
 }

@@ -10,9 +10,9 @@
 
 int main() {
     char message[] = "Hello C Programming";
-
-    // TODO: Use strlen() to get the length of the string 'message'.
     size_t length = 0;
+
+    // TODO: Calculate the length of the string 'message' and store it in 'length'.
 
 
     // Note: %zu is the correct format specifier for size_t.

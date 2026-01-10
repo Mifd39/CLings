@@ -18,8 +18,7 @@ int main() {
     struct Point p1 = {10, 20};
     struct Point *ptr = &p1;
 
-    // TODO: Use the arrow operator (->) to print the x and y values via the pointer 'ptr'.
-    // Fill in the printf arguments.
+    // TODO: Use the pointer 'ptr' to print the coordinates of the point using the arrow operator.
     printf("Point coordinates: (%d, %d)\n", );
 
     return 0;

@@ -13,7 +13,7 @@
 // I AM NOT DONE
 
 int main() {
-    // TODO: Print "Hello World!" followed by a newline using printf.
-    printf("");
+    // TODO: Print "Hello World!" followed by a newline to the console.
+
     return 0;
 }
