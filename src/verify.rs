@@ -81,6 +81,11 @@ pub fn verify_exercise(exercise: &Exercise) -> Result<VerificationOutput, String
     // Run (for Mode::Run and Mode::Test)
     let (mut cmd, warnings) = crate::sandbox::command(&output_path);
 
+    // Pass args if present
+    if let Some(args) = &exercise.args {
+        cmd.args(args);
+    }
+
     if exercise.stdin.is_some() {
         cmd.stdin(Stdio::piped());
     }

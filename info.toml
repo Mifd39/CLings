@@ -105,6 +105,13 @@ hint = "Use condition ? value_if_true : value_if_false."
 output = "It is Warm outside."
 
 [[exercises]]
+name = "05_stdbool"
+path = "exercises/4_if/05_stdbool.c"
+mode = "run"
+hint = "Include <stdbool.h> to use 'bool'."
+output = "It's a beautiful day!"
+
+[[exercises]]
 name = "01_for_loop"
 path = "exercises/5_loops/01_for_loop.c"
 mode = "run"
@@ -205,6 +212,13 @@ name = "04_string_concatenation"
 path = "exercises/8_strings/04_concatenation.c"
 mode = "run"
 hint = "strcat(dest, src) appends src to dest."
+
+[[exercises]]
+name = "05_ctype"
+path = "exercises/8_strings/05_ctype.c"
+mode = "run"
+hint = "Include <ctype.h> and use toupper(str[i])."
+output = "HELLO WORLD!"
 
 [[exercises]]
 name = "01_struct_definition"
@@ -336,3 +350,62 @@ output = """
 30
 30
 """
+[[exercises]]
+name = "01_argc_argv"
+path = "exercises/13_cmd_args/01_argc_argv.c"
+mode = "run"
+hint = "Change the main signature to int main(int argc, char *argv[])."
+args = ["test_arg"]
+output = """
+Number of arguments: 2
+Program name: target/temp_01_argc_argv
+"""
+
+[[exercises]]
+name = "02_arguments"
+path = "exercises/13_cmd_args/02_arguments.c"
+mode = "run"
+hint = "Loop from i=1 to argc-1. Print argv[i]."
+args = ["apple", "banana", "cherry"]
+output = """
+Argument 1: apple
+Argument 2: banana
+Argument 3: cherry
+"""
+
+[[exercises]]
+name = "03_conversion"
+path = "exercises/13_cmd_args/03_conversion.c"
+mode = "run"
+hint = "Use atoi(argv[1]) to convert the string to an integer."
+args = ["10", "20"]
+output = "Sum: 30"
+[[exercises]]
+name = "01_file_write"
+path = "exercises/14_file_io/01_file_write.c"
+mode = "run"
+hint = "Use fopen(\"/tmp/hello.txt\", \"w\") and fprintf(file, ...)."
+output = "File written successfully."
+
+[[exercises]]
+name = "02_file_read"
+path = "exercises/14_file_io/02_file_read.c"
+mode = "run"
+hint = "Use fscanf(file, \"%d\", &number) to read an integer."
+output = "Read number: 42"
+[[exercises]]
+name = "01_static_local"
+path = "exercises/15_storage_classes/01_static_local.c"
+mode = "run"
+hint = "Use 'static int count = 0;' inside the function."
+output = """
+Count: 1
+Count: 2
+Count: 3
+"""
+[[exercises]]
+name = "01_assert"
+path = "exercises/16_testing/01_assert.c"
+mode = "run"
+hint = "Use assert(calculate_area(5, 10) == 50);"
+output = "All tests passed!"
