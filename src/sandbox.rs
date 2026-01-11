@@ -32,7 +32,7 @@ pub fn command(program: &str) -> (Command, Vec<String>) {
 #[cfg(target_os = "macos")]
 pub fn command(program: &str) -> (Command, Vec<String>) {
     let mut cmd = Command::new("sandbox-exec");
-    let profile = "(version 1) (allow default) (deny network*) (deny file-write*) (allow file-write* \"/dev/tty\")";
+    let profile = "(version 1) (allow default) (deny network*) (deny file-write*) (allow file-write* \"/dev/tty\") (allow file-write* \"/tmp/*\") (allow file-write* \"/private/tmp/*\")";
     cmd.args(&["-p", profile, program]);
     (cmd, vec![])
 }

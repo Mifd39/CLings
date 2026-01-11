@@ -18,6 +18,7 @@ pub struct Exercise {
     pub hint: String,
     pub output: Option<String>,
     pub stdin: Option<String>,
+    pub args: Option<Vec<String>>,
 }
 
 #[derive(Deserialize, Debug)]
