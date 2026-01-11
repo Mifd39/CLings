@@ -74,8 +74,8 @@ mode = "run"
 hint = "Recursion requires a base case and a recursive step."
 
 [[exercises]]
-name = "05_arithmetic_challenge"
-path = "exercises/3_functions/05_arithmetic_challenge.c"
+name = "01_arithmetic_challenge"
+path = "exercises/3_functions_challenge/01_arithmetic_challenge.c"
 mode = "run"
 hint = "Use the prototype 'int complex_sum(int a, int b)'."
 
@@ -153,8 +153,8 @@ mode = "run"
 hint = "ptr + 1 moves the pointer to the next element."
 
 [[exercises]]
-name = "05_reference_challenge"
-path = "exercises/6_pointers/05_reference_challenge.c"
+name = "01_reference_challenge"
+path = "exercises/6_pointers_challenge/01_reference_challenge.c"
 mode = "run"
 hint = "Remember to use *score to modify the value."
 
@@ -225,8 +225,8 @@ mode = "run"
 hint = "ptr->x and ptr->y access members through a pointer."
 
 [[exercises]]
-name = "04_registry_challenge"
-path = "exercises/9_structs/04_registry_challenge.c"
+name = "01_registry_challenge"
+path = "exercises/9_structs_challenge/01_registry_challenge.c"
 mode = "run"
 hint = "Access struct members using dot notation: book.year."
 
@@ -299,7 +299,7 @@ mode = "run"
 hint = "switch (variable) { case VALUE: ... break; }"
 
 [[exercises]]
-name = "04_state_machine_challenge"
-path = "exercises/12_enums/04_state_machine_challenge.c"
+name = "01_state_machine_challenge"
+path = "exercises/12_enums_challenge/01_state_machine_challenge.c"
 mode = "run"
 hint = "Check bits using & and handle logic with switch/if."
