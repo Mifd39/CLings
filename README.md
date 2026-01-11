@@ -26,6 +26,8 @@ CLings is a small interactive tool to help you get used to reading and writing C
 
     ![CLings TUI](tui_screenshot.png)
 
+    ![CLings Screenshot](assets/Screenshot from 2026-01-11 16-43-58.png)
+
 3.  **🧩 Solve Exercises:**
     - **Navigate**: Use the `Up`/`Down` arrows or `j`/`k` to select an exercise.
     - **Open Editor**: Press `Enter` or `e` to open the selected exercise in your default editor (configured via `$EDITOR`).
