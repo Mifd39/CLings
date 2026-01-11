@@ -81,12 +81,12 @@ The exercises cover the following topics:
 11. **Bitwise**: Bitwise operators (`&`, `|`, `^`, `~`, `<<`, `>>`) and bit masking.
 12. **Enums**: Enumerated types (`enum`), `typedef`, and `switch` statements.
 
-## ⌨️ Commands
+## 🏗️ Projects
 
-- `tui` (default): Launches the interactive terminal UI.
-- `list`: Lists all available exercises.
-- `verify`: Runs verification once for all exercises (CI/Script friendly).
-- `watch` (deprecated): Use the TUI instead.
+In addition to small exercises, there are larger "Capstone Projects" designed to test your understanding of multiple concepts at once.
+
+- **Classroom Manager** (Topic 9): Build a complete Contact Management System using structs, arrays, and loops. You will implement features to add students, update grades, and calculate averages.
+- **Virtual CPU** (Topic 12): Create a stack-based Virtual CPU that executes a custom bytecode. This project uses enums for opcodes, a stack for memory, and a fetch-decode-execute cycle.
 
 ## ⚖️ License
 
