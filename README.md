@@ -22,11 +22,11 @@ CLings is a small interactive tool to help you get used to reading and writing C
     ```bash
     cargo run
     ```
-    This launches the interactive **Terminal User Interface (TUI)**.
+    This launches the interactive Terminal User Interface (TUI).
 
-    ![CLings TUI](tui_screenshot.png)
 
-    ![CLings Screenshot](assets/Screenshot from 2026-01-11 16-43-58.png)
+
+    assets/Screenshot from 2026-01-11 16-43-58.png
 
 3.  **🧩 Solve Exercises:**
     - **Navigate**: Use the `Up`/`Down` arrows or `j`/`k` to select an exercise.
