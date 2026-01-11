@@ -53,7 +53,7 @@ CLings is a small interactive tool to help you get used to reading and writing C
 
 > **Note:** The "Open in Editor" feature uses your system's `EDITOR` environment variable. If it's not set, it defaults to `nano`.
 
-![CLings Screenshot](assets/Screenshot from 2026-01-11 16-43-58.png)
+![CLings Screenshot](assets/clings_screenshot.png)
 
 ## 🧠 Learning Resources
 
