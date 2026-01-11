@@ -100,7 +100,7 @@ fn run_tui() -> Result<(), Box<dyn std::error::Error>> {
     let _watcher = tui::update::setup_watcher(tx.clone())?;
 
     // Run loop
-    let res = run_app(&mut terminal, &mut app, rx);
+    let res = run_app(&mut terminal, &mut app, rx, tx);
 
     // Restore terminal
     disable_raw_mode()?;
@@ -122,6 +122,7 @@ fn run_app<B: Backend + io::Write>(
     terminal: &mut Terminal<B>,
     app: &mut tui::model::App,
     rx: mpsc::Receiver<tui::update::AppEvent>,
+    tx: mpsc::Sender<tui::update::AppEvent>,
 ) -> io::Result<()> {
     loop {
         terminal.draw(|f| tui::view::ui(f, app))?;
@@ -160,6 +161,6 @@ fn run_app<B: Backend + io::Write>(
         }
 
         // Handle watcher events
-        tui::update::handle_watcher_events(app, &rx);
+        tui::update::handle_watcher_events(app, &rx, tx.clone());
     }
 }

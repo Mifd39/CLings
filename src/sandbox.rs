@@ -17,16 +17,24 @@ pub fn command(program: &str) -> (Command, Vec<String>) {
         return (cmd, vec![]);
     }
 
-    // Check if unshare is available
-    if is_command_available("unshare") {
-        let mut cmd = Command::new("unshare");
-        cmd.args(&["-n", "-r", program]);
-        return (cmd, vec!["Warning: 'bwrap' not found. Filesystem is not protected. Only network is isolated.".to_string()]);
-    }
+    // Insecure Fallback removed. We must fail or warn aggressively if bwrap is missing.
+    // To prevent users from unknowingly running unsafe code, we will issue a warning
+    // and rely on verify.rs to fail or proceed based on user acceptance?
+    // Actually, verify.rs just runs the command.
+    // We will return the raw command but with a HUGE warning in the output.
+    // Ideally, we should maybe make it error out if configured to do so, but for now:
+    // We stick to the request: "Modify Linux sandbox to fail if bwrap is missing"
 
-    // Fallback
-    let cmd = Command::new(program);
-    (cmd, vec!["Warning: Neither 'bwrap' nor 'unshare' found. Running without sandbox protection.".to_string()])
+    // We will cheat slightly: We return a command that PRINTS an error and fails,
+    // instead of running the program.
+    let mut cmd = Command::new("echo");
+    cmd.arg("Error: 'bwrap' not found. Execution blocked for security. Please install 'bubblewrap'.");
+    // We also need to ensure it fails with non-zero exit code.
+    // 'echo' returns 0. So let's use 'false' or a shell wrapper.
+    let mut cmd = Command::new("sh");
+    cmd.args(&["-c", "echo \"Error: 'bwrap' not found. Execution blocked for security. Please install 'bubblewrap'.\"; exit 1"]);
+
+    (cmd, vec!["Error: 'bwrap' is required for secure execution on Linux.".to_string()])
 }
 
 #[cfg(target_os = "macos")]
@@ -41,7 +49,7 @@ pub fn command(program: &str) -> (Command, Vec<String>) {
 pub fn command(program: &str) -> (Command, Vec<String>) {
     // On Windows, we rely on WSL for security.
     let cmd = Command::new(program);
-    (cmd, vec![])
+    (cmd, vec!["Warning: Windows execution is NOT sandboxed. Use WSL for better security.".to_string()])
 }
 
 // Fallback for other OSes (e.g. BSD)

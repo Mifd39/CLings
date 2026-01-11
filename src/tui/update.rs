@@ -2,12 +2,14 @@ use crossterm::event::{KeyCode, KeyEvent};
 use std::sync::mpsc;
 use std::path::PathBuf;
 use notify::{Watcher, RecursiveMode};
+use std::thread;
 
 use crate::tui::model::{App, SelectionMode};
-use crate::verify::verify_exercise;
+use crate::verify::{verify_exercise, VerificationOutput};
 
 pub enum AppEvent {
     FileChanged(PathBuf),
+    VerificationDone(String, VerificationOutput),
 }
 
 pub enum Action {
@@ -68,7 +70,7 @@ pub fn handle_key_event(app: &mut App, key: KeyEvent) -> Action {
     Action::Continue
 }
 
-pub fn handle_watcher_events(app: &mut App, rx: &mpsc::Receiver<AppEvent>) {
+pub fn handle_watcher_events(app: &mut App, rx: &mpsc::Receiver<AppEvent>, tx: mpsc::Sender<AppEvent>) {
     // Process all pending events
     while let Ok(event) = rx.try_recv() {
         match event {
@@ -83,22 +85,36 @@ pub fn handle_watcher_events(app: &mut App, rx: &mpsc::Receiver<AppEvent>) {
                 // We check if the changed path ends with the current exercise path
                 if path.ends_with(&ex_path) {
                     app.processing = true;
-                    // Trigger verification
-                    let res = verify_exercise(&ex_clone);
-                    if let Ok(output) = res {
-                        if output.success {
-                            app.progress.mark_completed(ex_name);
+                    // Trigger verification in a separate thread
+                    let tx_clone = tx.clone();
+                    thread::spawn(move || {
+                        let res = verify_exercise(&ex_clone);
+                        match res {
+                            Ok(output) => {
+                                let _ = tx_clone.send(AppEvent::VerificationDone(ex_name, output));
+                            }
+                            Err(e) => {
+                                let output = VerificationOutput {
+                                    success: false,
+                                    stdout: String::new(),
+                                    stderr: format!("Error running verification: {}", e),
+                                };
+                                let _ = tx_clone.send(AppEvent::VerificationDone(ex_name, output));
+                            }
                         }
-                        app.output = Some(output);
-                    } else if let Err(e) = res {
-                         app.output = Some(crate::verify::VerificationOutput {
-                             success: false,
-                             stdout: String::new(),
-                             stderr: format!("Error running verification: {}", e),
-                         });
-                    }
-                    app.processing = false;
+                    });
                 }
+            }
+            AppEvent::VerificationDone(ex_name, output) => {
+                app.processing = false;
+                // Only update if we are still looking at the same exercise?
+                // For now, assume yes, or just update the UI.
+
+                // If it was successful, update progress
+                if output.success {
+                     app.progress.mark_completed(ex_name);
+                }
+                app.output = Some(output);
             }
         }
     }
