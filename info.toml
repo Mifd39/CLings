@@ -18,6 +18,12 @@ mode = "compile"
 hint = "C statements must end with a semicolon (;)."
 
 [[exercises]]
+name = "04_comments"
+path = "exercises/1_intro/04_comments.c"
+mode = "compile"
+hint = "Use // to comment out a single line."
+
+[[exercises]]
 name = "01_variable_definition"
 path = "exercises/2_variables/01_definition.c"
 mode = "compile"
@@ -35,6 +41,13 @@ name = "03_data_types"
 path = "exercises/2_variables/03_data_types.c"
 mode = "run"
 hint = "Use float for decimals and char for characters."
+
+[[exercises]]
+name = "04_casting"
+path = "exercises/2_variables/04_casting.c"
+mode = "run"
+hint = "Use (float)variable to cast it to a float."
+output = "The result is: 2.5"
 
 [[exercises]]
 name = "01_function_declaration"
@@ -83,6 +96,13 @@ name = "03_logical_operators"
 path = "exercises/4_if/03_logical_operators.c"
 mode = "run"
 hint = "Use '&&' for logical AND."
+
+[[exercises]]
+name = "04_ternary"
+path = "exercises/4_if/04_ternary.c"
+mode = "run"
+hint = "Use condition ? value_if_true : value_if_false."
+output = "It is Warm outside."
 
 [[exercises]]
 name = "01_for_loop"
@@ -229,6 +249,13 @@ mode = "run"
 hint = "Use free(data) to release the memory."
 
 [[exercises]]
+name = "04_realloc"
+path = "exercises/10_memory/04_realloc.c"
+mode = "run"
+hint = "Use realloc(ptr, new_size) to resize memory."
+output = "Values: 10, 20, 30"
+
+[[exercises]]
 name = "01_bitwise_and_or"
 path = "exercises/11_bitwise/01_and_or.c"
 mode = "run"
@@ -245,6 +272,13 @@ name = "03_bitwise_xor_mask"
 path = "exercises/11_bitwise/03_xor_mask.c"
 mode = "run"
 hint = "XOR (^) returns 1 if bits are different. Use & with a mask to check bits."
+
+[[exercises]]
+name = "04_flags"
+path = "exercises/11_bitwise/04_flags.c"
+mode = "run"
+hint = "Use flags | MASK to set bits."
+output = "Flags configured correctly!"
 
 [[exercises]]
 name = "01_enum_definition"
