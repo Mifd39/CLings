@@ -17,6 +17,7 @@ pub struct Exercise {
     pub mode: Mode,
     pub hint: String,
     pub output: Option<String>,
+    pub stdin: Option<String>,
 }
 
 #[derive(Deserialize, Debug)]
