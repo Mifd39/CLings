@@ -1,11 +1,12 @@
 use ratatui::{
     layout::{Alignment, Constraint, Direction, Layout, Rect},
-    style::{Color, Modifier, Style},
+    style::{Modifier, Style},
     text::{Line, Span},
-    widgets::{Block, Borders, Clear, List, ListItem, Paragraph, Wrap},
+    widgets::{Block, BorderType, Borders, Clear, List, ListItem, Paragraph, Wrap},
     Frame,
 };
 use crate::tui::model::{App, SelectionMode};
+use crate::tui::theme::*;
 
 pub fn ui(f: &mut Frame, app: &mut App) {
     let chunks = Layout::default()
@@ -26,13 +27,51 @@ pub fn ui(f: &mut Frame, app: &mut App) {
 }
 
 fn draw_sidebar(f: &mut Frame, app: &App, area: Rect) {
+    let chunks = Layout::default()
+        .direction(Direction::Vertical)
+        .constraints([
+            Constraint::Length(8), // Fixed height for logo
+            Constraint::Min(0),    // Remaining space for list
+        ].as_ref())
+        .split(area);
+
+    draw_logo(f, chunks[0]);
+    draw_exercise_list(f, app, chunks[1]);
+}
+
+fn draw_logo(f: &mut Frame, area: Rect) {
+    let logo_text = vec![
+        "  ___ _ _               ",
+        " / __| (_)_ _  __ _ ___ ",
+        "| (__| | | ' \\/ _` (_-< ",
+        " \\___|_|_|_||_\\__, /__/ ",
+        "              |___/     ",
+    ];
+
+    // Actually, let's make it look nice with a rounded border box
+    let block = Block::default()
+        .borders(Borders::ALL)
+        .border_type(BorderType::Rounded)
+        .border_style(Style::default().fg(GRUVBOX_BLUE))
+        .title("CLings")
+        .title_alignment(Alignment::Center);
+
+    let logo_widget = Paragraph::new(logo_text.join("\n"))
+        .block(block)
+        .style(Style::default().fg(GRUVBOX_ORANGE).add_modifier(Modifier::BOLD))
+        .alignment(Alignment::Center);
+
+    f.render_widget(logo_widget, area);
+}
+
+fn draw_exercise_list(f: &mut Frame, app: &App, area: Rect) {
     let mut styled_items = Vec::new();
     for (t_idx, topic) in app.topics.iter().enumerate() {
         let is_topic_selected = app.selection_mode == SelectionMode::Topic && t_idx == app.current_topic_index;
 
-        let mut topic_style = Style::default().add_modifier(Modifier::BOLD).fg(Color::Blue);
+        let mut topic_style = Style::default().add_modifier(Modifier::BOLD).fg(GRUVBOX_BLUE);
         if is_topic_selected {
-            topic_style = topic_style.add_modifier(Modifier::REVERSED);
+            topic_style = topic_style.bg(GRUVBOX_SELECTION_BG).fg(GRUVBOX_FG);
         }
 
         let indicator = if topic.open { "▼" } else { "▶" };
@@ -45,9 +84,9 @@ fn draw_sidebar(f: &mut Frame, app: &App, area: Rect) {
         let mut spans = vec![Span::styled(format!("{} ", indicator), topic_style)];
 
         if all_completed {
-            let mut checkmark_style = Style::default().fg(Color::Green);
+            let mut checkmark_style = Style::default().fg(GRUVBOX_GREEN);
             if is_topic_selected {
-                checkmark_style = checkmark_style.add_modifier(Modifier::REVERSED);
+                checkmark_style = checkmark_style.bg(GRUVBOX_SELECTION_BG);
             }
             spans.push(Span::styled("✓ ", checkmark_style));
         }
@@ -65,13 +104,13 @@ fn draw_sidebar(f: &mut Frame, app: &App, area: Rect) {
 
                 let status_icon = if is_completed { "✓" } else { " " };
                 let mut style = if is_completed {
-                    Style::default().fg(Color::Green)
+                    Style::default().fg(GRUVBOX_GREEN)
                 } else {
-                    Style::default().fg(Color::White)
+                    Style::default().fg(GRUVBOX_FG)
                 };
 
                 if is_selected {
-                    style = style.add_modifier(Modifier::REVERSED);
+                    style = style.bg(GRUVBOX_SELECTION_BG).add_modifier(Modifier::BOLD);
                 }
 
                 let content = format!("    {} {}", status_icon, exercise.name);
@@ -81,7 +120,13 @@ fn draw_sidebar(f: &mut Frame, app: &App, area: Rect) {
     }
 
     let list = List::new(styled_items)
-        .block(Block::default().borders(Borders::ALL).title("Exercises"));
+        .block(
+            Block::default()
+                .borders(Borders::ALL)
+                .border_type(BorderType::Rounded)
+                .border_style(Style::default().fg(GRUVBOX_FG))
+                .title("Exercises")
+        );
 
     f.render_widget(list, area);
 }
@@ -89,7 +134,7 @@ fn draw_sidebar(f: &mut Frame, app: &App, area: Rect) {
 fn draw_main_content(f: &mut Frame, app: &App, area: Rect) {
     let chunks = Layout::default()
         .direction(Direction::Vertical)
-        .constraints([Constraint::Percentage(20), Constraint::Percentage(80)].as_ref())
+        .constraints([Constraint::Percentage(30), Constraint::Percentage(70)].as_ref())
         .split(area);
 
     // Info Block or Topic Summary
@@ -102,11 +147,11 @@ fn draw_main_content(f: &mut Frame, app: &App, area: Rect) {
                 let total_count = topic.exercises.len();
 
                 let summary = vec![
-                    Line::from(Span::styled(format!("Topic: {}", topic.name), Style::default().add_modifier(Modifier::BOLD).fg(Color::Blue))),
+                    Line::from(Span::styled(format!("Topic: {}", topic.name), Style::default().add_modifier(Modifier::BOLD).fg(GRUVBOX_BLUE))),
                     Line::from(""),
                     Line::from(format!("Progress: {} / {} completed", completed_count, total_count)),
                     Line::from(""),
-                    Line::from(Span::styled("Instructions:", Style::default().fg(Color::Yellow))),
+                    Line::from(Span::styled("Instructions:", Style::default().fg(GRUVBOX_YELLOW))),
                     Line::from("  • Press 'Enter' or 'l' to expand/collapse topic"),
                     Line::from("  • Press 'j' / 'Down' to move down"),
                     Line::from("  • Press 'k' / 'Up' to move up"),
@@ -114,7 +159,13 @@ fn draw_main_content(f: &mut Frame, app: &App, area: Rect) {
                 ];
 
                 let p = Paragraph::new(summary)
-                    .block(Block::default().borders(Borders::ALL).title("Topic Summary"))
+                    .block(
+                        Block::default()
+                            .borders(Borders::ALL)
+                            .border_type(BorderType::Rounded)
+                            .border_style(Style::default().fg(GRUVBOX_FG))
+                            .title("Topic Summary")
+                    )
                     .wrap(Wrap { trim: true });
                 f.render_widget(p, chunks[0]);
             }
@@ -123,23 +174,28 @@ fn draw_main_content(f: &mut Frame, app: &App, area: Rect) {
             if let Some(exercise) = app.current_exercise() {
                 let path_text = format!("Path: {}", exercise.path.display());
                 let mode_text = format!("Mode: {:?}", exercise.mode);
-                // Hint is hidden by default now
                 let hint_msg = "Press 'h' for hint";
 
                 let info_paragraph = Paragraph::new(vec![
-                    Line::from(Span::styled(path_text, Style::default().add_modifier(Modifier::BOLD))),
-                    Line::from(mode_text),
+                    Line::from(Span::styled(path_text, Style::default().add_modifier(Modifier::BOLD).fg(GRUVBOX_FG))),
+                    Line::from(Span::styled(mode_text, Style::default().fg(GRUVBOX_FG))),
                     Line::from(""),
-                    Line::from(Span::styled("Instructions:", Style::default().fg(Color::Yellow))),
+                    Line::from(Span::styled("Instructions:", Style::default().fg(GRUVBOX_YELLOW))),
                     Line::from("  • Press 'Enter' or 'e' to open in Editor"),
                     Line::from("  • Edit the file and save to verify"),
                     Line::from("  • Press 'j' / 'Down' for next item"),
                     Line::from("  • Press 'k' / 'Up' for prev item"),
                     Line::from("  • Press 'q' to Quit"),
                     Line::from(""),
-                    Line::from(Span::styled(hint_msg, Style::default().fg(Color::Cyan))),
+                    Line::from(Span::styled(hint_msg, Style::default().fg(GRUVBOX_CYAN))),
                 ])
-                .block(Block::default().borders(Borders::ALL).title("Details"))
+                .block(
+                    Block::default()
+                        .borders(Borders::ALL)
+                        .border_type(BorderType::Rounded)
+                        .border_style(Style::default().fg(GRUVBOX_FG))
+                        .title("Details")
+                )
                 .wrap(Wrap { trim: true });
 
                 f.render_widget(info_paragraph, chunks[0]);
@@ -148,52 +204,62 @@ fn draw_main_content(f: &mut Frame, app: &App, area: Rect) {
     }
 
     // Output Block
-    let output_block = Block::default().borders(Borders::ALL).title("Output");
+    let output_block = Block::default()
+        .borders(Borders::ALL)
+        .border_type(BorderType::Rounded)
+        .border_style(Style::default().fg(GRUVBOX_FG))
+        .title("Output");
+
     if let Some(output) = &app.output {
         let mut lines = Vec::new();
         if output.success {
-            lines.push(Line::from(Span::styled("✓ Verification Successful!", Style::default().fg(Color::Green).add_modifier(Modifier::BOLD))));
+            lines.push(Line::from(Span::styled("✓ Verification Successful!", Style::default().fg(GRUVBOX_GREEN).add_modifier(Modifier::BOLD))));
         } else {
-            lines.push(Line::from(Span::styled("✗ Verification Failed", Style::default().fg(Color::Red).add_modifier(Modifier::BOLD))));
+            lines.push(Line::from(Span::styled("✗ Verification Failed", Style::default().fg(GRUVBOX_RED).add_modifier(Modifier::BOLD))));
         }
 
         lines.push(Line::from(""));
 
         if !output.stdout.is_empty() {
-            lines.push(Line::from(Span::styled("STDOUT:", Style::default().fg(Color::Blue))));
+            lines.push(Line::from(Span::styled("STDOUT:", Style::default().fg(GRUVBOX_BLUE))));
             for line in output.stdout.lines() {
-                lines.push(Line::from(line));
+                lines.push(Line::from(Span::styled(line, Style::default().fg(GRUVBOX_FG))));
             }
         }
 
         if !output.stderr.is_empty() {
              lines.push(Line::from(""));
-             lines.push(Line::from(Span::styled("STDERR:", Style::default().fg(Color::Red))));
+             lines.push(Line::from(Span::styled("STDERR:", Style::default().fg(GRUVBOX_RED))));
              for line in output.stderr.lines() {
-                lines.push(Line::from(line));
+                lines.push(Line::from(Span::styled(line, Style::default().fg(GRUVBOX_FG))));
             }
         }
 
         let output_paragraph = Paragraph::new(lines)
             .block(output_block)
-            .wrap(Wrap { trim: false }); // Don't wrap code output too aggressively
+            .wrap(Wrap { trim: false });
 
         f.render_widget(output_paragraph, chunks[1]);
     } else {
         let placeholder = Paragraph::new("Waiting for verification...")
             .block(output_block)
-            .style(Style::default().fg(Color::DarkGray));
+            .style(Style::default().fg(GRUVBOX_FG)); // Changed to FG for visibility
         f.render_widget(placeholder, chunks[1]);
     }
 }
 
 fn draw_hint_popup(f: &mut Frame, app: &App) {
     if let Some(exercise) = app.current_exercise() {
-        let block = Block::default().title("Hint").borders(Borders::ALL);
+        let block = Block::default()
+            .title("Hint")
+            .borders(Borders::ALL)
+            .border_type(BorderType::Rounded)
+            .border_style(Style::default().fg(GRUVBOX_CYAN));
+
         let text = vec![
-            Line::from(Span::styled(&exercise.hint, Style::default().fg(Color::Cyan))),
+            Line::from(Span::styled(&exercise.hint, Style::default().fg(GRUVBOX_FG))),
             Line::from(""),
-            Line::from(Span::styled("Press Esc or h to close", Style::default().fg(Color::DarkGray))),
+            Line::from(Span::styled("Press Esc or h to close", Style::default().fg(GRUVBOX_SELECTION_BG))), // Darker text for secondary info
         ];
         let paragraph = Paragraph::new(text)
             .block(block)
@@ -207,11 +273,16 @@ fn draw_hint_popup(f: &mut Frame, app: &App) {
 }
 
 fn draw_quit_popup(f: &mut Frame) {
-    let block = Block::default().title("Quit").borders(Borders::ALL);
+    let block = Block::default()
+        .title("Quit")
+        .borders(Borders::ALL)
+        .border_type(BorderType::Rounded)
+        .border_style(Style::default().fg(GRUVBOX_RED));
+
     let text = vec![
-        Line::from(Span::styled("Are you sure you want to quit?", Style::default().fg(Color::Red).add_modifier(Modifier::BOLD))),
+        Line::from(Span::styled("Are you sure you want to quit?", Style::default().fg(GRUVBOX_RED).add_modifier(Modifier::BOLD))),
         Line::from(""),
-        Line::from(Span::styled("(y) Yes / (n) No", Style::default().fg(Color::White))),
+        Line::from(Span::styled("(y) Yes / (n) No", Style::default().fg(GRUVBOX_FG))),
     ];
     let paragraph = Paragraph::new(text)
         .block(block)
