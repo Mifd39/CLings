@@ -1,7 +1,8 @@
 use crate::exercise::{Exercise, Mode};
 use colored::Colorize;
 use std::fs;
-use std::process::Command;
+use std::io::Write;
+use std::process::{Command, Stdio};
 
 #[derive(Debug, Clone)]
 pub struct VerificationOutput {
@@ -79,9 +80,25 @@ pub fn verify_exercise(exercise: &Exercise) -> Result<VerificationOutput, String
 
     // Run (for Mode::Run and Mode::Test)
     let (mut cmd, warnings) = crate::sandbox::command(&output_path);
-    let run_output = cmd
-        .output()
-        .map_err(|e| format!("Failed to run binary: {}", e))?;
+
+    if exercise.stdin.is_some() {
+        cmd.stdin(Stdio::piped());
+    }
+
+    let mut child = cmd
+        .spawn()
+        .map_err(|e| format!("Failed to spawn binary: {}", e))?;
+
+    if let Some(input) = &exercise.stdin {
+        if let Some(mut stdin) = child.stdin.take() {
+            stdin.write_all(input.as_bytes())
+                .map_err(|e| format!("Failed to write to stdin: {}", e))?;
+        }
+    }
+
+    let run_output = child
+        .wait_with_output()
+        .map_err(|e| format!("Failed to wait on binary: {}", e))?;
 
     // Cleanup
     let _ = fs::remove_file(&output_path);
