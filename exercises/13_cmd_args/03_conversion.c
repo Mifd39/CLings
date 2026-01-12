@@ -22,11 +22,10 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // TODO: Convert argv[1] and argv[2] to integers using atoi().
-    int num1 =
-    int num2 =
+    // TODO: Convert arguments to integers and calculate their sum.
+    int sum = 0;
 
-    int sum = num1 + num2;
+
     printf("Sum: %d\n", sum);
 
     return 0;

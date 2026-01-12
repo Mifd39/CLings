@@ -27,10 +27,8 @@ int main() {
     unsigned int a = 5; // Binary: 0101
     unsigned int b = 3; // Binary: 0011
 
-    // TODO: Use the bitwise AND operator (&) to find the intersection of 'a' and 'b'.
+    // TODO: Calculate the bitwise AND and OR of 'a' and 'b'.
     unsigned int and_result = 0;
-
-    // TODO: Use the bitwise OR operator (|) to combine 'a' and 'b'.
     unsigned int or_result = 0;
 
     printf("a & b = %u\n", and_result);

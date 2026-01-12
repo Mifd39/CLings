@@ -24,8 +24,8 @@ int main() {
     arr[1] = 20;
 
     // We need to store 3 integers now!
-    // TODO: Use realloc to resize 'arr' to hold 3 integers.
-    // arr = ...
+    // TODO: Resize 'arr' to hold 3 integers.
+
 
     // (This part is to verify your work works)
     arr[2] = 30;

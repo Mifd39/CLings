@@ -24,7 +24,7 @@ void setup_file() {
 int main() {
     setup_file();
 
-    // TODO: Open "/tmp/log.txt" in append mode ("a").
+    // TODO: Append "Log entry 2\n" to "/tmp/log.txt".
     FILE *file = NULL;
 
     if (!file) {
@@ -32,7 +32,6 @@ int main() {
         return 1;
     }
 
-    // TODO: Write "Log entry 2\n" to the file.
 
 
     fclose(file);

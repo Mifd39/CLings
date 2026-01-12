@@ -17,8 +17,7 @@ int main() {
     char name[] = "Alice";
     int age = 30;
 
-    // TODO: Print a sentence stating the name and age using the variables provided.
-    // Format: "My name is Alice and I am 30 years old."
+    // TODO: Print "My name is Alice and I am 30 years old." using the 'name' and 'age' variables.
 
 
     return 0;

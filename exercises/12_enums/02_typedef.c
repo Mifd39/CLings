@@ -16,8 +16,7 @@
 
 // I AM NOT DONE
 
-// TODO: Define a typedef'd enum named 'Status' with values:
-// PENDING, APPROVED, REJECTED.
+// TODO: Define a typedef'd enum 'Status' (PENDING, APPROVED, REJECTED).
 
 
 void print_status(Status s) {
@@ -27,7 +26,7 @@ void print_status(Status s) {
 }
 
 int main() {
-    // TODO: Create a variable 'my_status' of type 'Status' and set it to APPROVED.
+    // TODO: Set 'my_status' to APPROVED.
 
 
     print_status(my_status);

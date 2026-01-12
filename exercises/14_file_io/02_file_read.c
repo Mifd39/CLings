@@ -26,19 +26,18 @@ void create_test_file() {
 int main() {
     create_test_file(); // Setup the file
 
-    // TODO: Open "/tmp/number.txt" in read mode ("r").
-    FILE *file =
+    // TODO: Open "/tmp/number.txt" and read the integer inside into 'number'.
+    FILE *file = NULL;
 
     if (file == NULL) {
         printf("Failed to open file.\n");
         return 1;
     }
 
-    int number;
-    // TODO: Read an integer from the file into the variable 'number' using fscanf.
+    int number = 0;
 
 
-    fclose(file);
+
     printf("Read number: %d\n", number);
     return 0;
 }

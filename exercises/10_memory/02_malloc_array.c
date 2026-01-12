@@ -17,7 +17,7 @@
 
 int main() {
     int n = 5;
-    // TODO: Use malloc to allocate memory for an array of 'n' integers and assign it to 'arr'.
+    // TODO: Allocate memory for an array of 'n' integers.
     int *arr = NULL;
 
     if (arr == NULL) {
@@ -32,6 +32,7 @@ int main() {
     }
     printf("\n");
 
-    free(arr);
+    // TODO: Clean up.
+
     return 0;
 }

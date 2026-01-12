@@ -17,12 +17,10 @@
 #include <string.h>
 // I AM NOT DONE
 
+// TODO: Implement the function to convert the string to uppercase.
 void convert_to_upper(char *str) {
-    // TODO: Loop through the string and convert each character to uppercase using toupper().
-    // Hint: You can modify the string in place.
-    for (int i = 0; str[i] != '\0'; i++) {
 
-    }
+
 }
 
 int main() {

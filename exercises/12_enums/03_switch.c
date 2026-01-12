@@ -25,8 +25,7 @@ typedef enum {
 
 int calculate(int a, int b, Operation op) {
     int result = 0;
-    // TODO: Use a switch statement to handle the different 'op' cases.
-    // For DIVIDE, return 0 if b is 0.
+    // TODO: Implement the switch statement to handle 'op'.
 
 
     return result;

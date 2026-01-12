@@ -14,10 +14,8 @@
 // I AM NOT DONE
 
 void counter() {
-    // TODO: Define a static integer variable named 'count' initialized to 0.
-
-
-    // TODO: Increment 'count'.
+    // TODO: Implement a static counter that increments each time this function is called.
+    // Initialize it to 0.
 
 
     printf("Count: %d\n", count);

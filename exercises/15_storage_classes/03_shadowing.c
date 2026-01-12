@@ -22,7 +22,7 @@ void print_global() {
 }
 
 int main() {
-    // TODO: Define a local integer 'value' set to 5.
+    // TODO: Shadow the global 'value' with a local variable set to 5.
 
 
     printf("Local value: %d\n", value);

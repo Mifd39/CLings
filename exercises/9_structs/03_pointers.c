@@ -25,7 +25,7 @@ int main() {
     struct Point p1 = {10, 20};
     struct Point *ptr = &p1;
 
-    // TODO: Use the pointer 'ptr' to print the coordinates of the point using the arrow operator.
+    // TODO: Print the coordinates using the pointer 'ptr'.
     printf("Point coordinates: (%d, %d)\n", );
 
     return 0;

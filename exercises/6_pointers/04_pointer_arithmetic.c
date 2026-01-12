@@ -18,8 +18,7 @@ int main() {
     int numbers[] = {10, 20, 30, 40, 50};
     int *ptr = numbers;
 
-    // TODO: Use pointer arithmetic to access the 3rd element (30).
-    // Hint: Add to 'ptr' and then dereference it.
+    // TODO: Retrieve the 3rd element (30) using only pointer arithmetic (no array indexing).
     int third_value = 0;
 
 

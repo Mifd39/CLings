@@ -12,9 +12,8 @@
 
 // I AM NOT DONE
 
-// TODO: Implement this function.
-// If actual == expected, print "PASS".
-// If not, print "FAIL: Expected [expected], got [actual]".
+// TODO: Implement 'check_equals' to compare actual vs expected values.
+// Print "PASS" or "FAIL: Expected X, got Y".
 void check_equals(int actual, int expected) {
 
 }
