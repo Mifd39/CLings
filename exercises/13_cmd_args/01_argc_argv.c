@@ -16,12 +16,10 @@
 // I AM NOT DONE
 
 int main(int argc, char *argv[]) {
-    // TODO: Print the number of arguments passed to the program.
-    // Use the format: "Number of arguments: %d\n"
+    // TODO: Print the argument count ("Number of arguments: ...").
 
 
-    // TODO: Print the first argument (which is the program name).
-    // Use the format: "Program name: %s\n"
+    // TODO: Print the program name (the first argument).
 
 
     return 0;

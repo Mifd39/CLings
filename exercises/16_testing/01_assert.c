@@ -23,10 +23,7 @@ int calculate_area(int width, int height) {
 }
 
 int main() {
-    // TODO: Assert that calculating area of 5 and 10 equals 50.
-
-
-    // TODO: Assert that calculating area of -1 and 10 equals -1 (error case).
+    // TODO: Add assertions to verify 'calculate_area' logic (include normal and error cases).
 
 
     printf("All tests passed!\n");

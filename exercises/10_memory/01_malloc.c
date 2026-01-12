@@ -21,7 +21,7 @@
 // I AM NOT DONE
 
 int main() {
-    // TODO: Use malloc to allocate memory for a single integer and assign it to 'p'.
+    // TODO: Dynamically allocate memory for an integer pointer 'p'.
     int *p = NULL;
 
     if (p == NULL) {
@@ -32,7 +32,7 @@ int main() {
     *p = 42;
     printf("Value: %d\n", *p);
 
-    // It is good practice to free memory when you are done with it.
-    free(p);
+    // TODO: Free the allocated memory.
+
     return 0;
 }

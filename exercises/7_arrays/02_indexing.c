@@ -22,7 +22,7 @@
 int main() {
     int numbers[] = {10, 20, 30, 40, 50};
 
-    // TODO: Access and print the third element of the array (value 30).
+    // TODO: Print the third element of the array (value 30).
     printf("The third element is %d\n", );
 
     return 0;

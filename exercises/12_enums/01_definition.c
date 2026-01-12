@@ -17,12 +17,11 @@
 
 // I AM NOT DONE
 
-// TODO: Define an enum named 'Day' with constants for MONDAY, TUESDAY, WEDNESDAY, etc.
-// Start MONDAY at 1 instead of 0.
+// TODO: Define an enum 'Day' (MONDAY=1, TUESDAY, etc.).
 
 
 int main() {
-    // TODO: Declare a variable of type 'enum Day' named 'today' and set it to WEDNESDAY.
+    // TODO: Set 'today' to WEDNESDAY.
 
 
     if (today == 3) {

@@ -31,13 +31,7 @@ void assert_eq(int actual, int expected, const char *test_name) {
 }
 
 void test_multiplication() {
-    // TODO: Call assert_eq to check if multiply(2, 3) is 6.
-
-
-    // TODO: Call assert_eq to check if multiply(5, 0) is 0.
-
-
-    // TODO: Call assert_eq to check if multiply(-1, 5) is -5.
+    // TODO: Add test cases for 'multiply' (positive, zero, negative).
 
 }
 

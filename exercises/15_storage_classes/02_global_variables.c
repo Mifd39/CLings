@@ -15,11 +15,11 @@
 
 // I AM NOT DONE
 
-// TODO: Define a global variable 'counter' here.
+// TODO: Define a global variable 'counter' initialized to 0.
 
 
 void increment() {
-    // TODO: Increase the global 'counter' by 1.
+    // TODO: Increment the global 'counter'.
 
 }
 

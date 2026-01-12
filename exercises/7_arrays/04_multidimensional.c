@@ -23,7 +23,6 @@ int main() {
     };
 
     // TODO: Retrieve the value '6' from the matrix.
-    // Remember arrays are 0-indexed!
     int value = 0;
 
 

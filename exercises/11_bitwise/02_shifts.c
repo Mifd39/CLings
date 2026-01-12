@@ -21,12 +21,8 @@
 int main() {
     unsigned int number = 10; // Binary: ...0000 1010
 
-    // TODO: Shift 'number' 1 bit to the left.
-    // Hint: 10 * 2 = 20
+    // TODO: Shift 'number' 1 bit left and 1 bit right.
     unsigned int left_shifted = 0;
-
-    // TODO: Shift 'number' 1 bit to the right.
-    // Hint: 10 / 2 = 5
     unsigned int right_shifted = 0;
 
     printf("10 << 1 = %u\n", left_shifted);

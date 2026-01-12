@@ -22,14 +22,11 @@
 
 // I AM NOT DONE
 
-// TODO: Define a struct named 'Person' that holds a name (string of size 50) and an age (integer).
+// TODO: Define a 'Person' struct with a 50-char name and an integer age.
 
 
 int main() {
-    // TODO: Create an instance of 'struct Person' named 'p1'.
-
-
-    // TODO: Set p1.name to "Alice" and p1.age to 30.
+    // TODO: Create a 'Person' named 'p1', set name to "Alice" and age to 30.
 
 
     printf("Name: %s, Age: %d\n", p1.name, p1.age);

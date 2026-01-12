@@ -21,7 +21,7 @@ int main() {
     char greeting[50] = "Hello, ";
     char name[] = "World!";
 
-    // TODO: Use 'strcat' to append 'name' to 'greeting'.
+    // TODO: Append 'name' to 'greeting'.
 
 
     printf("Result: %s\n", greeting);

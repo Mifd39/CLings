@@ -22,7 +22,7 @@
 int main() {
     unsigned int flags = 0;
 
-    // TODO: Set FLAG_A and FLAG_C (turn them ON) using the bitwise OR operator (|).
+    // TODO: Set FLAG_A and FLAG_C.
 
 
     if ((flags & FLAG_A) && (flags & FLAG_C) && !(flags & FLAG_B)) {

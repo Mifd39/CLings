@@ -18,7 +18,7 @@ int main() {
     int sum = 0;
     int length = 5;
 
-    // TODO: Use a loop to calculate the sum of the array elements.
+    // TODO: Calculate the sum of the array elements.
 
 
     printf("The sum is %d\n", sum);

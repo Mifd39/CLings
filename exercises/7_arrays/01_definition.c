@@ -18,12 +18,12 @@
 // I AM NOT DONE
 
 int main() {
-    // TODO: Declare an array of integers named 'numbers' containing the values 1 through 5.
+    // TODO: Declare an integer array 'numbers' with values 1 through 5.
 
 
     int sum = 0;
 
-    // TODO: Calculate the sum of all elements in the 'numbers' array.
+    // TODO: Sum all elements in the 'numbers' array.
 
 
     if (sum == 15) {

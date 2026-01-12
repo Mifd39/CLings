@@ -17,18 +17,14 @@
 // I AM NOT DONE
 
 int main() {
-    // TODO: Open "/tmp/hello.txt" in write mode ("w").
-    FILE *file =
+    // TODO: Open "/tmp/hello.txt" and write "Hello, File!" to it.
+    FILE *file = NULL;
 
     if (file == NULL) {
         printf("Failed to open file.\n");
         return 1;
     }
 
-    // TODO: Write "Hello, File!" to the file using fprintf.
-
-
-    // TODO: Close the file.
 
 
     printf("File written successfully.\n");

@@ -23,7 +23,7 @@ struct Person {
 int main() {
     struct Person p;
 
-    // TODO: Initialize the person's name to "Bob" and age to 25.
+    // TODO: Set the name to "Bob" and age to 25.
 
 
     printf("Name: %s, Age: %d\n", p.name, p.age);

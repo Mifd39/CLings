@@ -27,7 +27,7 @@ int main() {
 
     char my_string[] = "I love C programming";
 
-    // TODO: Update 'my_string' to say "I love Z programming" by modifying the character 'C' directly.
+    // TODO: Change 'C' to 'Z' in 'my_string'.
 
 
     printf("%s\n", my_string);
