@@ -380,6 +380,15 @@ mode = "run"
 hint = "Use atoi(argv[1]) to convert the string to an integer."
 args = ["10", "20"]
 output = "Sum: 30"
+
+[[exercises]]
+name = "04_arg_parsing"
+path = "exercises/13_cmd_args/04_arg_parsing.c"
+mode = "run"
+hint = "strcmp returns 0 if strings match."
+args = ["--verbose"]
+output = "Verbose mode enabled."
+
 [[exercises]]
 name = "01_file_write"
 path = "exercises/14_file_io/01_file_write.c"
@@ -393,6 +402,24 @@ path = "exercises/14_file_io/02_file_read.c"
 mode = "run"
 hint = "Use fscanf(file, \"%d\", &number) to read an integer."
 output = "Read number: 42"
+
+[[exercises]]
+name = "03_file_append"
+path = "exercises/14_file_io/03_append.c"
+mode = "run"
+hint = "Use fopen(filename, \"a\") to append."
+output = """
+Log entry 1
+Log entry 2
+"""
+
+[[exercises]]
+name = "04_binary_struct"
+path = "exercises/14_file_io/04_binary_struct.c"
+mode = "run"
+hint = "fwrite(&data, size, count, file) writes raw bytes."
+output = "Read Point: x=10, y=20"
+
 [[exercises]]
 name = "01_static_local"
 path = "exercises/15_storage_classes/01_static_local.c"
@@ -403,9 +430,53 @@ Count: 1
 Count: 2
 Count: 3
 """
+
+[[exercises]]
+name = "02_global_variables"
+path = "exercises/15_storage_classes/02_global_variables.c"
+mode = "run"
+hint = "Define variables outside of any function to make them global."
+output = """
+Initial: 0
+Final: 2
+"""
+
+[[exercises]]
+name = "03_shadowing"
+path = "exercises/15_storage_classes/03_shadowing.c"
+mode = "run"
+hint = "Local variables prefer the nearest declaration."
+output = """
+Local value: 5
+Global value: 100
+"""
+
 [[exercises]]
 name = "01_assert"
 path = "exercises/16_testing/01_assert.c"
 mode = "run"
 hint = "Use assert(calculate_area(5, 10) == 50);"
 output = "All tests passed!"
+
+[[exercises]]
+name = "02_custom_assert"
+path = "exercises/16_testing/02_custom_assert.c"
+mode = "run"
+hint = "Compare the values and print PASS or FAIL."
+output = """
+Test 1: PASS
+Test 2: FAIL: Expected 5, got 4
+"""
+
+[[exercises]]
+name = "03_test_suite"
+path = "exercises/16_testing/03_test_suite.c"
+mode = "run"
+hint = "Group tests into a function and count failures."
+output = """
+Running tests...
+PASS: multiply(2, 3) == 6
+PASS: multiply(5, 0) == 0
+PASS: multiply(-1, 5) == -5
+All tests passed!
+"""
