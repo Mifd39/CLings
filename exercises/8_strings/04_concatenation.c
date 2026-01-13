@@ -6,11 +6,6 @@
     In C, you have to be careful: the destination string must have enough empty space (memory) to hold the new addition.
     If you try to stuff too many characters into a small array, you'll overflow the buffer!
 */
-//
-// The 'strcat' function appends one string to another.
-// Make sure the destination buffer is large enough!
-//
-// #include <string.h> is required.
 
 #include <stdio.h>
 #include <string.h>

@@ -5,10 +5,6 @@
     If you have a pointer to a list of numbers, adding 1 to the pointer moves it to the NEXT number in the list.
     The compiler is smart enough to know how big the numbers are (4 bytes for an int) and jumps the correct distance.
 */
-//
-// You can perform arithmetic on pointers to move them through memory.
-// ptr++ moves the pointer to the NEXT element of that type.
-// If ptr is an int*, ptr++ moves forward by sizeof(int) bytes.
 
 #include <stdio.h>
 
@@ -18,7 +14,8 @@ int main() {
     int numbers[] = {10, 20, 30, 40, 50};
     int *ptr = numbers;
 
-    // TODO: Retrieve the 3rd element (30) using only pointer arithmetic (no array indexing).
+    // TODO: Retrieve the 3rd element (30) using only pointer arithmetic.
+    // Do NOT use array indexing (e.g., numbers[2]).
     int third_value = 0;
 
 

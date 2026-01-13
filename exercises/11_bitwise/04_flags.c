@@ -5,11 +5,6 @@
     Instead of using an entire integer for each true/false value, we can use individual bits within a single integer.
     This is like having a row of light switches where each switch controls a different feature.
 */
-//
-// We use powers of 2 (1, 2, 4, 8...) to represent each unique bit position.
-// | (OR) sets a flag (turns it on).
-// & (AND) checks a flag (sees if it's on).
-// ~ (NOT) combined with & clears a flag (turns it off).
 
 #include <stdio.h>
 
@@ -22,7 +17,7 @@
 int main() {
     unsigned int flags = 0;
 
-    // TODO: Set FLAG_A and FLAG_C.
+    // TODO: Combine FLAG_A and FLAG_C into the 'flags' variable.
 
 
     if ((flags & FLAG_A) && (flags & FLAG_C) && !(flags & FLAG_B)) {

@@ -4,10 +4,6 @@
     "w" mode wipes the file clean. "a" (append) mode adds to the end.
     This is useful for logs or growing datasets.
 */
-//
-// 1. Create a file with initial content.
-// 2. Re-open it in append mode and add more text.
-//
 
 #include <stdio.h>
 

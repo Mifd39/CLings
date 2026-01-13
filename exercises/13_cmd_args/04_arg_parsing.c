@@ -4,10 +4,6 @@
     Command-line tools often accept flags like "-v" (verbose) or "-h" (help).
     Since 'argv' is just an array of strings, you can loop through it and compare strings.
 */
-//
-// Check if the "--verbose" flag is present in the arguments.
-// If it is, set the 'verbose' variable to true (1).
-//
 
 #include <stdio.h>
 #include <string.h>
@@ -18,7 +14,7 @@
 int main(int argc, char *argv[]) {
     bool verbose = false;
 
-    // TODO: Enable 'verbose' mode if the "--verbose" flag is present in the arguments.
+    // TODO: Check for the "--verbose" flag in the arguments and enable 'verbose' mode if found.
 
 
     if (verbose) {

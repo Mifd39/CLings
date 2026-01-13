@@ -5,11 +5,6 @@
     the local one "shadows" (hides) the global one within that function.
     This can be confusing, so be careful!
 */
-//
-// 1. A global 'value' exists.
-// 2. Create a local 'value' in main and print it.
-// 3. Observe that the global one is unchanged.
-//
 
 #include <stdio.h>
 
@@ -22,7 +17,7 @@ void print_global() {
 }
 
 int main() {
-    // TODO: Shadow the global 'value' with a local variable set to 5.
+    // TODO: Create a local variable named 'value' with the value 5 to shadow the global one.
 
 
     printf("Local value: %d\n", value);

@@ -6,9 +6,6 @@
     In C, we use the "dot operator" (.) to access individual members of a struct.
     It's like saying "I want the 'name' FROM 'person'".
 */
-//
-// You can access members of a struct using the dot (.) operator.
-// example.member = value;
 
 #include <stdio.h>
 #include <string.h>

@@ -6,11 +6,6 @@
     C gives us a syntactic shortcut for this very common operation: the "arrow operator" (`->`).
     It looks like an arrow pointing to the member you want!
 */
-//
-// When you have a pointer to a struct, you can access its members using the arrow operator (->).
-//
-// struct Point *ptr = &p1;
-// ptr->x = 5;  // Equivalent to (*ptr).x = 5;
 
 #include <stdio.h>
 

@@ -7,9 +7,6 @@
     - atoi(str): Converts string to int (simple, but less safe).
     - strtol(str, &end, 10): Converts string to long int (safer, handles errors).
 */
-//
-// Include <stdlib.h> to use atoi().
-//
 
 #include <stdio.h>
 #include <stdlib.h>

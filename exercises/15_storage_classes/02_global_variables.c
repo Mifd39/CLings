@@ -5,11 +5,6 @@
     It can be accessed and modified by any function in the file.
     Use them sparingly, as they make code harder to debug (anyone can change them!).
 */
-//
-// 1. Define a global integer variable 'counter' initialized to 0.
-// 2. Modify it inside the 'increment' function.
-// 3. Print it in 'main'.
-//
 
 #include <stdio.h>
 

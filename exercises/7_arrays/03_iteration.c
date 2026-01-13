@@ -5,9 +5,6 @@
     Since an array is just a sequence of items, you can use a 'for' loop to visit every single one efficiently.
     This allows you to process thousands of data points with just a few lines of code.
 */
-//
-// To process all elements in an array, we typically use a 'for' loop.
-// The loop variable serves as the array index.
 
 #include <stdio.h>
 
@@ -18,7 +15,7 @@ int main() {
     int sum = 0;
     int length = 5;
 
-    // TODO: Calculate the sum of the array elements.
+    // TODO: Calculate the sum of the array elements using a loop.
 
 
     printf("The sum is %d\n", sum);
