@@ -4,16 +4,14 @@
     Sometimes 'assert()' is too harsh (it crashes).
     We might want to write a check that just prints "FAIL" but lets the program continue.
 */
-//
-// Implement the 'check_equals' function to compare two integers.
-//
 
 #include <stdio.h>
 
 // I AM NOT DONE
 
 // TODO: Implement 'check_equals' to compare actual vs expected values.
-// Print "PASS" or "FAIL: Expected X, got Y".
+// Print "PASS" if they match.
+// Print "FAIL: Expected X, got Y" if they don't.
 void check_equals(int actual, int expected) {
 
 }

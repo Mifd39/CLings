@@ -5,14 +5,6 @@
     For example, asking a user for a password: you have to ask first before you can check if it's correct.
     The 'do-while' loop guarantees that the code block runs once before the condition is checked.
 */
-//
-// A 'do-while' loop is similar to a 'while' loop, but it guarantees that the code block
-// is executed AT LEAST ONCE before checking the condition.
-//
-// Syntax:
-// do {
-//    ...
-// } while (condition);
 
 #include <stdio.h>
 
@@ -21,8 +13,8 @@
 int main() {
     int count = 0;
 
-    // TODO: Write a do-while loop that increments 'count' by 1
-    // and continues while 'count' is less than 5.
+    // TODO: Write a loop that increments 'count' by 1 and continues while 'count' is less than 5.
+    // The loop MUST guarantee execution at least once, even if the condition is initially false.
 
 
     printf("Count is: %d\n", count);

@@ -6,11 +6,6 @@
     A 2D array is essentially an "array of arrays".
     You access items using two coordinates: row and column.
 */
-//
-// A 2D array is like a matrix or a grid.
-// int matrix[2][3] has 2 rows and 3 columns.
-//
-// Access: matrix[row][col]
 
 #include <stdio.h>
 
@@ -22,7 +17,7 @@ int main() {
         {4, 5, 6}
     };
 
-    // TODO: Retrieve the value '6' from the matrix.
+    // TODO: Retrieve the value '6' from the matrix using its coordinates.
     int value = 0;
 
 

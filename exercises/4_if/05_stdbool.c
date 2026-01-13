@@ -2,15 +2,14 @@
 /*
     Context:
     For a long time, C didn't have a built-in boolean type. Programmers used integers (0 for false, 1 for true).
-    C99 introduced <stdbool.h>, which gives us 'bool', 'true', and 'false'.
+    C99 introduced a standard library header which gives us 'bool', 'true', and 'false'.
     This makes code much more readable!
 */
-//
-// <stdbool.h> defines the 'bool' type and the values 'true' and 'false'.
-//
 
 #include <stdio.h>
 // I AM NOT DONE
+
+// TODO: Fix the compilation error by including the necessary header file for 'bool'.
 
 int main() {
     bool is_sunny = true;

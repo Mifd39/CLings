@@ -5,18 +5,12 @@
     C provides `typedef` (Type Definition) to create a shortcut or alias for a data type.
     So instead of writing `enum Status myStatus`, you can just write `Status myStatus`. Clean and simple.
 */
-//
-// 'typedef' allows you to give a new name to an existing type.
-// Often used with enums and structs to avoid typing 'enum' or 'struct' every time.
-//
-// Syntax:
-// typedef enum { ERROR, WARNING, INFO } LogLevel;
 
 #include <stdio.h>
 
 // I AM NOT DONE
 
-// TODO: Define a typedef'd enum 'Status' (PENDING, APPROVED, REJECTED).
+// TODO: Define a typedef'd enum 'Status' with values PENDING, APPROVED, REJECTED.
 
 
 void print_status(Status s) {
@@ -26,6 +20,7 @@ void print_status(Status s) {
 }
 
 int main() {
+    Status my_status;
     // TODO: Set 'my_status' to APPROVED.
 
 

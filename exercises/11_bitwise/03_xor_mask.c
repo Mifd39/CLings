@@ -5,14 +5,6 @@
     It's incredibly useful for toggling things on and off (like a light switch) without needing to know their current state.
     We also use "masks" (specific patterns of 0s and 1s) to target and check specific bits, like checking if a security flag is set.
 */
-//
-// ^ (XOR): Result is 1 if bits are DIFFERENT, 0 if they are the SAME.
-//   0101 (5)
-// ^ 0011 (3)
-// = 0110 (6)
-//
-// Masking: Using bitwise operators to isolate specific bits.
-// To check if the 0th bit is set: (value & 1)
 
 #include <stdio.h>
 
@@ -21,10 +13,10 @@
 int main() {
     unsigned int flags = 5; // Binary: 0101 (Bits 0 and 2 are set)
 
-    // TODO: Flip the 0th bit of 'flags' using XOR.
+    // TODO: Flip the 0th bit of 'flags' using XOR to toggle its state.
     unsigned int flipped = 0;
 
-    // TODO: Check if the 2nd bit (value 4) is set.
+    // TODO: Check if the 2nd bit (value 4) is set using a mask and the AND operator.
     int is_bit_2_set = 0;
 
 

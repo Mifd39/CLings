@@ -7,10 +7,6 @@
     you will eventually run out of space. This is called a "Memory Leak".
     Be a responsible programmer: always clean up after yourself!
 */
-//
-// Every time you use 'malloc', you should have a corresponding 'free'.
-// If you don't free memory, it stays occupied until your program ends (Memory Leak).
-// In long-running programs, this can use up all available RAM!
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,7 +25,7 @@ int main() {
     data[0] = 100;
     printf("Data allocated and used.\n");
 
-    // TODO: Prevent a memory leak.
+    // TODO: Prevent a memory leak by releasing the allocated memory.
 
 
     return 0;

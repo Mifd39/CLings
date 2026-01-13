@@ -5,10 +5,6 @@
     It's good practice to separate tests into different functions and run them all.
     We often track how many tests failed.
 */
-//
-// 1. Write a test function 'test_multiplication'.
-// 2. Run it in main and track failures.
-//
 
 #include <stdio.h>
 
@@ -31,7 +27,8 @@ void assert_eq(int actual, int expected, const char *test_name) {
 }
 
 void test_multiplication() {
-    // TODO: Add test cases for 'multiply' (positive, zero, negative).
+    // TODO: Add at least 3 test cases for 'multiply' using assert_eq.
+    // Ensure you test positive numbers, zero, and negative numbers.
 
 }
 

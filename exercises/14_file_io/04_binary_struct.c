@@ -4,9 +4,6 @@
     fprintf writes text (human readable). fwrite writes raw bytes (machine readable).
     This is more efficient for saving numbers or structs directly because it skips formatting.
 */
-//
-// Write a 'Point' struct to a file, then read it back.
-//
 
 #include <stdio.h>
 
@@ -25,13 +22,9 @@ int main() {
     FILE *f_write = NULL;
 
 
-    // TODO: Read the struct back into 'p2'.
+    // TODO: Read the struct back from "/tmp/point.bin" into 'p2'.
     FILE *f_read = NULL;
 
-
-    printf("Read Point: x=%d, y=%d\n", p2.x, p2.y);
-    return 0;
-}
 
     printf("Read Point: x=%d, y=%d\n", p2.x, p2.y);
     return 0;

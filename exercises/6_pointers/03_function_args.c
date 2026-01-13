@@ -6,11 +6,6 @@
     But what if you WANT the function to change the original?
     You pass the address (pointer) instead. This allows the function to reach back and modify the original data.
 */
-//
-// By default, C passes arguments by value (copying them).
-// To modify a variable from inside a function, you need to pass its address (a pointer).
-//
-// This is often called "passing by reference".
 
 #include <stdio.h>
 

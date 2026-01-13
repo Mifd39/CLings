@@ -7,11 +7,6 @@
     - 'char' for single characters.
     Using the right tool for the job saves memory and prevents errors.
 */
-//
-// 'float' is used for numbers with decimal points (floating-point numbers).
-// 'char' is used for single characters.
-//
-// Note: Character literals are enclosed in single quotes (e.g., 'A'), while strings use double quotes (e.g., "Hello").
 
 #include <stdio.h>
 

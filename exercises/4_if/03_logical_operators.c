@@ -7,11 +7,6 @@
     - `&&` (AND): Both must be true.
     - `||` (OR): At least one must be true.
 */
-//
-// Logical operators allow you to combine multiple conditions.
-// && (AND) evaluates to true only if BOTH sides are true.
-// || (OR) evaluates to true if AT LEAST ONE side is true.
-// ! (NOT) inverts the condition.
 
 #include <stdio.h>
 

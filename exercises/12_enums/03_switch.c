@@ -6,11 +6,6 @@
     The `switch` statement is a cleaner alternative designed exactly for this situation.
     It jumps directly to the matching "case", making your code more organized and often faster.
 */
-//
-// The 'switch' statement is a control flow structure that allows you to handle multiple cases efficiently.
-// It is often used with enums to handle different states.
-//
-// Don't forget 'break' at the end of each case to prevent "fallthrough"!
 
 #include <stdio.h>
 
@@ -25,7 +20,8 @@ typedef enum {
 
 int calculate(int a, int b, Operation op) {
     int result = 0;
-    // TODO: Implement the switch statement to handle 'op'.
+    // TODO: Implement the switch statement to handle 'op' and perform the correct calculation.
+    // Remember to return the result.
 
 
     return result;
