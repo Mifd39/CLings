@@ -452,6 +452,16 @@ Global value: 100
 """
 
 [[exercises]]
+name = "04_static_global"
+path = "exercises/15_storage_classes/04_static_global.c"
+mode = "run"
+hint = "Use 'static int secret_code = 1234;' outside of any function."
+output = """
+Access Denied
+Access Granted
+"""
+
+[[exercises]]
 name = "01_assert"
 path = "exercises/16_testing/01_assert.c"
 mode = "run"
@@ -479,4 +489,14 @@ PASS: multiply(2, 3) == 6
 PASS: multiply(5, 0) == 0
 PASS: multiply(-1, 5) == -5
 All tests passed!
+"""
+
+[[exercises]]
+name = "04_float_comparison"
+path = "exercises/16_testing/04_float_comparison.c"
+mode = "run"
+hint = "Use if (fabs(a - b) < EPSILON)."
+output = """
+Direct comparison (==): Not Equal
+Epsilon comparison: Equal
 """

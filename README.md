@@ -83,6 +83,10 @@ The exercises cover the following topics:
 10. **Memory**: Dynamic memory allocation (`malloc`, `free`).
 11. **Bitwise**: Bitwise operators (`&`, `|`, `^`, `~`, `<<`, `>>`) and bit masking.
 12. **Enums**: Enumerated types (`enum`), `typedef`, and `switch` statements.
+ 13. **Command Line Arguments**: `argc`, `argv`, string conversion (`atoi`), and parsing flags.
+ 14. **File I/O**: Reading and writing text/binary files using `fopen`, `fprintf`, `fscanf`.
+ 15. **Storage Classes**: `static` (local/global), global variables, and shadowing.
+ 16. **Testing**: Assertions (`assert`), custom check functions, and floating point comparison.
 
 ## 🏗️ Projects
 
