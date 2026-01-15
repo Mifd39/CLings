@@ -375,7 +375,7 @@ hint = "Change the main signature to int main(int argc, char *argv[])."
 args = ["test_arg"]
 output = """
 Number of arguments: 2
-Program name: target/temp_01_argc_argv
+Program Name Accessed
 """
 
 [[exercises]]

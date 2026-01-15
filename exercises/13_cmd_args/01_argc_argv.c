@@ -15,11 +15,14 @@
 
 // I AM NOT DONE
 
-int main(int argc, char *argv[]) {
+int main() {
+    // TODO: Update the main function signature to accept argc and argv.
+
     // TODO: Print the argument count ("Number of arguments: ...").
 
 
-    // TODO: Print the program name (the first argument).
+    // TODO: Print "Program Name Accessed" if argv[0] is available.
+    // (We don't print the actual name because it changes with every run!)
 
 
     return 0;
