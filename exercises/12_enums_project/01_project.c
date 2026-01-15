@@ -44,18 +44,56 @@
 //     PRINT = 4
 // } Opcode;
 
-// TODO: Define the CPU struct (stack, sp, ip, program memory)
-
-
-// TODO: Implement the fetch-decode-execute cycle
+// TODO: Define the CPU struct
+// typedef struct {
+//     int stack[MAX_STACK];
+//     int sp; // Stack Pointer (Top of stack index)
+//     int program[MAX_PROGRAM];
+//     int ip; // Instruction Pointer (Current instruction index)
+// } CPU;
 
 
 int main() {
-    // 1. Read the program from input (integers)
+    // 1. Read the program from input (stdin)
+    int program_memory[MAX_PROGRAM];
+    int program_size = 0;
+
+    // Hint: Use scanf("%d", &val) in a loop until it returns EOF or 0.
+    // Store values in program_memory and increment program_size.
+
 
     // 2. Initialize the CPU
+    // CPU cpu;
+    // cpu.sp = -1; // Start with empty stack
+    // cpu.ip = 0;  // Start at beginning of program
+    // TODO: Copy program_memory into cpu.program
 
-    // 3. Run the CPU loop until HALT
+
+    // 3. Run the CPU loop
+    /*
+    int running = 1;
+    while (running) {
+        // Fetch instruction: int opcode = cpu.program[cpu.ip];
+
+        // Execute instruction
+        switch (opcode) {
+            case HALT:
+                running = 0;
+                break;
+            case PUSH:
+                // Note: The value to push is the *next* integer in the program.
+                // Increment ip, read value, push to stack.
+                break;
+            case ADD:
+                // Pop a, Pop b, Push a + b
+                break;
+            // ... Handle SUB and PRINT
+        }
+
+        // Advance Instruction Pointer (unless already moved by PUSH)
+        cpu.ip++;
+    }
+    */
 
     return 0;
 }
