@@ -22,7 +22,7 @@
     2.  Returns the product of their sum and their difference: (a + b) * (a - b).
 
     In the main function:
-    1.  Declare two integer variables, `x` and `y`, and assign them values (e.g., 10 and 5).
+    1.  Declare two integer variables, `x` and `y`, and assign them values 10 and 5.
     2.  Call `complex_sum` with these variables and store the result in a new variable.
     3.  Print the result using `printf` in the format: "The complex sum of %d and %d is: %d\n"
 */

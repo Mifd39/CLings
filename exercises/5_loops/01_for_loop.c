@@ -20,7 +20,7 @@
 // I AM NOT DONE
 
 int main() {
-    // TODO: Write a for loop that prints the numbers 0 through 9 to the console.
+    // TODO: Write a for loop that prints the numbers 0 through 9 to the console, each on a new line.
 
 
     return 0;

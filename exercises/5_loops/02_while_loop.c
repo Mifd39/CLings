@@ -20,7 +20,7 @@
 
 int main() {
     int i = 0;
-    // TODO: Write a while loop to print the value of 'i' as long as it is less than 5.
+    // TODO: Write a while loop to print the value of 'i' (each on a new line) as long as it is less than 5.
     // Ensure you update 'i' to prevent an infinite loop.
 
 
