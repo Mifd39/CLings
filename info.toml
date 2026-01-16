@@ -1,8 +1,9 @@
 [[exercises]]
 name = "01_entry_point"
 path = "exercises/1_intro/01_entry_point.c"
-mode = "compile"
+mode = "run"
 hint = "The main function is the entry point of a C program."
+output = "Hello, World!"
 
 [[exercises]]
 name = "02_hello_world"
@@ -14,20 +15,23 @@ output = "Hello World!"
 [[exercises]]
 name = "03_semicolons"
 path = "exercises/1_intro/03_semicolons.c"
-mode = "compile"
+mode = "run"
 hint = "C statements must end with a semicolon (;)."
+output = "Hello World!"
 
 [[exercises]]
 name = "04_comments"
 path = "exercises/1_intro/04_comments.c"
-mode = "compile"
+mode = "run"
 hint = "Use // to comment out a single line."
+output = "This line should print."
 
 [[exercises]]
 name = "01_variable_definition"
 path = "exercises/2_variables/01_definition.c"
-mode = "compile"
+mode = "run"
 hint = "Use the 'int' keyword to define an integer variable."
+output = "x is 5"
 
 [[exercises]]
 name = "02_variable_printing"
@@ -41,6 +45,7 @@ name = "03_data_types"
 path = "exercises/2_variables/03_data_types.c"
 mode = "run"
 hint = "Use float for decimals and char for characters."
+output = "Pi is 3.14 and the letter is C"
 
 [[exercises]]
 name = "04_casting"
@@ -52,50 +57,61 @@ output = "The result is: 2.5"
 [[exercises]]
 name = "01_function_declaration"
 path = "exercises/3_functions/01_declaration.c"
-mode = "compile"
+mode = "run"
 hint = "Functions in C need a return type, a name, and parentheses."
+output = "Hello!"
 
 [[exercises]]
 name = "02_function_arguments"
 path = "exercises/3_functions/02_arguments.c"
 mode = "run"
 hint = "Define arguments inside the parentheses: (int a, int b)."
+output = "The sum is 15"
 
 [[exercises]]
 name = "03_function_prototypes"
 path = "exercises/3_functions/03_prototypes.c"
 mode = "run"
 hint = "A prototype looks like 'int multiply(int a, int b);'."
+output = "The product is 20"
 
 [[exercises]]
 name = "04_recursion"
 path = "exercises/3_functions/04_recursion.c"
 mode = "run"
 hint = "Recursion requires a base case and a recursive step."
+output = """
+Factorial of 5 is: 120
+Recursion works!
+"""
 
 [[exercises]]
 name = "01_arithmetic_challenge"
 path = "exercises/3_functions_challenge/01_arithmetic_challenge.c"
 mode = "run"
 hint = "Use the prototype 'int complex_sum(int a, int b)'."
+output = "The complex sum of 10 and 5 is: 75"
 
 [[exercises]]
 name = "01_basic_if"
 path = "exercises/4_if/01_basic_if.c"
 mode = "run"
 hint = "if (condition) { ... } else { ... }"
+output = "x is big"
 
 [[exercises]]
 name = "02_else_if"
 path = "exercises/4_if/02_else_if.c"
 mode = "run"
 hint = "Use 'else if (condition) { ... }' between if and else."
+output = "Number is greater than 5"
 
 [[exercises]]
 name = "03_logical_operators"
 path = "exercises/4_if/03_logical_operators.c"
 mode = "run"
 hint = "Use '&&' for logical AND."
+output = "You can drive!"
 
 [[exercises]]
 name = "04_ternary"
@@ -116,24 +132,52 @@ name = "01_for_loop"
 path = "exercises/5_loops/01_for_loop.c"
 mode = "run"
 hint = "for (int i = 0; i < 10; i++) { ... }"
+output = """
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+"""
 
 [[exercises]]
 name = "02_while_loop"
 path = "exercises/5_loops/02_while_loop.c"
 mode = "run"
 hint = "while (i < 5) { ... i++; }"
+output = """
+0
+1
+2
+3
+4
+"""
 
 [[exercises]]
 name = "03_nested_loops"
 path = "exercises/5_loops/03_nested_loops.c"
 mode = "run"
 hint = "Put one loop inside another loop."
+output = """
+***
+***
+***
+"""
 
 [[exercises]]
 name = "04_do_while"
 path = "exercises/5_loops/04_do_while.c"
 mode = "run"
 hint = "do { ... } while (condition);"
+output = """
+Count is: 5
+Do-while loop works!
+"""
 
 [[exercises]]
 name = "01_address_of"
