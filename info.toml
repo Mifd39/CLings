@@ -184,54 +184,72 @@ name = "01_address_of"
 path = "exercises/6_pointers/01_address_of.c"
 mode = "run"
 hint = "Use & to get the address of a variable."
+output = "The value of x via pointer is 42"
 
 [[exercises]]
 name = "02_dereference"
 path = "exercises/6_pointers/02_dereference.c"
 mode = "run"
 hint = "Use *p to access or modify the value pointed to by p."
+output = "The value of x is 20"
 
 [[exercises]]
 name = "03_pointer_function_args"
 path = "exercises/6_pointers/03_function_args.c"
 mode = "run"
 hint = "Pass addresses using & when calling the function."
+output = """
+Before swap: a = 5, b = 10
+After swap: a = 10, b = 5
+"""
 
 [[exercises]]
 name = "04_pointer_arithmetic"
 path = "exercises/6_pointers/04_pointer_arithmetic.c"
 mode = "run"
 hint = "ptr + 1 moves the pointer to the next element."
+output = """
+The 3rd value is: 30
+Pointer arithmetic works!
+"""
 
 [[exercises]]
 name = "01_reference_challenge"
 path = "exercises/6_pointers_challenge/01_reference_challenge.c"
 mode = "run"
 hint = "Remember to use *score to modify the value."
+output = "Final score: 115"
 
 [[exercises]]
 name = "01_array_definition"
 path = "exercises/7_arrays/01_definition.c"
 mode = "run"
 hint = "int numbers[5] = {1, 2, 3, 4, 5};"
+output = "Sum is correct!"
 
 [[exercises]]
 name = "02_array_indexing"
 path = "exercises/7_arrays/02_indexing.c"
 mode = "run"
 hint = "Arrays are 0-indexed. The third element is at index 2."
+output = "The third element is 30"
 
 [[exercises]]
 name = "03_array_iteration"
 path = "exercises/7_arrays/03_iteration.c"
 mode = "run"
 hint = "Loop from 0 to length-1 and add each element to sum."
+output = "The sum is 15"
 
 [[exercises]]
 name = "04_multidimensional_arrays"
 path = "exercises/7_arrays/04_multidimensional.c"
 mode = "run"
 hint = "Use two indices: matrix[row][col]."
+output = """
+The value is: 6
+2D Array access correct!
+"""
 
 [[exercises]]
 name = "01_string_definition"
@@ -269,18 +287,21 @@ name = "01_struct_definition"
 path = "exercises/9_structs/01_definition.c"
 mode = "run"
 hint = "struct Person { char name[50]; int age; };"
+output = "Name: Alice, Age: 30"
 
 [[exercises]]
 name = "02_struct_initialization"
 path = "exercises/9_structs/02_initialization.c"
 mode = "run"
 hint = "Use strcpy(p.name, \"Bob\") and p.age = 25;"
+output = "Name: Bob, Age: 25"
 
 [[exercises]]
 name = "03_struct_pointers"
 path = "exercises/9_structs/03_pointers.c"
 mode = "run"
 hint = "ptr->x and ptr->y access members through a pointer."
+output = "Point coordinates: (10, 20)"
 
 [[exercises]]
 name = "04_nested_structs"
@@ -294,6 +315,7 @@ name = "01_registry_challenge"
 path = "exercises/9_structs_challenge/01_registry_challenge.c"
 mode = "run"
 hint = "Access struct members using dot notation: book.year."
+output = "Recent book: Modern C"
 
 [[exercises]]
 name = "01_classroom_project"
@@ -322,18 +344,21 @@ name = "01_malloc"
 path = "exercises/10_memory/01_malloc.c"
 mode = "run"
 hint = "p = (int*)malloc(sizeof(int));"
+output = "Value: 42"
 
 [[exercises]]
 name = "02_malloc_array"
 path = "exercises/10_memory/02_malloc_array.c"
 mode = "run"
 hint = "arr = (int*)malloc(n * sizeof(int));"
+output = "0 10 20 30 40"
 
 [[exercises]]
 name = "03_free"
 path = "exercises/10_memory/03_free.c"
 mode = "run"
 hint = "Use free(data) to release the memory."
+output = "Data allocated and used."
 
 [[exercises]]
 name = "04_realloc"
@@ -347,18 +372,33 @@ name = "01_bitwise_and_or"
 path = "exercises/11_bitwise/01_and_or.c"
 mode = "run"
 hint = "Use & for AND and | for OR."
+output = """
+a & b = 1
+a | b = 7
+Bitwise operations correct!
+"""
 
 [[exercises]]
 name = "02_bitwise_shifts"
 path = "exercises/11_bitwise/02_shifts.c"
 mode = "run"
 hint = "Use << for left shift and >> for right shift."
+output = """
+10 << 1 = 20
+10 >> 1 = 5
+Shift operations correct!
+"""
 
 [[exercises]]
 name = "03_bitwise_xor_mask"
 path = "exercises/11_bitwise/03_xor_mask.c"
 mode = "run"
 hint = "XOR (^) returns 1 if bits are different. Use & with a mask to check bits."
+output = """
+Flipped: 4
+Is bit 2 set: 1
+XOR and masking correct!
+"""
 
 [[exercises]]
 name = "04_flags"
@@ -372,18 +412,24 @@ name = "01_enum_definition"
 path = "exercises/12_enums/01_definition.c"
 mode = "run"
 hint = "enum Name { CONSTANT1, CONSTANT2, ... };"
+output = "It is Wednesday, my dudes."
 
 [[exercises]]
 name = "02_enum_typedef"
 path = "exercises/12_enums/02_typedef.c"
 mode = "run"
 hint = "typedef enum { ... } NewType;"
+output = """
+Status: Approved
+Status approved correctly.
+"""
 
 [[exercises]]
 name = "03_enum_switch"
 path = "exercises/12_enums/03_switch.c"
 mode = "run"
 hint = "switch (variable) { case VALUE: ... break; }"
+output = "Switch statement works!"
 
 [[exercises]]
 name = "04_enum_values"
@@ -400,6 +446,7 @@ name = "01_state_machine_challenge"
 path = "exercises/12_enums_challenge/01_state_machine_challenge.c"
 mode = "run"
 hint = "Check bits using & and handle logic with switch/if."
+output = "Challenge 4 passed!"
 
 [[exercises]]
 name = "01_virtual_cpu_project"
