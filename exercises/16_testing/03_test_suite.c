@@ -30,6 +30,11 @@ void test_multiplication() {
     // TODO: Add at least 3 test cases for 'multiply' using assert_eq.
     // Ensure you test positive numbers, zero, and negative numbers.
 
+    // To pass the verification, use these exact test cases:
+    // 1. assert_eq(multiply(2, 3), 6, "multiply(2, 3) == 6");
+    // 2. assert_eq(multiply(5, 0), 0, "multiply(5, 0) == 0");
+    // 3. assert_eq(multiply(-1, 5), -5, "multiply(-1, 5) == -5");
+
 }
 
 int main() {
