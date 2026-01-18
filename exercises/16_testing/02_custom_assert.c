@@ -10,8 +10,8 @@
 // I AM NOT DONE
 
 // TODO: Implement 'check_equals' to compare actual vs expected values.
-// Print "PASS" if they match.
-// Print "FAIL: Expected X, got Y" if they don't.
+// Print "PASS\n" if they match.
+// Print "FAIL: Expected X, got Y\n" if they don't.
 void check_equals(int actual, int expected) {
 
 }
