@@ -128,6 +128,17 @@ hint = "Include <stdbool.h> to use 'bool'."
 output = "It's a beautiful day!"
 
 [[exercises]]
+name = "01_leap_year"
+path = "exercises/4_if_challenge/01_leap_year.c"
+mode = "run"
+hint = "A year is a leap year if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))."
+output = """
+2000 is a leap year.
+1900 is not a leap year.
+2024 is a leap year.
+"""
+
+[[exercises]]
 name = "01_for_loop"
 path = "exercises/5_loops/01_for_loop.c"
 mode = "run"
@@ -178,6 +189,13 @@ output = """
 Count is: 5
 Do-while loop works!
 """
+
+[[exercises]]
+name = "01_fibonacci"
+path = "exercises/5_loops_challenge/01_fibonacci.c"
+mode = "run"
+hint = "Initialize t1=0, t2=1. Print t1. Calculate next = t1 + t2. Update t1=t2, t2=next."
+output = "Fibonacci Series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 "
 
 [[exercises]]
 name = "01_address_of"
@@ -252,6 +270,13 @@ The value is: 6
 """
 
 [[exercises]]
+name = "01_reverse_array"
+path = "exercises/7_arrays_challenge/01_reverse.c"
+mode = "run"
+hint = "Swap arr[i] and arr[size - 1 - i] in a loop running size/2 times."
+output = "Reversed: 5 4 3 2 1 "
+
+[[exercises]]
 name = "01_string_definition"
 path = "exercises/8_strings/01_definition.c"
 mode = "run"
@@ -281,6 +306,16 @@ path = "exercises/8_strings/05_ctype.c"
 mode = "run"
 hint = "Include <ctype.h> and use toupper(str[i])."
 output = "HELLO WORLD!"
+
+[[exercises]]
+name = "01_palindrome"
+path = "exercises/8_strings_challenge/01_palindrome.c"
+mode = "run"
+hint = "Compare str[i] with str[len - 1 - i]."
+output = """
+racecar is a palindrome.
+hello is NOT a palindrome.
+"""
 
 [[exercises]]
 name = "01_struct_definition"
@@ -368,6 +403,19 @@ hint = "Use realloc(ptr, new_size) to resize memory."
 output = "Values: 10, 20, 30"
 
 [[exercises]]
+name = "01_dynamic_list"
+path = "exercises/10_memory_challenge/01_dynamic_list.c"
+mode = "run"
+hint = "Check if count == capacity. If so, realloc with new capacity."
+stdin = """
+10
+20
+30
+-1
+"""
+output = "You entered: 10 20 30 "
+
+[[exercises]]
 name = "01_bitwise_and_or"
 path = "exercises/11_bitwise/01_and_or.c"
 mode = "run"
@@ -406,6 +454,17 @@ path = "exercises/11_bitwise/04_flags.c"
 mode = "run"
 hint = "Use flags | MASK to set bits."
 output = "Flags configured correctly!"
+
+[[exercises]]
+name = "01_count_set_bits"
+path = "exercises/11_bitwise_challenge/01_count_set_bits.c"
+mode = "run"
+hint = "Use n & 1 to check last bit, n >> 1 to shift."
+output = """
+Number: 29
+Set bits: 4
+Correct!
+"""
 
 [[exercises]]
 name = "01_enum_definition"
