@@ -557,6 +557,14 @@ args = ["--verbose"]
 output = "Verbose mode enabled."
 
 [[exercises]]
+name = "01_simple_calc"
+path = "exercises/13_cmd_args_challenge/01_simple_calc.c"
+mode = "run"
+hint = "Use strcmp to check argv[1] and atoi to parse argv[2] and argv[3]."
+args = ["add", "10", "20"]
+output = "Result: 30"
+
+[[exercises]]
 name = "01_file_write"
 path = "exercises/14_file_io/01_file_write.c"
 mode = "run"
@@ -586,6 +594,13 @@ path = "exercises/14_file_io/04_binary_struct.c"
 mode = "run"
 hint = "fwrite(&data, size, count, file) writes raw bytes."
 output = "Read Point: x=10, y=20"
+
+[[exercises]]
+name = "01_log_analyzer"
+path = "exercises/14_file_io_challenge/01_log_analyzer.c"
+mode = "run"
+hint = "Use a loop with fgets and check if the line contains '[ERROR]'."
+output = "Error count: 3"
 
 [[exercises]]
 name = "01_static_local"
@@ -629,6 +644,20 @@ Access Granted
 """
 
 [[exercises]]
+name = "01_random_gen"
+path = "exercises/15_storage_classes_challenge/01_random_gen.c"
+mode = "run"
+hint = "Initialize the static variable only once. Update it in each call."
+output = """
+Random numbers:
+440917656
+1476151025
+1668141782
+864299351
+1143491652
+"""
+
+[[exercises]]
 name = "01_assert"
 path = "exercises/16_testing/01_assert.c"
 mode = "run"
@@ -666,4 +695,19 @@ hint = "Use if (fabs(a - b) < EPSILON)."
 output = """
 Direct comparison (==): Not Equal
 Epsilon comparison: Equal
+"""
+
+[[exercises]]
+name = "01_tdd"
+path = "exercises/16_testing_challenge/01_tdd.c"
+mode = "run"
+hint = "Loop from 2 to n/2 (or i*i <= n). If n % i == 0, return false."
+output = """
+Running tests...
+PASS: 2 is prime
+PASS: 4 is not prime
+PASS: 13 is prime
+PASS: 1 is not prime
+PASS: 15 is not prime
+PASS: 17 is prime
 """
