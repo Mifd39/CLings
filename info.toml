@@ -191,6 +191,20 @@ Do-while loop works!
 """
 
 [[exercises]]
+name = "05_break_continue"
+path = "exercises/5_loops/05_break_continue.c"
+mode = "run"
+hint = "Use 'continue' to skip (when i==5) and 'break' to stop (when i==8)."
+output = """
+1
+2
+3
+4
+6
+7
+"""
+
+[[exercises]]
 name = "01_fibonacci"
 path = "exercises/5_loops_challenge/01_fibonacci.c"
 mode = "run"
@@ -267,6 +281,16 @@ hint = "Use two indices: matrix[row][col]."
 output = """
 The value is: 6
 2D Array access correct!
+"""
+
+[[exercises]]
+name = "05_sizeof_decay"
+path = "exercises/7_arrays/05_sizeof_decay.c"
+mode = "run"
+hint = "Pass the size as a second argument to the function."
+output = """
+Elements in main: 5
+Elements in function: 5
 """
 
 [[exercises]]
