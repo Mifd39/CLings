@@ -209,7 +209,7 @@ name = "01_fibonacci"
 path = "exercises/5_loops_challenge/01_fibonacci.c"
 mode = "run"
 hint = "Initialize t1=0, t2=1. Print t1. Calculate next = t1 + t2. Update t1=t2, t2=next."
-output = "Fibonacci Series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 "
+output = "Fibonacci Series: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34"
 
 [[exercises]]
 name = "01_address_of"
