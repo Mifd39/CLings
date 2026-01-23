@@ -305,24 +305,34 @@ name = "01_string_definition"
 path = "exercises/8_strings/01_definition.c"
 mode = "run"
 hint = "Strings in C are just arrays of characters."
+output = """
+Hello, C!
+I love Z programming
+"""
 
 [[exercises]]
 name = "02_string_formatting"
 path = "exercises/8_strings/02_formatting.c"
 mode = "run"
 hint = "printf(\"... %s ... %d ...\", name, age);"
+output = "My name is Alice and I am 30 years old."
 
 [[exercises]]
 name = "03_string_length"
 path = "exercises/8_strings/03_length.c"
 mode = "run"
 hint = "strlen(message) returns the length excluding the null terminator."
+output = "The length of the message is 19"
 
 [[exercises]]
 name = "04_string_concatenation"
 path = "exercises/8_strings/04_concatenation.c"
 mode = "run"
 hint = "strcat(dest, src) appends src to dest."
+output = """
+Result: Hello, World!
+String concatenation correct!
+"""
 
 [[exercises]]
 name = "05_ctype"
