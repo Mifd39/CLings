@@ -21,7 +21,7 @@
 
 
 int main() {
-    // TODO: Set 'today' to WEDNESDAY.
+    // TODO: Create a variable 'today' of type 'enum Day' and set it to WEDNESDAY.
 
 
     if (today == 3) {
