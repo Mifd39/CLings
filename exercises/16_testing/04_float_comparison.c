@@ -7,24 +7,26 @@
 
     To test floats, we check if the difference between them is very small.
     This small allowed difference is called "EPSILON".
-    Standard practice: if (fabs(a - b) < EPSILON) -> They are equal.
+    Standard practice: if (ABS(a - b) < EPSILON) -> They are equal.
 */
 //
-// 1. Include <math.h> for fabs() (absolute value for floats).
+// 1. Define a helper macro/function for absolute value (to keep it simple and portable).
 // 2. Implement 'is_close' using an EPSILON of 0.0001.
 // 3. Use it to check if 0.1 + 0.2 is "close enough" to 0.3.
 //
 
 #include <stdio.h>
-#include <math.h>
 
 // I AM NOT DONE
 
 #define EPSILON 0.0001
 
+// TODO: Define a macro for absolute value (e.g., #define ABS(x) ...)
+
+
 int is_close(double a, double b) {
     // TODO: Return 1 (true) if the absolute difference between a and b is less than EPSILON.
-    // Otherwise return 0 (false).
+    // Use your ABS macro here.
 
     return 0;
 }
