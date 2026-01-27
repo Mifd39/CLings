@@ -19,10 +19,14 @@
 
     Input Format:
     The input is a sequence of integers representing the program code.
-    Example: 1 10 1 20 2 4 0
+    Example: 1 10 1 20 2 4 1 50 1 20 3 4 0
     - PUSH 10
     - PUSH 20
     - ADD (10 + 20 = 30)
+    - PRINT (Output: 30)
+    - PUSH 50
+    - PUSH 20
+    - SUB (50 - 20 = 30)
     - PRINT (Output: 30)
     - HALT
 */
