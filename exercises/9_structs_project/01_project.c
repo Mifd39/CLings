@@ -21,8 +21,9 @@
 
     Example Input:
     ADD Alice 85
-    ADD Bob 90
-    UPDATE Alice 88
+    ADD Bob 92
+    PRINT
+    UPDATE Alice 90
     PRINT
     AVERAGE
     EXIT

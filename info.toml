@@ -9,15 +9,15 @@ output = "Hello, World!"
 name = "02_hello_world"
 path = "exercises/1_intro/02_hello_world.c"
 mode = "run"
-hint = "Use printf(\"Hello World!\\n\");"
-output = "Hello World!"
+hint = "Use printf(\"Hello, World!\\n\");"
+output = "Hello, World!"
 
 [[exercises]]
 name = "03_semicolons"
 path = "exercises/1_intro/03_semicolons.c"
 mode = "run"
 hint = "C statements must end with a semicolon (;)."
-output = "Hello World!"
+output = "Hello, World!"
 
 [[exercises]]
 name = "04_comments"
@@ -339,7 +339,7 @@ name = "05_ctype"
 path = "exercises/8_strings/05_ctype.c"
 mode = "run"
 hint = "Include <ctype.h> and use toupper(str[i])."
-output = "HELLO WORLD!"
+output = "HELLO, WORLD!"
 
 [[exercises]]
 name = "01_palindrome"

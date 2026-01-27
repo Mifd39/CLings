@@ -17,6 +17,6 @@
 
 int main() {
     // TODO: Fix the syntax error so the code compiles.
-    printf("Hello World!\n")
+    printf("Hello, World!\n")
     return 0;
 }

@@ -19,7 +19,7 @@ void convert_to_upper(char *str) {
 }
 
 int main() {
-    char text[] = "Hello World!";
+    char text[] = "Hello, World!";
     convert_to_upper(text);
     printf("%s\n", text);
     return 0;
