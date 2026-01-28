@@ -1,6 +1,7 @@
 import os
 import re
 import sys
+import tomllib
 
 def check_file(filepath):
     issues = []
@@ -12,60 +13,113 @@ def check_file(filepath):
     if not content.startswith("// Learning Goal:"):
         issues.append("Missing '// Learning Goal:' header")
 
-    # 2. Check Marker
+    # 2. Check Context Block
+    if "/* Context:" not in content and "/*\n    Context:" not in content:
+        # Check for regex match
+        if not re.search(r'/\*\s*Context:', content, re.DOTALL):
+             issues.append("Missing '/* Context:' block")
+
+    # 3. Check Marker
     if "// I AM NOT DONE" not in content:
         issues.append("Missing '// I AM NOT DONE' marker")
 
-    # 3. Check Trailing Whitespace
+    # 4. Check Trailing Whitespace
     for i, line in enumerate(lines):
         if line.rstrip('\n') != line.rstrip():
             issues.append(f"Trailing whitespace on line {i+1}")
 
-    # 4. Check File Ending
+    # 5. Check File Ending
     if content and not content.endswith('\n'):
         issues.append("File does not end with a single newline")
 
-    # 5. Check Tabs
+    # 6. Check Tabs
     if '\t' in content:
         issues.append("Contains tab characters")
 
-    # 6. Check Indentation (Basic check for 4 spaces)
-    # Check for lines starting with odd number of spaces (except 0) or 2 spaces
+    # 7. Check Indentation (Basic check for 4 spaces)
     for i, line in enumerate(lines):
         stripped = line.lstrip()
         indent = len(line) - len(stripped)
         if indent > 0 and indent % 4 != 0:
-            # Allow for some continuation lines or aligned parameters, but basic blocks should be 4
-            # This is heuristics, so maybe just warn?
-            # But let's look for 2 spaces specifically
             if indent == 2:
                  issues.append(f"Indentation seems to be 2 spaces on line {i+1}")
-            elif indent % 4 != 0:
-                 # It might be continuation, ignore for now unless sure
-                 pass
 
-    # 7. Check TODO format
-    # Should be `// TODO:`
+    # 8. Check TODO format
     for i, line in enumerate(lines):
         if "//" in line and "todo" in line.lower():
-            if "// TODO:" not in line and "TODO:" not in line: # simplistic check
-                 # check if it is part of a sentence or the marker
+            if "// TODO:" not in line and "TODO:" not in line:
                  if re.search(r'//\s*todo\b', line, re.IGNORECASE) and not re.search(r'//\s*TODO:', line):
                      issues.append(f"TODO format incorrect on line {i+1} (expected '// TODO:')")
 
-    # 8. Check for printf sizeof without %zu
-    for i, line in enumerate(lines):
-        if "sizeof(" in line and "printf" in line:
-            if "%zu" not in line and "%lu" not in line: # %lu is common mistake, check if allowed
-                 # Actually AGENTS says use %zu. So if we see sizeof and printf but no %zu, it's suspicious
-                 pass # Too many false positives possible (e.g. printing something else)
+    return issues
+
+def check_info_toml():
+    issues = []
+    if not os.path.exists("info.toml"):
+        return ["info.toml not found"]
+
+    try:
+        with open("info.toml", 'rb') as f:
+            data = tomllib.load(f)
+    except Exception as e:
+        return [f"Error parsing info.toml: {e}"]
+
+    exercises = data.get("exercises", [])
+    if not exercises:
+        issues.append("No exercises found in info.toml")
+
+    # Gather all file paths from info.toml
+    info_paths = set()
+    for ex in exercises:
+        if "path" not in ex:
+            issues.append(f"Exercise {ex.get('name', 'Unknown')} missing 'path'")
+            continue
+
+        path = ex["path"]
+        info_paths.add(path)
+
+        if not os.path.exists(path):
+            issues.append(f"File listed in info.toml does not exist: {path}")
+
+        if ex.get("mode") == "run":
+            if "output" not in ex and "args" not in ex:
+                 issues.append(f"Exercise {ex.get('name', 'Unknown')} is mode='run' but has no 'output' or 'args' verification")
+
+    # Gather all .c files in exercises/
+    fs_paths = set()
+    for dirpath, dirnames, filenames in os.walk("exercises"):
+        for filename in filenames:
+            if filename.endswith(".c"):
+                # normalize path to match info.toml (unix style)
+                rel_path = os.path.relpath(os.path.join(dirpath, filename), ".")
+                rel_path = rel_path.replace("\\", "/")
+                fs_paths.add(rel_path)
+
+    # Check for files on FS not in info.toml
+    for path in fs_paths:
+        if path not in info_paths:
+            issues.append(f"File found on filesystem but not in info.toml: {path}")
 
     return issues
 
 def main():
-    root_dir = 'exercises'
     has_issues = False
 
+    # Check info.toml
+    print("Checking info.toml...")
+    toml_issues = check_info_toml()
+    if toml_issues:
+        for issue in toml_issues:
+            print(f"  - {issue}")
+        has_issues = True
+        print("-" * 20)
+    else:
+        print("info.toml looks good.")
+        print("-" * 20)
+
+    # Check files
+    root_dir = 'exercises'
+    print("Checking exercise files...")
     for dirpath, dirnames, filenames in os.walk(root_dir):
         for filename in filenames:
             if filename.endswith('.c'):
@@ -81,7 +135,7 @@ def main():
     if has_issues:
         sys.exit(1)
     else:
-        print("No issues found.")
+        print("All checks passed. Quality verified.")
 
 if __name__ == "__main__":
     main()
