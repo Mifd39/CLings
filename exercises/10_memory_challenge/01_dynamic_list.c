@@ -37,7 +37,10 @@ int main() {
 
     printf("You entered: ");
     for (int i = 0; i < count; i++) {
-        printf("%d ", numbers[i]);
+        printf("%d", numbers[i]);
+        if (i < count - 1) {
+            printf(" ");
+        }
     }
     printf("\n");
 

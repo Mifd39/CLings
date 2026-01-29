@@ -24,7 +24,10 @@ int main() {
 
     printf("Reversed: ");
     for (int i = 0; i < size; i++) {
-        printf("%d ", numbers[i]);
+        printf("%d", numbers[i]);
+        if (i < size - 1) {
+            printf(" ");
+        }
     }
     printf("\n");
 

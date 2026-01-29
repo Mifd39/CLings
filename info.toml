@@ -298,7 +298,7 @@ name = "01_reverse_array"
 path = "exercises/7_arrays_challenge/01_reverse.c"
 mode = "run"
 hint = "Swap arr[i] and arr[size - 1 - i] in a loop running size/2 times."
-output = "Reversed: 5 4 3 2 1 "
+output = "Reversed: 5 4 3 2 1"
 
 [[exercises]]
 name = "01_string_definition"
@@ -447,7 +447,7 @@ stdin = """
 30
 -1
 """
-output = "You entered: 10 20 30 "
+output = "You entered: 10 20 30"
 
 [[exercises]]
 name = "01_bitwise_and_or"

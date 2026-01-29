@@ -28,7 +28,10 @@ int main() {
     // You can access the memory just like a regular array.
     for (int i = 0; i < n; i++) {
         arr[i] = i * 10;
-        printf("%d ", arr[i]);
+        printf("%d", arr[i]);
+        if (i < n - 1) {
+            printf(" ");
+        }
     }
     printf("\n");
 
