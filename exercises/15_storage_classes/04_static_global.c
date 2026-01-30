@@ -29,7 +29,7 @@ void check_secret(int guess) {
 }
 
 int main() {
-    check_secret(0000);
+    check_secret(0);
     check_secret(1234);
     return 0;
 }

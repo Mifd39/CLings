@@ -24,7 +24,7 @@ int main() {
     // TODO: Create a variable 'today' of type 'enum Day' and set it to WEDNESDAY.
 
 
-    if (today == 3) {
+    if (today == WEDNESDAY) {
         printf("It is Wednesday, my dudes.\n");
     } else {
         printf("It is not Wednesday.\n");
