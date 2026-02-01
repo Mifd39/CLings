@@ -16,7 +16,7 @@
 #define M 2147483648
 
 int next_random() {
-    // TODO: define a static variable 'state' initialized to a seed (e.g., 123).
+    // TODO: define a static variable 'state' initialized to the seed 123.
     // static unsigned int state = 123;
 
     // TODO: Calculate the next state using the formula: state = (state * A + C) % M;
