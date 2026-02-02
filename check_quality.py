@@ -17,7 +17,7 @@ def check_file(filepath):
     if "/* Context:" not in content and "/*\n    Context:" not in content:
         # Check for regex match
         if not re.search(r'/\*\s*Context:', content, re.DOTALL):
-             issues.append("Missing '/* Context:' block")
+            issues.append("Missing '/* Context:' block")
 
     # 3. Check Marker
     if "// I AM NOT DONE" not in content:
@@ -42,14 +42,31 @@ def check_file(filepath):
         indent = len(line) - len(stripped)
         if indent > 0 and indent % 4 != 0:
             if indent == 2:
-                 issues.append(f"Indentation seems to be 2 spaces on line {i+1}")
+                issues.append(f"Indentation seems to be 2 spaces on line {i+1}")
 
     # 8. Check TODO format
     for i, line in enumerate(lines):
         if "//" in line and "todo" in line.lower():
             if "// TODO:" not in line and "TODO:" not in line:
-                 if re.search(r'//\s*todo\b', line, re.IGNORECASE) and not re.search(r'//\s*TODO:', line):
-                     issues.append(f"TODO format incorrect on line {i+1} (expected '// TODO:')")
+                if re.search(r'//\s*todo\b', line, re.IGNORECASE) and not re.search(r'//\s*TODO:', line):
+                    issues.append(f"TODO format incorrect on line {i+1} (expected '// TODO:')")
+
+    # 9. Content Rules
+
+    # Bitwise: Use unsigned int
+    # We check if the file path contains "11_bitwise" (including challenge)
+    if "11_bitwise" in filepath:
+        if "unsigned int" not in content:
+            issues.append("Bitwise exercise should use 'unsigned int'")
+
+    # File I/O: Use /tmp/
+    if "14_file_io" in filepath:
+        if "/tmp/" not in content:
+            issues.append("File I/O exercise should use '/tmp/' directory")
+
+    # Math: No <math.h>
+    if "<math.h>" in content:
+        issues.append("Should not use <math.h>")
 
     return issues
 
@@ -70,12 +87,24 @@ def check_info_toml():
 
     # Gather all file paths from info.toml
     info_paths = set()
+    info_names = set()
+
     for ex in exercises:
+        name = ex.get("name")
+        if not name:
+            issues.append("Exercise missing 'name'")
+        elif name in info_names:
+            issues.append(f"Duplicate exercise name: {name}")
+        else:
+            info_names.add(name)
+
         if "path" not in ex:
             issues.append(f"Exercise {ex.get('name', 'Unknown')} missing 'path'")
             continue
 
         path = ex["path"]
+        if path in info_paths:
+            issues.append(f"Duplicate exercise path: {path}")
         info_paths.add(path)
 
         if not os.path.exists(path):
@@ -83,7 +112,10 @@ def check_info_toml():
 
         if ex.get("mode") == "run":
             if "output" not in ex and "args" not in ex:
-                 issues.append(f"Exercise {ex.get('name', 'Unknown')} is mode='run' but has no 'output' or 'args' verification")
+                issues.append(f"Exercise {ex.get('name', 'Unknown')} is mode='run' but has no 'output' or 'args' verification")
+
+        if "hint" not in ex:
+            issues.append(f"Exercise {ex.get('name', 'Unknown')} missing 'hint'")
 
     # Gather all .c files in exercises/
     fs_paths = set()
