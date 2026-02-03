@@ -29,8 +29,11 @@ def check_file(filepath):
             issues.append(f"Trailing whitespace on line {i+1}")
 
     # 5. Check File Ending
-    if content and not content.endswith('\n'):
-        issues.append("File does not end with a single newline")
+    if content:
+        if not content.endswith('\n'):
+            issues.append("File does not end with a newline")
+        elif content.endswith('\n\n'):
+            issues.append("File ends with multiple newlines")
 
     # 6. Check Tabs
     if '\t' in content:
@@ -67,6 +70,32 @@ def check_file(filepath):
     # Math: No <math.h>
     if "<math.h>" in content:
         issues.append("Should not use <math.h>")
+
+    # Missing Includes
+    # Helper to check if TODO instructs to include header
+    def has_include_todo():
+        return any("include" in line.lower() or "header" in line.lower() for line in lines if "TODO" in line)
+
+    if re.search(r'\bbool\b', content) and "<stdbool.h>" not in content:
+        if not has_include_todo():
+            issues.append("Uses 'bool' but missing <stdbool.h>")
+
+    if (re.search(r'\bmalloc\b', content) or re.search(r'\bfree\b', content)) and "<stdlib.h>" not in content:
+        if not has_include_todo():
+            issues.append("Uses 'malloc'/'free' but missing <stdlib.h>")
+
+    if (re.search(r'\bprintf\b', content) or re.search(r'\bfprintf\b', content)) and "<stdio.h>" not in content:
+        if not has_include_todo():
+            issues.append("Uses printf/fprintf but missing <stdio.h>")
+
+    if re.search(r'\b(strlen|strcpy|strcmp|strcat)\b', content) and "<string.h>" not in content:
+        if not has_include_todo():
+            issues.append("Uses string functions but missing <string.h>")
+
+    # Check sizeof formatting
+    for i, line in enumerate(lines):
+        if "printf" in line and "sizeof" in line and "%zu" not in line:
+            issues.append(f"Line {i+1}: sizeof used in printf without %zu")
 
     return issues
 

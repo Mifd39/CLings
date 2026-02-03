@@ -725,7 +725,7 @@ All tests passed!
 name = "04_float_comparison"
 path = "exercises/16_testing/04_float_comparison.c"
 mode = "run"
-hint = "Use if (fabs(a - b) < EPSILON)."
+hint = "Use if (ABS(a - b) < EPSILON)."
 output = """
 Direct comparison (==): Not Equal
 Epsilon comparison: Equal
