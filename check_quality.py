@@ -80,17 +80,23 @@ def check_file(filepath):
         if not has_include_todo():
             issues.append("Uses 'bool' but missing <stdbool.h>")
 
-    if (re.search(r'\bmalloc\b', content) or re.search(r'\bfree\b', content)) and "<stdlib.h>" not in content:
+    if (re.search(r'\b(malloc|free|realloc|calloc)\b', content)) and "<stdlib.h>" not in content:
         if not has_include_todo():
-            issues.append("Uses 'malloc'/'free' but missing <stdlib.h>")
+            issues.append("Uses memory allocation functions but missing <stdlib.h>")
 
-    if (re.search(r'\bprintf\b', content) or re.search(r'\bfprintf\b', content)) and "<stdio.h>" not in content:
+    if (re.search(r'\b(printf|fprintf)\b', content)) and "<stdio.h>" not in content:
         if not has_include_todo():
             issues.append("Uses printf/fprintf but missing <stdio.h>")
 
-    if re.search(r'\b(strlen|strcpy|strcmp|strcat)\b', content) and "<string.h>" not in content:
+    if re.search(r'\b(strlen|strcpy|strcmp|strcat|strstr|strchr)\b', content) and "<string.h>" not in content:
         if not has_include_todo():
             issues.append("Uses string functions but missing <string.h>")
+
+    # Check ctype functions
+    ctype_funcs = r'\b(isalnum|isalpha|iscntrl|isdigit|isgraph|islower|isprint|ispunct|isspace|isupper|isxdigit|tolower|toupper)\b'
+    if re.search(ctype_funcs, content) and "<ctype.h>" not in content:
+        if not has_include_todo():
+            issues.append("Uses ctype functions but missing <ctype.h>")
 
     # Check sizeof formatting
     for i, line in enumerate(lines):
