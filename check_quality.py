@@ -3,6 +3,28 @@ import re
 import sys
 import tomllib
 
+def remove_comments_and_strings(text):
+    """Removes comments and strings from C code."""
+    pattern = re.compile(
+        r'//.*?$|/\*.*?\*/|\'(?:\\.|[^\\\'])*\'|"(?:\\.|[^\\"])*"',
+        re.DOTALL | re.MULTILINE
+    )
+    return re.sub(pattern, " ", text)
+
+def remove_comments(text):
+    """Removes comments from C code but keeps strings."""
+    def replacer(match):
+        s = match.group(0)
+        if s.startswith('/'):
+            return " "
+        else:
+            return s
+    pattern = re.compile(
+        r'//.*?$|/\*.*?\*/|\'(?:\\.|[^\\\'])*\'|"(?:\\.|[^\\"])*"',
+        re.DOTALL | re.MULTILINE
+    )
+    return re.sub(pattern, replacer, text)
+
 def check_file(filepath):
     issues = []
     with open(filepath, 'r', encoding='utf-8') as f:
@@ -56,52 +78,99 @@ def check_file(filepath):
 
     # 9. Content Rules
 
+    # Pre-process content for checks
+    code_only = remove_comments_and_strings(content)
+    code_with_strings = remove_comments(content)
+
+    # Check for leading zeros (excluding comments and strings)
+    # Match a '0' followed by digits, but not '0' alone, and not part of '0x' or '0b'
+    # We look for word boundary, 0, then [0-9].
+    # But we must exclude '0x' or '0.123'.
+    # Regex: \b0[0-9] matches '01', '00'.
+    # Does it match 0x? No, x is not 0-9.
+    # Does it match 0.1? No, . is not 0-9.
+    # Does it match 0 itself? No, [0-9] requires a second digit.
+    # We use negative lookbehind (?<!\.) to avoid matching decimals like 0.001 (where 00 is matched)
+    if re.search(r'(?<!\.)\b0[0-9]', code_only):
+        # Double check it's not octal intention? Rules say avoid unless specifically demonstrating.
+        # But we can flag it.
+        issues.append("Integer literal with leading zero found (potential octal confusion)")
+
+    # Check for Crab Emoji (anywhere)
+    if "🦀" in content:
+        issues.append("Contains forbidden crab emoji 🦀")
+
+    # Check for Hello World consistency
+    # Look for "Hello World" or "Hello, World" variations in strings
+    # We want strictly "Hello, World!"
+    # Regex: Hello,? World!?
+    # We iterate matches in code_with_strings
+    hello_pattern = re.compile(r'Hello,? World!?', re.IGNORECASE)
+    for match in hello_pattern.finditer(code_with_strings):
+        s = match.group(0)
+        if s != "Hello, World!":
+             issues.append(f"Incorrect Hello World format: '{s}' (Expected 'Hello, World!')")
+
+    # Check for interactive prompts if stdin is used
+    # Heuristic: if scanf/fgets/getchar is used, look for printf("Enter...")
+    if re.search(r'\b(scanf|fgets|getchar)\b', code_only):
+        # Look for printf with "Enter "
+        # We search in code_with_strings
+        if re.search(r'printf\s*\(\s*".*Enter ', code_with_strings, re.IGNORECASE):
+             issues.append("Interactive prompt detected ('Enter...') but stdin is used. Verify this is allowed.")
+
     # Bitwise: Use unsigned int
-    # We check if the file path contains "11_bitwise" (including challenge)
     if "11_bitwise" in filepath:
-        if "unsigned int" not in content:
+        if "unsigned int" not in code_only:
             issues.append("Bitwise exercise should use 'unsigned int'")
 
     # File I/O: Use /tmp/
     if "14_file_io" in filepath:
-        if "/tmp/" not in content:
+        if "/tmp/" not in content: # Check content to include strings
             issues.append("File I/O exercise should use '/tmp/' directory")
 
     # Math: No <math.h>
-    if "<math.h>" in content:
-        issues.append("Should not use <math.h>")
+    if "<math.h>" in content: # Includes are usually not in strings/comments but could be commented out
+        # Check code_only for #include <math.h>?
+        # No, includes might be stripped by remove_comments_and_strings if they are treated as... wait.
+        # remove_comments_and_strings handles // and /* */. Includes start with #.
+        # But <math.h> might be seen as... it's not a string or comment.
+        if "<math.h>" in code_only:
+             issues.append("Should not use <math.h>")
 
     # Missing Includes
-    # Helper to check if TODO instructs to include header
     def has_include_todo():
         return any("include" in line.lower() or "header" in line.lower() for line in lines if "TODO" in line)
 
-    if re.search(r'\bbool\b', content) and "<stdbool.h>" not in content:
+    if re.search(r'\bbool\b', code_only) and "<stdbool.h>" not in code_only:
         if not has_include_todo():
             issues.append("Uses 'bool' but missing <stdbool.h>")
 
-    if (re.search(r'\b(malloc|free|realloc|calloc)\b', content)) and "<stdlib.h>" not in content:
+    if (re.search(r'\b(malloc|free|realloc|calloc)\b', code_only)) and "<stdlib.h>" not in code_only:
         if not has_include_todo():
             issues.append("Uses memory allocation functions but missing <stdlib.h>")
 
-    if (re.search(r'\b(printf|fprintf)\b', content)) and "<stdio.h>" not in content:
+    if (re.search(r'\b(printf|fprintf)\b', code_only)) and "<stdio.h>" not in code_only:
         if not has_include_todo():
             issues.append("Uses printf/fprintf but missing <stdio.h>")
 
-    if re.search(r'\b(strlen|strcpy|strcmp|strcat|strstr|strchr)\b', content) and "<string.h>" not in content:
+    if re.search(r'\b(strlen|strcpy|strcmp|strcat|strstr|strchr)\b', code_only) and "<string.h>" not in code_only:
         if not has_include_todo():
             issues.append("Uses string functions but missing <string.h>")
 
     # Check ctype functions
     ctype_funcs = r'\b(isalnum|isalpha|iscntrl|isdigit|isgraph|islower|isprint|ispunct|isspace|isupper|isxdigit|tolower|toupper)\b'
-    if re.search(ctype_funcs, content) and "<ctype.h>" not in content:
+    if re.search(ctype_funcs, code_only) and "<ctype.h>" not in code_only:
         if not has_include_todo():
             issues.append("Uses ctype functions but missing <ctype.h>")
 
     # Check sizeof formatting
+    # This checks lines individually which is safer for this specific check
     for i, line in enumerate(lines):
         if "printf" in line and "sizeof" in line and "%zu" not in line:
-            issues.append(f"Line {i+1}: sizeof used in printf without %zu")
+             # Check if it's commented out
+             if not line.strip().startswith("//"):
+                issues.append(f"Line {i+1}: sizeof used in printf without %zu")
 
     return issues
 
@@ -148,6 +217,12 @@ def check_info_toml():
         if ex.get("mode") == "run":
             if "output" not in ex and "args" not in ex:
                 issues.append(f"Exercise {ex.get('name', 'Unknown')} is mode='run' but has no 'output' or 'args' verification")
+
+            # Check for Hello World output consistency
+            output = ex.get("output", "")
+            if "Hello" in output and "World" in output:
+                 if "Hello, World!" not in output:
+                     issues.append(f"Exercise {name} output contains 'Hello World' but not 'Hello, World!'")
 
         if "hint" not in ex:
             issues.append(f"Exercise {ex.get('name', 'Unknown')} missing 'hint'")
