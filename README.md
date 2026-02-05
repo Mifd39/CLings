@@ -87,6 +87,7 @@ The exercises cover the following topics:
  14. **File I/O**: Reading and writing text/binary files using `fopen`, `fprintf`, `fscanf`.
  15. **Storage Classes**: `static` (local/global), global variables, and shadowing.
  16. **Testing**: Assertions (`assert`), custom check functions, and floating point comparison.
+ 17. **Function Pointers**: Declaring function pointers, callbacks, `typedef` for pointers, and arrays of functions.
 
 ## 🏗️ Projects
 

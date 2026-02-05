@@ -745,3 +745,63 @@ PASS: 1 is not prime
 PASS: 15 is not prime
 PASS: 17 is prime
 """
+
+[[exercises]]
+name = "01_fp_definition"
+path = "exercises/17_function_pointers/01_definition.c"
+mode = "run"
+hint = "Use int (*operation)(int, int) = &add;"
+output = "Result: 30"
+
+[[exercises]]
+name = "02_fp_callbacks"
+path = "exercises/17_function_pointers/02_callbacks.c"
+mode = "run"
+hint = "Pass print_number or print_square as the third argument."
+output = """
+Printing numbers:
+Number: 1
+Number: 2
+Number: 3
+Number: 4
+Number: 5
+
+Printing squares:
+Square: 1
+Square: 4
+Square: 9
+Square: 16
+Square: 25
+"""
+
+[[exercises]]
+name = "03_fp_typedef"
+path = "exercises/17_function_pointers/03_typedef.c"
+mode = "run"
+hint = "Use typedef int (*MathOp)(int, int);"
+output = """
+Result: 15
+Result: 5
+"""
+
+[[exercises]]
+name = "04_fp_array"
+path = "exercises/17_function_pointers/04_array.c"
+mode = "run"
+hint = "Access the array like operations[choice](a, b)."
+output = """
+10 + 5 = 15
+10 - 5 = 5
+10 * 5 = 50
+"""
+
+[[exercises]]
+name = "01_fp_map_challenge"
+path = "exercises/17_function_pointers_challenge/01_simple_map.c"
+mode = "run"
+hint = "Loop through the array and assign arr[i] = func(arr[i])."
+output = """
+Original: 1 2 3 4 5
+Doubled: 2 4 6 8 10
+Negated: -2 -4 -6 -8 -10
+"""
