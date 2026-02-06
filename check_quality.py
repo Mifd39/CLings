@@ -45,6 +45,11 @@ def check_file(filepath):
     if "// I AM NOT DONE" not in content:
         issues.append("Missing '// I AM NOT DONE' marker")
 
+    # Check for specific instruction in the first exercise
+    if "01_entry_point.c" in filepath:
+        if "// TODO: Remove the line below to verify your work." not in content:
+            issues.append("Missing specific TODO instruction in 01_entry_point.c")
+
     # 4. Check Trailing Whitespace
     for i, line in enumerate(lines):
         if line.rstrip('\n') != line.rstrip():
@@ -110,6 +115,21 @@ def check_file(filepath):
         s = match.group(0)
         if s != "Hello, World!":
              issues.append(f"Incorrect Hello World format: '{s}' (Expected 'Hello, World!')")
+
+    # Check for Forbidden Functions
+    if "system(\"pause\")" in code_only or "system('pause')" in code_only:
+        issues.append("Use of system(\"pause\") is forbidden")
+    if "system(\"cls\")" in code_only or "system('cls')" in code_only:
+        issues.append("Use of system(\"cls\") is forbidden")
+
+    # Check for non-standard 'void main'
+    if re.search(r'\bvoid\s+main\s*\(', code_only):
+        issues.append("Use of 'void main' is non-standard. Use 'int main' instead.")
+
+    # Check for Challenge Files Constraints
+    if "_challenge" in filepath:
+        if "// Syntax" in content:
+            issues.append("Challenge file contains '// Syntax' block (should be removed for challenges)")
 
     # Check for interactive prompts if stdin is used
     # Heuristic: if scanf/fgets/getchar is used, look for printf("Enter...")
